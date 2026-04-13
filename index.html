@@ -33,6 +33,73 @@ content="https://rl-updated.netlify.app/" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ===== SECTION BACKGROUND ===== */
+.testimonial-section {
+  background: #0b0b0b;
+  position: relative;
+}
+
+/* ===== OUTER CONTAINER ===== */
+.testimonial-wrapper {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(179,135,40,0.25);
+  border-radius: 30px;
+  padding: 40px 25px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* ===== CARD ===== */
+.testimonial-card {
+  padding: 30px 20px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #111, #0a0a0a);
+  border: 1px solid rgba(179,135,40,0.3);
+  transition: 0.4s;
+}
+
+/* HOVER EFFECT */
+.testimonial-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(179,135,40,0.2);
+}
+
+/* ===== AVATAR ===== */
+.client-avatar {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+/* ===== STARS ===== */
+.stars {
+  color: #ffc107;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+/* ===== TEXT ===== */
+.testimonial-card p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* ===== CONTROLS ===== */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+  </style>
 </head>
 <body>
   <!-- Preloader -->
@@ -55,10 +122,11 @@ content="https://rl-updated.netlify.app/" />
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="Legacy.html">Legacy</a></li>
-          <li class="nav-item"><a class="nav-link" href="Expertise.html">Expertise</a></li>
-          <li class="nav-item"><a class="nav-link" href="Fleet.html">Fleet</a></li>
-          <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="Our Journey.html">Our Journey</a></li>
+          <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="Our Fleet.html">Our Fleet</a></li>
+          <li class="nav-item"><a class="nav-link" href="About Us.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
           <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
         </ul>
       </div>
@@ -73,101 +141,11 @@ content="https://rl-updated.netlify.app/" />
       <p class="mt-2" style="max-width:640px;margin:0 auto;opacity:0.85;">Serving Hyderabad's top IT giants, BPOs &amp; MNCs with 18+ years of imperial excellence in corporate employee transportation.</p>
       <div class="mt-5 d-flex flex-wrap justify-content-center gap-3">
         <a href="Contact.html" class="btn btn-royal">Request Consultation <i class="fas fa-arrow-right ms-2"></i></a>
-        <a href="Fleet.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">View Our Fleet <i class="fas fa-car ms-2"></i></a>
+        <a href="Our Fleet.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">View Our Our Fleet <i class="fas fa-car ms-2"></i></a>
       </div>
     </div>
   </section>
-  <!-- Quick Stats -->
-  <section class="py-5" style="background:#080808;border-top:1px solid rgba(179,135,40,0.3);border-bottom:1px solid rgba(179,135,40,0.3);">
-    <div class="container">
-      <div class="row g-4 text-center" data-aos="fade-up">
-        <div class="col-6 col-md-3">
-          <h2 class="gold-text mb-1" style="font-size:2.8rem;">18+</h2>
-          <p class="small text-uppercase" style="letter-spacing:2px;">Years of Trust</p>
-        </div>
-        <div class="col-6 col-md-3">
-          <h2 class="gold-text mb-1" style="font-size:2.8rem;">100+</h2>
-          <p class="small text-uppercase" style="letter-spacing:2px;">Royal Fleet</p>
-        </div>
-        <div class="col-6 col-md-3">
-          <h2 class="gold-text mb-1" style="font-size:2.8rem;">2.3M+</h2>
-          <p class="small text-uppercase" style="letter-spacing:2px;">Safe Journeys</p>
-        </div>
-        <div class="col-6 col-md-3">
-          <h2 class="gold-text mb-1" style="font-size:2.8rem;">99.8%</h2>
-          <p class="small text-uppercase" style="letter-spacing:2px;">On-Time Record</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Explore Pages Overview -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="gold-text">Explore Royal's Logistics</h2>
-        <div class="divider-gold"></div>
-        <p class="lead">Discover every facet of our imperial transport empire</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
-          <div class="preview-card">
-            <h4 class="gold-text mb-3">Our Legacy</h4>
-            <p>18+ years of unbroken trust, service, and imperial standards in Hyderabad's corporate transport sector. Discover our founding story and milestone journey.</p>
-            <div class="mt-4">
-              <a href="Legacy.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">Explore Legacy <i class="fas fa-arrow-right ms-2"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="preview-card">
-            <h4 class="gold-text mb-3">Our Expertise</h4>
-            <p>AI-powered route optimization, expert chauffeurs, 24/7 command centers, and advanced safety protocols that transform daily commutes into royal experiences.</p>
-            <div class="mt-4">
-              <a href="Expertise.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">See Expertise <i class="fas fa-arrow-right ms-2"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="preview-card">
-            <h4 class="gold-text mb-3">Our Fleet</h4>
-            <p>100+ meticulously maintained vehicles — executive sedans, luxury SUVs, coaches and large buses. GPS-enabled, sanitized, and royal-ready for every route.</p>
-            <div class="mt-4">
-              <a href="Fleet.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">View Fleet <i class="fas fa-arrow-right ms-2"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="preview-card">
-            <h4 class="gold-text mb-3">About Us</h4>
-            <p>Meet K. Naga Kumar Raja, our visionary CEO with 18+ years of transport leadership, and learn about the dedicated team driving Royal's Logistics to greatness.</p>
-            <div class="mt-4">
-              <a href="About.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">Meet the Team <i class="fas fa-arrow-right ms-2"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
-          <div class="preview-card">
-            <h4 class="gold-text mb-3">Contact Us</h4>
-            <p>Ready to elevate your corporate transport? Reach our 24/7 operations team for a custom consultation and route-planning perfectly tailored to your workforce.</p>
-            <div class="mt-4">
-              <a href="Contact.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">Get In Touch <i class="fas fa-arrow-right ms-2"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="preview-card">
-            <h4 class="gold-text mb-3">Royal Clientele</h4>
-            <p>Trusted by 10+ enterprises including Fortune 500 tech giants, fast-growing unicorns, and leading BPOs — all relying on our employee-first transport system.</p>
-            <div class="mt-4 d-flex flex-wrap gap-2 justify-content-center">
-              <span class="stat-badge-gold"><i class="fas fa-shield-alt me-1"></i> 5+ Year Zero Incident Record</span>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-  <!-- Clients Carousel -->
+    <!-- Clients Carousel -->
   <section class="py-5">
     <div class="container">
       <div class="text-center mb-4" data-aos="fade-up">
@@ -198,6 +176,335 @@ content="https://rl-updated.netlify.app/" />
       </div>
     </div>
   </section>
+  <!-- Quick Stats -->
+  <section class="py-5" style="background:#080808;border-top:1px solid rgba(179,135,40,0.3);border-bottom:1px solid rgba(179,135,40,0.3);">
+    <div class="container">
+      <div class="row g-4 text-center" data-aos="fade-up">
+        <div class="col-6 col-md-3">
+          <h2 class="gold-text mb-1" style="font-size:2.8rem;">18+</h2>
+          <p class="small text-uppercase" style="letter-spacing:2px;">Years of Trust</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2 class="gold-text mb-1" style="font-size:2.8rem;">100+</h2>
+          <p class="small text-uppercase" style="letter-spacing:2px;">Royal Our Fleet</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2 class="gold-text mb-1" style="font-size:2.8rem;">20+</h2>
+          <p class="small text-uppercase" style="letter-spacing:2px;">Enterprise Clients</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2 class="gold-text mb-1" style="font-size:2.8rem;">99.8%</h2>
+          <p class="small text-uppercase" style="letter-spacing:2px;">On-Time Record</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  <!-- Explore Pages Overview -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="gold-text">Explore Royal's Logistics</h2>
+        <div class="divider-gold"></div>
+        <p class="lead">Discover every facet of our imperial transport empire</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="preview-card">
+            <h4 class="gold-text mb-3">Our Our Journey</h4>
+            <p>18+ years of unbroken trust, service, and imperial standards in Hyderabad's corporate transport sector. Discover our founding story and milestone journey.</p>
+            <div class="mt-4">
+              <a href="Our Journey.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">Explore Our Journey <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="preview-card">
+            <h4 class="gold-text mb-3">Our Services</h4>
+            <p>AI-powered route optimization, expert chauffeurs, 24/7 command centers, and advanced safety protocols that transform daily commutes into royal experiences.</p>
+            <div class="mt-4">
+              <a href="Services.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">See Services <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="preview-card">
+            <h4 class="gold-text mb-3">Our Our Fleet</h4>
+            <p>100+ meticulously maintained vehicles — executive sedans, luxury SUVs, coaches and large buses. GPS-enabled, sanitized, and royal-ready for every route.</p>
+            <div class="mt-4">
+              <a href="Our Fleet.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">View Our Fleet <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="preview-card">
+            <h4 class="gold-text mb-3">About Us Us</h4>
+            <p>Meet K. Naga Kumar Raja, our visionary CEO with 18+ years of transport leadership, and learn About Us the dedicated team driving Royal's Logistics to greatness.</p>
+            <div class="mt-4">
+              <a href="About Us.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">Meet the Team <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="preview-card">
+            <h4 class="gold-text mb-3">Contact Us</h4>
+            <p>Ready to elevate your corporate transport? Reach our 24/7 operations team for a custom consultation and route-planning perfectly tailored to your workforce.</p>
+            <div class="mt-4">
+              <a href="Contact.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">Get In Touch <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="preview-card">
+            <h4 class="gold-text mb-3">Royal Clientele</h4>
+            <p>Trusted by 10+ enterprises including Fortune 500 tech giants, fast-growing unicorns, and leading BPOs — all relying on our employee-first transport system.</p>
+            <div class="mt-4 d-flex flex-wrap gap-2 justify-content-center">
+              <span class="stat-badge-gold"><i class="fas fa-shield-alt me-1"></i> 5+ Year Zero Incident Record</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+<!-- Advanced Commute Section (Inspired by Reference) -->
+<section class="section-padding">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      
+      <!-- LEFT IMAGE -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <img src="car.jpg"
+             class="img-fluid rounded-4 shadow"
+             alt="Our Fleet Management">
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <h6 class="text-uppercase text-muted mb-2">About Us Royal's Logistics</h6>
+        
+        <h2 class="gold-text mb-3">
+          Simplifying Corporate <br> Commute Since 2006
+        </h2>
+
+        <p class="mb-4">
+          At Royal's Logistics, we understand corporate transportation challenges.
+          With 18+ years of excellence, we deliver safe, reliable, and efficient
+          employee transport solutions across Hyderabad.
+        </p>
+
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Manage 200+ daily employee trips</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 100% GPS-enabled Our Fleet tracking</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 24/7 operations & control center</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> AI-based route optimization</li>
+        </ul>
+
+        <div class="mt-4 d-flex gap-3 flex-wrap">
+          <a href="Contact.html" class="btn btn-royal">Get Started</a>
+          <a href="Services.html" class="btn btn-outline-light" style="border-radius:50px;padding:16px 42px;letter-spacing:2px;">Services</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Our Fleet Technology Section -->
+<section class="section-padding bg-dark">
+  <div class="container">
+    <div class="row align-items-center g-5 flex-lg-row-reverse">
+
+      <!-- IMAGE -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <img src="https://images.unsplash.com/photo-1600320254374-ce2d293c324e"
+             class="img-fluid rounded-4 shadow"
+             alt="Our Fleet Vehicles">
+      </div>
+
+      <!-- CONTENT -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <h6 class="text-uppercase text-muted mb-2">Technology First</h6>
+
+        <h2 class="gold-text mb-3">
+          The A to Z of <br> Commute Management
+        </h2>
+
+        <p class="mb-4">
+          Our AI-powered platform ensures seamless transport operations —
+          from live tracking to compliance monitoring and analytics dashboards.
+        </p>
+
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Live GPS tracking for all vehicles</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Driver safety monitoring system</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Automated billing & reports</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Real-time analytics dashboard</li>
+        </ul>
+
+        <div class="mt-4">
+          <a href="Services.html" class="btn btn-royal">Explore Our Services →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ===== PREMIUM HAPPY CLIENTS SECTION ===== -->
+<section class="section-padding testimonial-section">
+  <div class="container">
+
+    <!-- Title -->
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="gold-text">Clients Who Love Royal's Logistics</h2>
+      <div class="divider-gold"></div>
+      <p class="lead">Trusted by leading companies across Hyderabad</p>
+    </div>
+
+    <!-- MAIN CONTAINER BOX -->
+    <div class="testimonial-wrapper">
+
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="row g-4 justify-content-center">
+
+              <!-- CARD -->
+              <div class="col-md-4">
+                <div class="testimonial-card text-center">
+
+                  <div class="client-avatar">R</div>
+                  <div class="stars">★★★★★</div>
+
+                  <p>
+                    "Royal's Logistics has transformed our employee transport system.
+                    Highly reliable and professional."
+                  </p>
+
+                  <h6 class="gold-text">Rahul Sharma</h6><br/>
+                  <small>Operations Head, Tech Company</small>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="testimonial-card text-center">
+
+                  <div class="client-avatar">P</div>
+
+                  <div class="stars">★★★★★</div>
+
+                  <p>
+                    "Their punctuality and safety standards are exceptional.
+                    Our employees feel secure every day."
+                  </p>
+
+                  <h6 class="gold-text">Priya Reddy</h6><br/>
+                  <small>HR Manager, BPO</small>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="testimonial-card text-center">
+
+                  <div class="client-avatar">S</div>
+
+                  <div class="stars">★★★★★</div>
+
+                  <p>
+                    "Best transport partner we’ve worked with.
+                    Smooth operations and excellent support team."
+                  </p>
+
+                  <h6 class="gold-text">Suresh Babu</h6><br/>
+                  <small>Admin Manager</small>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="row g-4 justify-content-center">
+
+              <div class="col-md-4">
+                <div class="testimonial-card text-center">
+
+                  <div class="client-avatar">A</div>
+
+                  <div class="stars">★★★★★</div>
+
+                  <p>
+                    "Their GPS tracking and reporting system is very advanced."
+                  </p>
+
+                  <h6 class="gold-text">Anjali Verma</h6><br/>
+                  <small>HR Lead</small>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="testimonial-card text-center">
+
+                  <div class="client-avatar">K</div>
+
+                  <div class="stars">★★★★★</div>
+
+                  <p>
+                    "Reliable Our Fleet and trained drivers.
+                    We never faced delays or safety issues."
+                  </p>
+
+                  <h6 class="gold-text">Kiran Kumar</h6><br/>
+                  <small>Operations Manager</small>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="testimonial-card text-center">
+
+                  <div class="client-avatar">M</div>
+
+                  <div class="stars">★★★★★</div>
+
+                  <p>
+                    "24/7 support is a game changer.
+                    Their team responds instantly."
+                  </p>
+
+                  <h6 class="gold-text">Meena Patel</h6><br/>
+                  <small>Corporate Admin</small>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</section>
   <!-- CTA Banner -->
   <section class="section-padding pt-4">
     <div class="container">
@@ -233,10 +540,10 @@ content="https://rl-updated.netlify.app/" />
           <h5 class="gold-text mb-3" style="font-size:1rem;">Royal Links</h5>
           <div class="footer-links d-flex flex-column">
             <a href="index.html">Home</a>
-            <a href="Legacy.html">Legacy</a>
-            <a href="Expertise.html">Expertise</a>
-            <a href="Fleet.html">Fleet</a>
-            <a href="About.html">About</a>
+            <a href="Our Journey.html">Our Journey</a>
+            <a href="Services.html">Services</a>
+            <a href="Our Fleet.html">Our Fleet</a>
+            <a href="About Us.html">About Us</a>
             <a href="Contact.html">Contact</a>
           </div>
         </div>
@@ -244,7 +551,7 @@ content="https://rl-updated.netlify.app/" />
           <h5 class="gold-text mb-3" style="font-size:1rem;">Imperial Services</h5>
           <div class="footer-services d-flex flex-column">
             <a href="#">Corporate Employee Transportation</a>
-            <a href="#">Imperial Fleet Management</a>
+            <a href="#">Imperial Our Fleet Management</a>
             <a href="#">Events &amp; Conferences Transport</a>
             <a href="#">Executive Travel Solutions</a>
             <a href="#">Airport Transfers</a>

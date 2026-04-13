@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ROYAL'S LOGISTICS | Our Royal Services</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ROYAL'S LOGISTICS | Imperial Corporate Employee Transport" />
+  <meta property="og:description" content="Premium corporate employee transport solutions with reliability, safety, and efficiency." />
+  <meta property="og:image" content="https://rl-updated.netlify.app/logo1.png" />
+  <meta property="og:url" content="https://rl-updated.netlify.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- Global Styles (navbar, footer, typography, etc.) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ── Page-specific overrides only ──
+       (navbar, preloader, footer are fully handled by styles.css + main.js) */
+
+    /* Divider */
+    .divider-gold {
+      width: 80px;
+      height: 3px;
+      background: var(--deep-gold);
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+
+    /* Process Cards */
+    .process-card {
+      background: #111;
+      padding: 35px 25px;
+      border-radius: 20px;
+      border: 1px solid rgba(179,135,40,0.2);
+      transition: all 0.4s ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .process-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--deep-gold);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      background: #171717;
+    }
+    .process-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 48px;
+      font-weight: 800;
+      color: rgba(179,135,40,0.1);
+      font-family: 'Cinzel', serif;
+      line-height: 1;
+    }
+    .process-card h5 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+    .process-card p { color: #ccc; line-height: 1.7; }
+
+    /* Tech Cards */
+    .tech-card {
+      background: #111;
+      border: 1px solid rgba(179,135,40,0.2);
+      border-radius: 20px;
+      padding: 35px;
+      height: 100%;
+      transition: all 0.4s ease;
+    }
+    .tech-card:hover {
+      border-color: var(--deep-gold);
+      box-shadow: 0 20px 40px rgba(179,135,40,0.1);
+      background: #171717;
+      transform: translateY(-8px);
+    }
+    .tech-card .tech-icon {
+      font-size: 2.2rem;
+      background: var(--metallic-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+      margin-bottom: 18px;
+    }
+    .tech-card h5 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+    .tech-card p { color: #ccc; line-height: 1.7; font-size: 0.93rem; }
+
+    /* CTA Box */
+    .services-cta-box {
+      background: #111;
+      border: 1px solid rgba(179,135,40,0.3);
+      border-radius: 32px;
+      padding: 60px 40px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .services-cta-box:hover {
+      border-color: var(--deep-gold);
+      box-shadow: 0 20px 50px rgba(179,135,40,0.12);
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      .services-cta-box { padding: 36px 20px; }
+      .process-card { padding: 24px 18px; }
+      .process-number { font-size: 36px; }
+      .tech-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Preloader (main.js handles the animation) ── -->
+  <div id="preloader">
+    <div class="loader-logo">ROYAL'S LOGISTICS</div>
+    <div style="width:280px;height:2px;background:#2a2a2a;margin-top:20px;">
+      <div id="bar" style="width:0%;height:100%;background:var(--metallic-gold);"></div>
+    </div>
+    <p class="mt-3 small gold-text">Imperial Excellence Loading...</p>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR — same model as all pages
+  ══════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img class="navbar-logo-img" src="logo.png" alt="Royal's Logistics">
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="Our Journey.html">Our Journey</a></li>
+          <li class="nav-item"><a class="nav-link active-link" href="Services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="Our Fleet.html">Our Fleet</a></li>
+          <li class="nav-item"><a class="nav-link" href="About Us.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       PAGE HERO
+  ══════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container" data-aos="zoom-out">
+      <h1 class="gold-text">Our Royal Services</h1>
+      <p class="lead mt-2">Corporate Employee Transport — Engineered for Excellence</p>
+      <p class="page-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Services</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       OPERATION OVERVIEW — 6 Quick Cards
+  ══════════════════════════════════════ -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="gold-text">What We Do</h2>
+        <div class="divider-gold"></div>
+        <p class="lead">A complete corporate mobility ecosystem — designed around your workforce</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="process-card">
+            <i class="fas fa-user-check gold-text mb-3" style="font-size:2rem;"></i><br/>
+            <h5 class="gold-text mb-2">Onboarding</h5>
+            <p>Our team sets up employee profiles, verifies documents, and configures the Royal's mobile app for each employee — seamlessly from Day 1.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="process-card">
+            <i class="fas fa-address-card gold-text mb-3" style="font-size:2rem;"></i><br/>
+            <h5 class="gold-text mb-2">Employee Data Verification</h5>
+            <p>We verify employee documents, ID proofs, and KYC details to ensure all employees are genuine and meet government regulations.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="process-card">
+            <i class="fas fa-mobile-alt gold-text mb-3" style="font-size:2rem;"></i><br/>
+            <h5 class="gold-text mb-2">Mobile App Configuration</h5>
+            <p>Every employee gets the Royal's app with live cab location, driver info, ETA updates, and an SOS emergency feature — always at their fingertips.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="process-card">
+            <i class="fas fa-car-side gold-text mb-3" style="font-size:2rem;"></i><br/>
+            <h5 class="gold-text mb-2">Cab Allocation</h5>
+            <p>We allocate the nearest available, verified cab to each employee based on route, shift, and proximity — ensuring safe, on-time arrival every day.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="process-card">
+            <i class="fas fa-route gold-text mb-3" style="font-size:2rem;"></i><br/>
+            <h5 class="gold-text mb-2">Route Optimization</h5>
+            <p>We optimize routes in real-time to reduce fuel consumption, lower emissions, and minimize commute times across all shifts.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="process-card">
+            <i class="fas fa-headset gold-text mb-3" style="font-size:2rem;"></i><br/>
+            <h5 class="gold-text mb-2">Command Center</h5>
+            <p>Our dedicated 24/7 command center monitors all cabs in real-time, handling breakdowns, emergency rerouting, and client reporting with precision.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STATS STRIP
+  ══════════════════════════════════════ -->
+  <section class="py-5" style="background:#070707;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-center gap-3 text-center" data-aos="fade-up">
+        <span class="stat-badge-gold"><i class="fas fa-bus me-1"></i>100+ Fleet Vehicles</span>
+        <span class="stat-badge-gold"><i class="fas fa-id-card me-1"></i>80+ Trained Drivers</span>
+        <span class="stat-badge-gold"><i class="fas fa-headset me-1"></i>24/7 Ops Control Room</span>
+        <span class="stat-badge-gold"><i class="fas fa-map-marked-alt me-1"></i>Real-Time Employee App</span>
+        <span class="stat-badge-gold"><i class="fas fa-shield-alt me-1"></i>ISO 9001:2024 Certified</span>
+        <span class="stat-badge-gold"><i class="fas fa-star me-1"></i>98.7% Client Retention</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       ROYAL OPERATION PROCESS — Detailed
+  ══════════════════════════════════════ -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="gold-text">Royal Operation Process</h2>
+        <div class="divider-gold"></div>
+        <p class="lead">From onboarding to daily commute — a flawless 5-step system managed by our 10+ year veterans</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="0">
+          <div class="process-card">
+            <span class="process-number">01</span>
+            <h5 class="gold-text mb-2" style="padding-right:60px;">Consult &amp; Map Routes</h5>
+            <p>Our operations team meets with your HR/Admin to understand workforce size, shift timings, pickup zones, and special requirements. We conduct a thorough geospatial analysis to design the most efficient, employee-friendly route network. Every route is validated against live traffic patterns before finalizing.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="100">
+          <div class="process-card">
+            <span class="process-number">02</span>
+            <h5 class="gold-text mb-2" style="padding-right:60px;">Driver Allocation</h5>
+            <p>Experienced, background-verified drivers are assigned to specific routes based on locality familiarity, shift compatibility, and skill level. Night shift routes always receive our most senior drivers. Driver-employee continuity is maintained wherever possible for added comfort and trust.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="200">
+          <div class="process-card">
+            <span class="process-number">03</span>
+            <h5 class="gold-text mb-2" style="padding-right:60px;">Fleet Inspection</h5>
+            <p>Before every shift, each vehicle undergoes a mandatory pre-trip inspection: tyres, brakes, AC, GPS device, fuel, sanitization status, and safety kit (first aid, fire extinguisher). Any vehicle that fails inspection is immediately replaced with a standby vehicle — zero compromise on quality.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="300">
+          <div class="process-card">
+            <span class="process-number">04</span>
+            <h5 class="gold-text mb-2" style="padding-right:60px;">Live Monitoring</h5>
+            <p>Once vehicles are deployed, our 24/7 command center tracks every cab via GPS in real time. Alerts are triggered for route deviations, speeding, SOS activations, or unexpected delays. Coordinators proactively resolve any issues within minutes.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="400">
+          <div class="process-card">
+            <span class="process-number">05</span>
+            <h5 class="gold-text mb-2" style="padding-right:60px;">Feedback &amp; Improvement</h5>
+            <p>After each cycle, employees and HR teams submit feedback via the app or helpline. Our operations team reviews all feedback weekly, identifies improvement areas, and implements changes within the same week — keeping our on-time performance at 99.8%.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       TECHNOLOGY SECTION
+  ══════════════════════════════════════ -->
+  <section class="section-padding pt-0" style="background:#070707;">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="gold-text">Technology Powering the Royal Experience</h2>
+        <div class="divider-gold"></div>
+        <p class="lead">Innovation that keeps your employees safe, on time, and informed</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="tech-card">
+            <span class="tech-icon"><i class="fas fa-satellite-dish"></i></span>
+            <h5 class="gold-text">Real-Time GPS Tracking</h5>
+            <p>All 100+ vehicles are equipped with high-accuracy GPS units transmitting location data every 10 seconds. Our command center displays live fleet positions, enabling instant response to any deviation or emergency. Employees can view their cab's live location from the moment it's dispatched.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="tech-card">
+            <span class="tech-icon"><i class="fas fa-brain"></i></span>
+            <h5 class="gold-text">AI Route Optimization</h5>
+            <p>Our intelligent routing algorithm processes thousands of variables — traffic density, road closures, pickup point clusters, employee shift times, and vehicle capacity — to generate the most time-efficient, cost-effective routes. Routes are recalculated in real time whenever conditions change.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="tech-card">
+            <span class="tech-icon"><i class="fas fa-chart-bar"></i></span>
+            <h5 class="gold-text">HR Analytics Dashboard</h5>
+            <p>Corporate HR teams get access to a comprehensive dashboard with daily trip reports, attendance tracking, on-time statistics, cost per trip breakdown, driver performance ratings, and monthly summary analytics — giving complete operational visibility and data-driven decision support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CTA SECTION
+  ══════════════════════════════════════ -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="services-cta-box" data-aos="zoom-in">
+        <h2 class="gold-text mb-3">Experience Our Services First-Hand</h2>
+        <p class="lead mb-5">Let our operations team design a customised transport solution for your workforce — free consultation, no obligation.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="Contact.html" class="btn btn-royal">
+            Get Free Consultation <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+          <a href="Our Fleet.html" class="btn-outline-royal">
+            View Our Fleet <i class="fas fa-car ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/919949900008?text=Hi%20Royal's%20Logistics%20Team,%20I%20am%20interested%20in%20your%20services."
+     class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <div id="confirmationToast" class="imperial-toast">
+    <i class="fas fa-crown"></i>
+    <span id="toastMessage">Royal request received!</span>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="imperial-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-logo"><img src="logo.png" alt="Royal's Logistics"></div>
+          <p class="small mt-3">The Real Choice of Royalty for premium corporate transportation. Imperial excellence in every journey.</p>
+          <div class="mt-3">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5 class="gold-text mb-3" style="font-size:1rem;">Royal Links</h5>
+          <div class="footer-links d-flex flex-column">
+            <a href="index.html">Home</a>
+            <a href="Our Journey.html">Our Journey</a>
+            <a href="Services.html">Services</a>
+            <a href="Our Fleet.html">Our Fleet</a>
+            <a href="About Us.html">About Us</a>
+            <a href="Contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="gold-text mb-3" style="font-size:1rem;">Imperial Services</h5>
+          <div class="footer-services d-flex flex-column">
+            <a href="#">Corporate Employee Transportation</a>
+            <a href="#">Imperial Fleet Management</a>
+            <a href="#">Events &amp; Conferences Transport</a>
+            <a href="#">Executive Travel Solutions</a>
+            <a href="#">Airport Transfers</a>
+            <a href="#">IT Company Transport</a>
+            <a href="#">BPO &amp; KPO Night Shift Transport</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="gold-text mb-3" style="font-size:1rem;">Connect Royalty</h5>
+          <p><i class="fas fa-map-marker-alt gold-text me-2"></i>8-1-284/OU/130, 2nd Floor, OU Colony, Manikonda, Shaikpet, Hyderabad – 500089</p>
+          <p><i class="fas fa-phone gold-text me-2"></i>+91 9949900008</p>
+          <p><i class="fas fa-envelope gold-text me-2"></i>raja@royalslogistic.com</p>
+          <p><i class="fas fa-clock gold-text me-2"></i>24/7 Imperial Support</p>
+        </div>
+      </div>
+      <hr class="border-secondary mt-4">
+      <div class="text-center pt-3">
+        <p class="small mb-0">© 2024 ROYAL'S LOGISTICS. All Rights Reserved. | The Real Choice of Royalty | Crafted with Imperial Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- main.js handles: preloader, sticky navbar scroll, toast, FAQ accordion -->
+  <script src="main.js"></script>
+</body>
+</html>

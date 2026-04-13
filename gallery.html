@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | ROYAL'S LOGISTICS</title>
+
+  <!-- Favicon (Logo as icon) -->
+<link rel="icon" type="image/png" href="logo.png" />
+<link rel="apple-touch-icon" href="logo.png" />
+
+<!-- SEO Title -->
+<title>ROYAL'S LOGISTICS | Imperial Corporate Employee Transport</title>
+
+<!-- Open Graph Meta Tags (WhatsApp / Facebook Preview) -->
+<meta property="og:title" content="ROYAL'S LOGISTICS | Imperial Corporate Employee Transport" />
+
+<meta property="og:description" 
+content="Premium corporate employee transport solutions with reliability, safety, and efficiency. Trusted logistics partner for modern businesses." />
+
+<meta property="og:image" 
+content="https://rl-updated.netlify.app/logo1.png" />
+
+<meta property="og:url" 
+content="https://rl-updated.netlify.app/" />
+
+<meta property="og:type" content="website" />
+
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ══════════════════════════════════════════
+       GALLERY PAGE — Dedicated Styles
+    ══════════════════════════════════════════ */
+
+    /* ── Filter Bar ── */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 50px;
+    }
+    .filter-btn {
+      background: transparent;
+      color: #aaa;
+      border: 1px solid #333;
+      border-radius: 50px;
+      padding: 9px 26px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.35s ease;
+      outline: none;
+    }
+    .filter-btn:hover {
+      border-color: var(--deep-gold);
+      color: var(--deep-gold);
+      background: rgba(179,135,40,0.08);
+    }
+    .filter-btn.active {
+      background: var(--metallic-gold);
+      color: #000;
+      border-color: transparent;
+      -webkit-text-fill-color: #000;
+      box-shadow: 0 6px 20px rgba(179,135,40,0.35);
+    }
+
+    /* ── Gallery Grid ── */
+    .gallery-grid {
+      columns: 3 300px;
+      column-gap: 20px;
+    }
+    .gallery-card {
+      break-inside: avoid;
+      margin-bottom: 20px;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid #1e1e1e;
+      background: #111;
+      transition: transform 0.45s cubic-bezier(0.25,1,0.5,1),
+                  border-color 0.35s ease,
+                  box-shadow 0.45s ease;
+      display: block;
+    }
+    .gallery-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      border-color: var(--deep-gold);
+      box-shadow: 0 20px 45px -10px rgba(179,135,40,0.3);
+    }
+    .gallery-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.25,1,0.5,1);
+    }
+    .gallery-card:hover img {
+      transform: scale(1.07);
+    }
+
+    /* ── Overlay ── */
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+        rgba(5,5,5,0.92) 0%,
+        rgba(5,5,5,0.55) 45%,
+        transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px 20px;
+    }
+    .gallery-card:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-overlay-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: var(--metallic-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+    .gallery-overlay-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1.5px;
+      margin: 0 0 10px;
+    }
+    .gallery-overlay-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--metallic-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 0.85rem;
+    }
+
+    /* ── Featured Wide Card ── */
+    .gallery-card.wide {
+      width: 100%;
+    }
+    .gallery-card.wide img {
+      height: 320px;
+    }
+    .gallery-card.tall img {
+      height: 480px;
+    }
+    .gallery-card.regular img {
+      height: 260px;
+    }
+
+    /* ── Hidden state for filter ── */
+    .gallery-card.hidden {
+      display: none;
+    }
+    .gallery-card.fade-in {
+      animation: galleryFadeIn 0.4s ease forwards;
+    }
+    @keyframes galleryFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* ── Stats Strip ── */
+    .gallery-stats-strip {
+      background: #070707;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 40px 0;
+    }
+    .gallery-stat-item {
+      text-align: center;
+    }
+    .gallery-stat-item h3 {
+      font-size: 2.5rem;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .gallery-stat-item p {
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #aaa !important;
+    }
+
+    /* ══════════════════════════════════════════
+       LIGHTBOX
+    ══════════════════════════════════════════ */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.96);
+      z-index: 9990;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      padding: 20px;
+    }
+    .lightbox-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .lightbox-inner {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-img-wrap {
+      position: relative;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(179,135,40,0.4);
+      box-shadow: 0 0 60px rgba(179,135,40,0.15);
+    }
+    .lightbox-img-wrap img {
+      width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      display: block;
+      background: #0a0a0a;
+    }
+    .lightbox-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 14px 6px 0;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .lightbox-caption-left {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .lightbox-caption-tag {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--metallic-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    .lightbox-caption-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.95rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .lightbox-counter {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      color: #888;
+      letter-spacing: 2px;
+    }
+
+    /* Close button */
+    .lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--deep-gold);
+      color: #000;
+      border: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 10;
+    }
+    .lightbox-close:hover {
+      background: #fff;
+      transform: scale(1.1);
+    }
+
+    /* Prev / Next arrows */
+    .lightbox-prev,
+    .lightbox-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: rgba(179,135,40,0.2);
+      border: 1px solid var(--deep-gold);
+      color: var(--deep-gold);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 9995;
+    }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: var(--deep-gold);
+      color: #000;
+    }
+
+    /* Loading spinner inside lightbox */
+    .lightbox-loader {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0a0a0a;
+      border-radius: 20px;
+      z-index: 2;
+    }
+    .lightbox-loader span {
+      width: 36px; height: 36px;
+      border: 3px solid #222;
+      border-top-color: var(--deep-gold);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .gallery-grid { columns: 2 200px; }
+      .gallery-card.wide img { height: 220px; }
+      .gallery-card.tall  img { height: 300px; }
+      .gallery-card.regular img { height: 180px; }
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+      .lightbox-prev,
+      .lightbox-next { width: 38px; height: 38px; font-size: 0.9rem; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { columns: 1; }
+      .filter-btn { padding: 8px 18px; font-size: 0.72rem; }
+      .gallery-card.wide img,
+      .gallery-card.tall img,
+      .gallery-card.regular img { height: auto; max-height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader-logo">ROYAL'S LOGISTICS</div>
+    <div style="width:280px;height:2px;background:#2a2a2a;margin-top:20px;">
+      <div id="bar" style="width:0%;height:100%;background:var(--metallic-gold);"></div>
+    </div>
+    <p class="mt-3 small gold-text">Imperial Excellence Loading...</p>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img class="navbar-logo-img" src="logo.png" alt="Royal's Logistics">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="Our Journey.html">Our Journey</a></li>
+          <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="Our Fleet.html">Our Fleet</a></li>
+          <li class="nav-item"><a class="nav-link" href="About Us.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container" data-aos="zoom-out">
+      <h1 class="gold-text">Imperial Gallery</h1>
+      <p class="page-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Gallery</p>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <section class="gallery-stats-strip">
+    <div class="container">
+      <div class="row g-3 text-center">
+        <div class="col-6 col-md-3" data-aos="fade-up">
+          <div class="gallery-stat-item">
+            <h3 class="gold-text">100+</h3>
+            <p>Premium Vehicles</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="gallery-stat-item">
+            <h3 class="gold-text">18+</h3>
+            <p>Years of Service</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="gallery-stat-item">
+            <h3 class="gold-text">2.3M+</h3>
+            <p>Safe Journeys</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="gallery-stat-item">
+            <h3 class="gold-text">10+</h3>
+            <p>Corporate Clients</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="gold-text">A Visual Tour of Royal Excellence</h2>
+        <p class="lead mt-3 px-lg-4">Explore our premium fleet, world-class operations, dedicated team, and the royal standard we uphold on every single journey.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-bar" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fas fa-th me-2"></i>All
+        </button>
+        <button class="filter-btn" data-filter="fleet">
+          <i class="fas fa-car me-2"></i>Fleet
+        </button>
+        <button class="filter-btn" data-filter="operations">
+          <i class="fas fa-headset me-2"></i>Operations
+        </button>
+        <button class="filter-btn" data-filter="team">
+          <i class="fas fa-users me-2"></i>Our Team
+        </button>
+        <button class="filter-btn" data-filter="office">
+          <i class="fas fa-building me-2"></i>Office
+        </button>
+        <button class="filter-btn" data-filter="events">
+          <i class="fas fa-calendar-star me-2"></i>Events
+        </button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+
+        <!-- ── FLEET ── -->
+        <div class="gallery-card wide fade-in" data-category="fleet" data-title="Royal Sedan Fleet" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=80" alt="Royal Sedan Fleet" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Fleet</span>
+            <p class="gallery-overlay-title">Royal Sedan Fleet</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="fleet" data-title="Executive Sedans — Dzire & City" data-aos="fade-up">
+          <img src="https://ic4.maxabout.us/tr:w-600/autos/cars_india/2025/03/Maruti_Tour_S-20250321052622.jpg" alt="Executive Sedans" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Fleet</span>
+            <p class="gallery-overlay-title">Executive Sedans</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="fleet" data-title="Imperial SUVs — Innova Crysta" data-aos="fade-up">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/PH/MT/TD/81073921/corporate-cab-rental-service.jpg" alt="Imperial SUVs" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Fleet</span>
+            <p class="gallery-overlay-title">Imperial SUVs</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card tall fade-in" data-category="fleet" data-title="Luxury Coach — Force Urbania" data-aos="fade-up">
+          <img src="https://www.carrentaldelhi.biz/images/categories-photoes/11-seater-urbania-big.jpg" alt="Luxury Coach" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Fleet</span>
+            <p class="gallery-overlay-title">Luxury Coaches</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="fleet" data-title="Imperial Buses — Volvo 50-Seater" data-aos="fade-up">
+          <img src="https://www.topindianholidays.com/blog_images/luxury-coaches-in-india.webp" alt="Imperial Buses" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Fleet</span>
+            <p class="gallery-overlay-title">Imperial Buses</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="fleet" data-title="Premium Night Shift Vehicles" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" alt="Night Fleet" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Fleet</span>
+            <p class="gallery-overlay-title">Night Shift Ready</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card wide fade-in" data-category="fleet" data-title="GPS-Enabled & Sanitized Fleet" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80" alt="Fleet Ready" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Fleet</span>
+            <p class="gallery-overlay-title">GPS-Enabled & Sanitized</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <!-- ── OPERATIONS ── -->
+        <div class="gallery-card wide fade-in" data-category="operations" data-title="24/7 Command & Control Center" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="Command Center" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Operations</span>
+            <p class="gallery-overlay-title">24/7 Command Center</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="operations" data-title="Real-Time GPS Fleet Tracking" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=800&q=80" alt="GPS Tracking" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Operations</span>
+            <p class="gallery-overlay-title">Live GPS Tracking</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card tall fade-in" data-category="operations" data-title="Route Planning & Shift Management" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Route Planning" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Operations</span>
+            <p class="gallery-overlay-title">Route Planning</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="operations" data-title="Pre-Trip Vehicle Safety Inspection" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80" alt="Vehicle Inspection" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Operations</span>
+            <p class="gallery-overlay-title">Safety Inspections</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <!-- ── TEAM ── -->
+        <div class="gallery-card wide fade-in" data-category="team" data-title="Our Dedicated Operations Team" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Operations Team" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Team</span>
+            <p class="gallery-overlay-title">Operations Team</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="team" data-title="Professional Driver Corps" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Professional Drivers" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Team</span>
+            <p class="gallery-overlay-title">Professional Drivers</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="team" data-title="Driver Training & Certification" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Driver Training" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Team</span>
+            <p class="gallery-overlay-title">Driver Training</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card tall fade-in" data-category="team" data-title="Customer Service Excellence" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Customer Service" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Team</span>
+            <p class="gallery-overlay-title">Service Excellence</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <!-- ── OFFICE ── -->
+        <div class="gallery-card wide fade-in" data-category="office" data-title="Royal Headquarters — Hyderabad" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Royal Headquarters" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Office</span>
+            <p class="gallery-overlay-title">Royal Headquarters</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="office" data-title="Modern Operations Floor" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80" alt="Operations Floor" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Office</span>
+            <p class="gallery-overlay-title">Operations Floor</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="office" data-title="Client Meeting & Boardroom" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80" alt="Boardroom" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Office</span>
+            <p class="gallery-overlay-title">Client Boardroom</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <!-- ── EVENTS ── -->
+        <div class="gallery-card wide fade-in" data-category="events" data-title="Corporate Event Transport — Hyderabad" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Corporate Events" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Events</span>
+            <p class="gallery-overlay-title">Corporate Events</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="events" data-title="Conference & Summit Transport" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80" alt="Conference Transport" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Events</span>
+            <p class="gallery-overlay-title">Conference Transport</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card tall fade-in" data-category="events" data-title="Team Outing & Offsite Mobility" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Team Outings" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Events</span>
+            <p class="gallery-overlay-title">Team Outings</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+        <div class="gallery-card regular fade-in" data-category="events" data-title="VIP Executive Airport Transfer" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" alt="Airport Transfers" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-tag">Events</span>
+            <p class="gallery-overlay-title">Airport Transfers</p>
+            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+
+      </div><!-- /gallery-grid -->
+
+      <!-- Empty state -->
+      <div id="emptyState" style="display:none;text-align:center;padding:60px 0;">
+        <i class="fas fa-images" style="font-size:3rem;color:#333;margin-bottom:16px;display:block;"></i>
+        <p style="color:#666;">No images found in this category.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding pt-0">
+    <div class="container">
+      <div class="royal-border-box text-center" data-aos="zoom-in">
+        <h2 class="gold-text mb-4">Experience the Royal Standard Firsthand</h2>
+        <p class="lead mb-2">What you see in these images is what your employees experience every single day — premium vehicles, professional drivers, and operations that never sleep.</p>
+        <p class="mb-5" style="color:#ccc;">18+ years · 100+ vehicles · 2.3 million safe journeys · 99.8% on-time performance</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="contact.html" class="btn btn-royal">
+            Request a Free Consultation <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+          <a href="Our Fleet.html" class="btn-outline-royal">
+            Explore Our Fleet <i class="fas fa-car ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/919949900008?text=Hi%20Royal's%20Logistics%20Team,%20I%20am%20interested%20in%20your%20services." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <div id="confirmationToast" class="imperial-toast"><i class="fas fa-crown"></i><span id="toastMessage">Royal request received!</span></div>
+
+  <!-- Footer -->
+  <footer class="imperial-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-logo"><img src="logo.png" alt="Royal's Logistics"></div>
+          <p class="small mt-3">The Real Choice of Royalty for premium corporate transportation across Hyderabad.</p>
+          <div class="mt-3">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5 class="gold-text mb-3" style="font-size:1rem;">Royal Links</h5>
+          <div class="footer-links d-flex flex-column">
+            <a href="index.html">Home</a>
+            <a href="Our Journey.html">Legacy</a>
+            <a href="Services.html">Expertise</a>
+            <a href="Our Fleet.html">Fleet</a>
+            <a href="About Us.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="gold-text mb-3" style="font-size:1rem;">Imperial Services</h5>
+          <div class="footer-services d-flex flex-column">
+            <a href="#">Corporate Employee Transportation</a>
+            <a href="#">Imperial Fleet Management</a>
+            <a href="#">Events & Conferences Transport</a>
+            <a href="#">Executive Travel Solutions</a>
+            <a href="#">Airport Transfers</a>
+            <a href="#">IT Company Transport</a>
+            <a href="#">BPO & KPO Night Shift Transport</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="gold-text mb-3" style="font-size:1rem;">Connect Royalty</h5>
+          <p><i class="fas fa-map-marker-alt gold-text me-2"></i>8-1-284/OU/130, 2nd Floor, OU Colony, Manikonda, Shaikpet, Hyderabad – 500089</p>
+          <p><i class="fas fa-phone gold-text me-2"></i>+91 9949900008</p>
+          <p><i class="fas fa-envelope gold-text me-2"></i>raja@royalslogistic.com</p>
+          <p><i class="fas fa-clock gold-text me-2"></i>24/7 Imperial Support</p>
+        </div>
+      </div>
+      <hr class="border-secondary mt-4">
+      <div class="text-center pt-3"><p class="small mb-0">© 2024 ROYAL'S LOGISTICS. All Rights Reserved. | The Real Choice of Royalty</p></div>
+    </div>
+  </footer>
+
+  <!-- ══ LIGHTBOX MARKUP ══ -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-prev" id="lbPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lbClose" aria-label="Close"><i class="fas fa-times"></i></button>
+      <div class="lightbox-img-wrap">
+        <div class="lightbox-loader" id="lbLoader"><span></span></div>
+        <img id="lbImg" src="" alt="" style="opacity:0;transition:opacity 0.3s ease;">
+      </div>
+      <div class="lightbox-caption">
+        <div class="lightbox-caption-left">
+          <span class="lightbox-caption-tag" id="lbTag"></span>
+          <span class="lightbox-caption-title" id="lbTitle"></span>
+        </div>
+        <span class="lightbox-counter" id="lbCounter"></span>
+      </div>
+    </div>
+    <button class="lightbox-next" id="lbNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="main.js"></script>
+
+  <script>
+  /* ══════════════════════════════════════════════
+     GALLERY: Filter + Lightbox
+  ══════════════════════════════════════════════ */
+  (function () {
+
+    // ── Collect all cards ──
+    const grid       = document.getElementById('galleryGrid');
+    const emptyState = document.getElementById('emptyState');
+    let allCards     = Array.from(grid.querySelectorAll('.gallery-card'));
+    let visibleCards = [...allCards];  // currently visible subset
+    let currentIndex = 0;
+
+    // ── Filter Logic ──
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        const filter = this.dataset.filter;
+        visibleCards  = [];
+
+        allCards.forEach(card => {
+          const match = filter === 'all' || card.dataset.category === filter;
+          if (match) {
+            card.classList.remove('hidden');
+            card.classList.remove('fade-in');
+            // Trigger reflow for animation restart
+            void card.offsetWidth;
+            card.classList.add('fade-in');
+            visibleCards.push(card);
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        emptyState.style.display = visibleCards.length === 0 ? 'block' : 'none';
+      });
+    });
+
+    // ── Lightbox Elements ──
+    const lb       = document.getElementById('lightbox');
+    const lbImg    = document.getElementById('lbImg');
+    const lbLoader = document.getElementById('lbLoader');
+    const lbTitle  = document.getElementById('lbTitle');
+    const lbTag    = document.getElementById('lbTag');
+    const lbCounter= document.getElementById('lbCounter');
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const card   = visibleCards[index];
+      const img    = card.querySelector('img');
+
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      // Show loader, hide image
+      lbLoader.style.display = 'flex';
+      lbImg.style.opacity    = '0';
+      lbImg.src              = '';
+
+      lbTag.textContent   = card.dataset.category.toUpperCase();
+      lbTitle.textContent = card.dataset.title || '';
+      lbCounter.textContent = (index + 1) + ' / ' + visibleCards.length;
+
+      // Load image
+      const tempImg  = new Image();
+      tempImg.onload = () => {
+        lbImg.src             = tempImg.src;
+        lbImg.alt             = card.dataset.title || '';
+        lbLoader.style.display= 'none';
+        lbImg.style.opacity   = '1';
+      };
+      tempImg.onerror = () => {
+        lbLoader.style.display = 'none';
+        lbImg.style.opacity    = '1';
+      };
+      tempImg.src = img.src;
+    }
+
+    function closeLightbox() {
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => { lbImg.src = ''; }, 350);
+    }
+
+    function navigate(dir) {
+      currentIndex = (currentIndex + dir + visibleCards.length) % visibleCards.length;
+      openLightbox(currentIndex);
+    }
+
+    // Attach click to all cards
+    function attachCardClicks() {
+      allCards.forEach((card, idx) => {
+        card.addEventListener('click', () => {
+          // Get index within visibleCards
+          const vi = visibleCards.indexOf(card);
+          if (vi !== -1) openLightbox(vi);
+        });
+      });
+    }
+    attachCardClicks();
+
+    // Lightbox controls
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
+    document.getElementById('lbPrev').addEventListener('click', () => navigate(-1));
+    document.getElementById('lbNext').addEventListener('click', () => navigate(1));
+
+    // Close on backdrop click
+    lb.addEventListener('click', function (e) {
+      if (e.target === lb) closeLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowLeft')   navigate(-1);
+      if (e.key === 'ArrowRight')  navigate(1);
+    });
+
+    // Touch swipe support for lightbox
+    let touchStartX = 0;
+    lb.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    lb.addEventListener('touchend',   e => {
+      const diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
+    }, { passive: true });
+
+  })();
+  </script>
+
+</body>
+</html>
