@@ -4,30 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gallery | ROYAL'S LOGISTICS</title>
-
-  <!-- Favicon (Logo as icon) -->
-<link rel="icon" type="image/png" href="logo.png" />
-<link rel="apple-touch-icon" href="logo.png" />
-
-<!-- SEO Title -->
-<title>ROYAL'S LOGISTICS | Imperial Corporate Employee Transport</title>
-
-<!-- Open Graph Meta Tags (WhatsApp / Facebook Preview) -->
-<meta property="og:title" content="ROYAL'S LOGISTICS | Imperial Corporate Employee Transport" />
-
-<meta property="og:description" 
-content="Premium corporate employee transport solutions with reliability, safety, and efficiency. Trusted logistics partner for modern businesses." />
-
-<meta property="og:image" 
-content="https://rl-updated.netlify.app/logo1.png" />
-
-<meta property="og:url" 
-content="https://rl-updated.netlify.app/" />
-
-<meta property="og:type" content="website" />
-
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <meta property="og:title" content="ROYAL'S LOGISTICS | Imperial Gallery" />
+  <meta property="og:description" content="A visual showcase of Royal's Logistics fleet, operations, team, and client sites." />
+  <meta property="og:image" content="https://rl-updated.netlify.app/logo1.png" />
+  <meta property="og:url" content="https://rl-updated.netlify.app/" />
+  <meta property="og:type" content="website" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -36,349 +19,563 @@ content="https://rl-updated.netlify.app/" />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* ══════════════════════════════════════════
-       GALLERY PAGE — Dedicated Styles
-    ══════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════
+     ROYAL'S LOGISTICS — GALLERY PAGE STYLES
+  ═══════════════════════════════════════════════ */
 
-    /* ── Filter Bar ── */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 50px;
-    }
-    .filter-btn {
-      background: transparent;
-      color: #aaa;
-      border: 1px solid #333;
-      border-radius: 50px;
-      padding: 9px 26px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.35s ease;
-      outline: none;
-    }
-    .filter-btn:hover {
-      border-color: var(--deep-gold);
-      color: var(--deep-gold);
-      background: rgba(179,135,40,0.08);
-    }
-    .filter-btn.active {
-      background: var(--metallic-gold);
-      color: #000;
-      border-color: transparent;
-      -webkit-text-fill-color: #000;
-      box-shadow: 0 6px 20px rgba(179,135,40,0.35);
-    }
+  /* ── Scrolling Gold Ticker ── */
+  .gold-ticker {
+    background: #050505;
+    border-top: 1px solid rgba(179,135,40,0.25);
+    border-bottom: 1px solid rgba(179,135,40,0.25);
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex;
+    animation: tickerMove 30s linear infinite;
+    gap: 0;
+  }
+  .ticker-inner span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0 36px;
+    background: var(--metallic-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  .ticker-inner .sep {
+    color: rgba(179,135,40,0.4);
+    -webkit-text-fill-color: rgba(179,135,40,0.4);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    padding: 0 4px;
+    font-size: 0.9rem;
+  }
+  @keyframes tickerMove {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
 
-    /* ── Gallery Grid ── */
-    .gallery-grid {
-      columns: 3 300px;
-      column-gap: 20px;
-    }
-    .gallery-card {
-      break-inside: avoid;
-      margin-bottom: 20px;
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      cursor: pointer;
-      border: 1px solid #1e1e1e;
-      background: #111;
-      transition: transform 0.45s cubic-bezier(0.25,1,0.5,1),
-                  border-color 0.35s ease,
-                  box-shadow 0.45s ease;
-      display: block;
-    }
-    .gallery-card:hover {
-      transform: translateY(-6px) scale(1.01);
-      border-color: var(--deep-gold);
-      box-shadow: 0 20px 45px -10px rgba(179,135,40,0.3);
-    }
-    .gallery-card img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-      transition: transform 0.7s cubic-bezier(0.25,1,0.5,1);
-    }
-    .gallery-card:hover img {
-      transform: scale(1.07);
-    }
+  /* ── Stats Strip ── */
+  .stats-strip {
+    background: #070707;
+    border-bottom: 1px solid #111;
+    padding: 55px 0;
+  }
+  .stat-box {
+    text-align: center;
+    padding: 24px 16px;
+    border-radius: 20px;
+    border: 1px solid #161616;
+    background: #0c0c0c;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--metallic-gold);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s ease;
+  }
+  .stat-box:hover { border-color: var(--deep-gold); transform: translateY(-5px); }
+  .stat-box:hover::after { transform: scaleX(1); }
+  .stat-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 6px;
+    background: var(--metallic-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+  }
+  .stat-lbl {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #666 !important;
+  }
+  .stat-icon-wrap {
+    font-size: 1.4rem;
+    background: var(--metallic-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    margin-bottom: 10px;
+  }
 
-    /* ── Overlay ── */
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top,
-        rgba(5,5,5,0.92) 0%,
-        rgba(5,5,5,0.55) 45%,
-        transparent 100%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 24px 20px;
-    }
-    .gallery-card:hover .gallery-overlay {
-      opacity: 1;
-    }
-    .gallery-overlay-tag {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      background: var(--metallic-gold);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 5px;
-      display: inline-block;
-    }
-    .gallery-overlay-title {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 1.5px;
-      margin: 0 0 10px;
-    }
-    .gallery-overlay-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--metallic-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #000;
-      font-size: 0.85rem;
-    }
+  /* ── Filter Bar ── */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 48px;
+  }
+  .filter-btn {
+    background: #0d0d0d;
+    color: #777;
+    border: 1px solid #222;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.73rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .filter-btn:hover {
+    border-color: var(--deep-gold);
+    color: var(--deep-gold);
+    background: rgba(179,135,40,0.05);
+  }
+  .filter-btn.active {
+    background: var(--metallic-gold);
+    color: #000;
+    border-color: transparent;
+    -webkit-text-fill-color: #000;
+    box-shadow: 0 8px 24px rgba(179,135,40,0.35);
+  }
+  .filter-btn .f-count {
+    background: rgba(0,0,0,0.2);
+    padding: 1px 7px;
+    border-radius: 20px;
+    font-size: 0.62rem;
+    font-weight: 800;
+  }
+  .filter-btn.active .f-count {
+    background: rgba(0,0,0,0.2);
+    -webkit-text-fill-color: #000;
+  }
 
-    /* ── Featured Wide Card ── */
-    .gallery-card.wide {
-      width: 100%;
-    }
-    .gallery-card.wide img {
-      height: 320px;
-    }
-    .gallery-card.tall img {
-      height: 480px;
-    }
-    .gallery-card.regular img {
-      height: 260px;
-    }
+  /* ── Gallery Masonry Grid ── */
+  .g-grid {
+    columns: 3 280px;
+    column-gap: 16px;
+  }
+  .g-card {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #181818;
+    background: #0d0d0d;
+    transition: transform 0.5s cubic-bezier(0.25,1,0.5,1),
+                border-color 0.35s,
+                box-shadow 0.5s;
+    display: block;
+  }
+  /* Shimmer sweep */
+  .g-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -120%;
+    width: 55%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transition: left 0.7s ease;
+    z-index: 4;
+    pointer-events: none;
+  }
+  .g-card:hover::before { left: 160%; }
+  .g-card:hover {
+    transform: translateY(-7px) scale(1.015);
+    border-color: var(--deep-gold);
+    box-shadow: 0 24px 48px -8px rgba(179,135,40,0.3);
+  }
+  .g-card img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25,1,0.5,1);
+  }
+  .g-card:hover img { transform: scale(1.08); }
 
-    /* ── Hidden state for filter ── */
-    .gallery-card.hidden {
-      display: none;
-    }
-    .gallery-card.fade-in {
-      animation: galleryFadeIn 0.4s ease forwards;
-    }
-    @keyframes galleryFadeIn {
-      from { opacity: 0; transform: scale(0.96); }
-      to   { opacity: 1; transform: scale(1); }
-    }
+  /* Card sizes */
+  .g-card.wide img  { height: 310px; }
+  .g-card.tall img  { height: 460px; }
+  .g-card.reg  img  { height: 245px; }
+  .g-card.sq   img  { height: 280px; }
 
-    /* ── Stats Strip ── */
-    .gallery-stats-strip {
-      background: #070707;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-      padding: 40px 0;
-    }
-    .gallery-stat-item {
-      text-align: center;
-    }
-    .gallery-stat-item h3 {
-      font-size: 2.5rem;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .gallery-stat-item p {
-      font-size: 0.78rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #aaa !important;
-    }
+  /* Category Pill — always visible */
+  .g-pill {
+    position: absolute;
+    top: 12px; left: 12px;
+    z-index: 3;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    background: rgba(5,5,5,0.82);
+    border: 1px solid rgba(179,135,40,0.45);
+    color: #b38728;
+    backdrop-filter: blur(6px);
+    transition: 0.3s;
+    pointer-events: none;
+  }
+  .g-card:hover .g-pill {
+    background: var(--metallic-gold);
+    color: #000;
+    -webkit-text-fill-color: #000;
+    border-color: transparent;
+  }
 
-    /* ══════════════════════════════════════════
-       LIGHTBOX
-    ══════════════════════════════════════════ */
-    .lightbox-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.96);
-      z-index: 9990;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.35s ease;
-      padding: 20px;
-    }
-    .lightbox-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    .lightbox-inner {
-      position: relative;
-      max-width: 1000px;
-      width: 100%;
-      max-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .lightbox-img-wrap {
-      position: relative;
-      width: 100%;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(179,135,40,0.4);
-      box-shadow: 0 0 60px rgba(179,135,40,0.15);
-    }
-    .lightbox-img-wrap img {
-      width: 100%;
-      max-height: 75vh;
-      object-fit: contain;
-      display: block;
-      background: #0a0a0a;
-    }
-    .lightbox-caption {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 14px 6px 0;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .lightbox-caption-left {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-    .lightbox-caption-tag {
-      font-size: 0.7rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-family: 'Montserrat', sans-serif;
-      background: var(--metallic-gold);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-    }
-    .lightbox-caption-title {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 0.95rem;
-      color: #fff;
-      letter-spacing: 1px;
-    }
-    .lightbox-counter {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
-      color: #888;
-      letter-spacing: 2px;
-    }
+  /* Overlay */
+  .g-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top,
+      rgba(3,3,3,0.96) 0%,
+      rgba(3,3,3,0.5) 42%,
+      transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 18px;
+    z-index: 2;
+  }
+  .g-card:hover .g-overlay { opacity: 1; }
+  .g-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    background: var(--metallic-gold);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block; margin-bottom: 4px;
+  }
+  .g-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.82rem; color: #fff;
+    letter-spacing: 1.5px; margin: 0 0 12px;
+    line-height: 1.4;
+  }
+  .g-expand {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--metallic-gold);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #000; font-size: 0.8rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+  .g-card:hover .g-expand { transform: scale(1.12); }
 
-    /* Close button */
-    .lightbox-close {
-      position: absolute;
-      top: -14px;
-      right: -14px;
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: var(--deep-gold);
-      color: #000;
-      border: none;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: 0.3s;
-      z-index: 10;
-    }
-    .lightbox-close:hover {
-      background: #fff;
-      transform: scale(1.1);
-    }
+  /* Filter hide/show */
+  .g-card.hidden { display: none; }
+  .g-card.reveal {
+    animation: gReveal 0.45s cubic-bezier(0.25,1,0.5,1) both;
+  }
+  @keyframes gReveal {
+    from { opacity: 0; transform: translateY(18px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
 
-    /* Prev / Next arrows */
-    .lightbox-prev,
-    .lightbox-next {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 50px; height: 50px;
-      border-radius: 50%;
-      background: rgba(179,135,40,0.2);
-      border: 1px solid var(--deep-gold);
-      color: var(--deep-gold);
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: 0.3s;
-      z-index: 9995;
-    }
-    .lightbox-prev { left: 20px; }
-    .lightbox-next { right: 20px; }
-    .lightbox-prev:hover,
-    .lightbox-next:hover {
-      background: var(--deep-gold);
-      color: #000;
-    }
+  /* ── Divider ── */
+  .royal-divider {
+    display: flex; align-items: center; gap: 18px;
+    margin: 0 0 52px;
+  }
+  .royal-divider::before, .royal-divider::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(179,135,40,0.35), transparent);
+  }
+  .royal-divider i {
+    font-size: 1rem;
+    background: var(--metallic-gold);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-    /* Loading spinner inside lightbox */
-    .lightbox-loader {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0a0a0a;
-      border-radius: 20px;
-      z-index: 2;
-    }
-    .lightbox-loader span {
-      width: 36px; height: 36px;
-      border: 3px solid #222;
-      border-top-color: var(--deep-gold);
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
+  /* ── Spotlight Row ── */
+  .spotlight-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: 280px;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .spotlight-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #181818;
+    transition: transform 0.5s cubic-bezier(0.25,1,0.5,1),
+                border-color 0.35s, box-shadow 0.5s;
+  }
+  .spotlight-card:hover {
+    transform: scale(1.025);
+    border-color: var(--deep-gold);
+    box-shadow: 0 24px 50px -10px rgba(179,135,40,0.35);
+    z-index: 2;
+  }
+  .spotlight-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25,1,0.5,1);
+  }
+  .spotlight-card:hover img { transform: scale(1.07); }
+  .spotlight-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+    opacity: 0; transition: opacity 0.4s;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 22px;
+  }
+  .spotlight-card:hover .spotlight-overlay { opacity: 1; }
+  .sp-badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--metallic-gold);
+    color: #000; -webkit-text-fill-color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.58rem; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 50px;
+  }
+  .sp-feat {
+    position: absolute; top: 14px; right: 14px;
+    background: rgba(0,0,0,0.7);
+    border: 1px solid rgba(179,135,40,0.5);
+    color: var(--deep-gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.58rem; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 50px;
+  }
+  .sp-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    background: var(--metallic-gold);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px; display: inline-block;
+  }
+  .sp-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.88rem; color: #fff; letter-spacing: 1.5px;
+  }
 
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .gallery-grid { columns: 2 200px; }
-      .gallery-card.wide img { height: 220px; }
-      .gallery-card.tall  img { height: 300px; }
-      .gallery-card.regular img { height: 180px; }
-      .lightbox-prev { left: 8px; }
-      .lightbox-next { right: 8px; }
-      .lightbox-prev,
-      .lightbox-next { width: 38px; height: 38px; font-size: 0.9rem; }
-    }
-    @media (max-width: 480px) {
-      .gallery-grid { columns: 1; }
-      .filter-btn { padding: 8px 18px; font-size: 0.72rem; }
-      .gallery-card.wide img,
-      .gallery-card.tall img,
-      .gallery-card.regular img { height: auto; max-height: 280px; }
-    }
+  /* ── CTA Box ── */
+  .gallery-cta {
+    background: linear-gradient(145deg, #0c0c0c, #090909);
+    border: 1px solid rgba(179,135,40,0.25);
+    border-radius: 32px;
+    padding: 70px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+  }
+  .gallery-cta::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%; transform: translateX(-50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(179,135,40,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .gallery-cta:hover {
+    border-color: var(--deep-gold);
+    box-shadow: 0 30px 60px -15px rgba(179,135,40,0.12);
+  }
+
+  /* ══════════════════════════════════════════════
+     LIGHTBOX
+  ══════════════════════════════════════════════ */
+  .lb-bg {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.97);
+    z-index: 9990;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    padding: 20px 80px;
+  }
+  .lb-bg.open { opacity: 1; pointer-events: all; }
+
+  .lb-box {
+    position: relative;
+    max-width: 920px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .lb-img-wrap {
+    position: relative;
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(179,135,40,0.35);
+    box-shadow: 0 0 80px rgba(179,135,40,0.12);
+  }
+  .lb-img-wrap img {
+    width: 100%;
+    max-height: 68vh;
+    object-fit: contain;
+    display: block;
+    background: #060606;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .lb-img-wrap img.loaded { opacity: 1; }
+
+  .lb-loader {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: #060606; border-radius: 18px; z-index: 2;
+  }
+  .lb-loader span {
+    width: 36px; height: 36px;
+    border: 3px solid #1a1a1a;
+    border-top-color: var(--deep-gold);
+    border-radius: 50%;
+    animation: lbSpin 0.7s linear infinite;
+  }
+  @keyframes lbSpin { to { transform: rotate(360deg); } }
+
+  /* Close button */
+  .lb-close {
+    position: absolute;
+    top: -15px; right: -15px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--deep-gold);
+    color: #000; border: none;
+    font-size: 1.05rem;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: 0.3s; z-index: 10;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  }
+  .lb-close:hover { background: #fff; transform: scale(1.1) rotate(90deg); }
+
+  /* Caption */
+  .lb-cap {
+    width: 100%;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
+    flex-wrap: wrap; gap: 8px;
+  }
+  .lb-cap-l { display: flex; flex-direction: column; gap: 3px; }
+  .lb-cap-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem; letter-spacing: 3px;
+    text-transform: uppercase;
+    background: var(--metallic-gold);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  .lb-cap-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.9rem; color: #fff; letter-spacing: 1px;
+  }
+  .lb-count {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem; color: #555; letter-spacing: 2px;
+    background: #111;
+    padding: 5px 14px; border-radius: 50px;
+    border: 1px solid #1e1e1e;
+  }
+
+  /* Thumbnail strip */
+  .lb-thumbs {
+    width: 100%;
+    overflow-x: auto; overflow-y: hidden;
+    display: flex; gap: 7px;
+    padding: 2px 0 6px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--deep-gold) #111;
+  }
+  .lb-thumbs::-webkit-scrollbar { height: 3px; }
+  .lb-thumbs::-webkit-scrollbar-track { background: #111; }
+  .lb-thumbs::-webkit-scrollbar-thumb { background: var(--deep-gold); border-radius: 2px; }
+  .lb-thumb {
+    flex-shrink: 0;
+    width: 62px; height: 46px;
+    border-radius: 8px; overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer; transition: 0.3s;
+    opacity: 0.45;
+  }
+  .lb-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .lb-thumb:hover { opacity: 0.8; border-color: rgba(179,135,40,0.5); }
+  .lb-thumb.cur { border-color: var(--deep-gold); opacity: 1; }
+
+  /* Arrows */
+  .lb-arr {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    width: 50px; height: 50px; border-radius: 50%;
+    background: rgba(179,135,40,0.15);
+    border: 1px solid rgba(179,135,40,0.45);
+    color: var(--deep-gold); font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: 0.3s; z-index: 9995;
+    backdrop-filter: blur(6px);
+  }
+  .lb-arr.prev { left: 16px; }
+  .lb-arr.next { right: 16px; }
+  .lb-arr:hover { background: var(--deep-gold); color: #000; transform: translateY(-50%) scale(1.08); }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .spotlight-row { grid-template-columns: 1fr 1fr; grid-template-rows: 240px; }
+    .spotlight-row .spotlight-card:first-child { grid-column: span 2; }
+  }
+  @media (max-width: 768px) {
+    .g-grid { columns: 2 180px; }
+    .g-card.wide img { height: 200px; }
+    .g-card.tall img { height: 300px; }
+    .g-card.reg  img { height: 175px; }
+    .g-card.sq   img { height: 200px; }
+    .lb-bg { padding: 16px 10px; }
+    .lb-arr.prev { left: 6px; }
+    .lb-arr.next { right: 6px; }
+    .lb-arr { width: 40px; height: 40px; font-size: 0.9rem; }
+    .gallery-cta { padding: 44px 20px; }
+    .spotlight-row { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .spotlight-card { height: 220px; }
+  }
+  @media (max-width: 480px) {
+    .g-grid { columns: 1; }
+    .filter-btn { padding: 8px 16px; font-size: 0.68rem; }
+    .lb-thumbs { display: none; }
+  }
   </style>
 </head>
 <body>
@@ -403,12 +600,12 @@ content="https://rl-updated.netlify.app/" />
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="Our Journey.html">Our Journey</a></li>
           <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="Our Fleet.html">Our Fleet</a></li>
           <li class="nav-item"><a class="nav-link" href="About Us.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link active-link" href="Gallery.html">Gallery</a></li>
           <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
         </ul>
       </div>
@@ -417,40 +614,73 @@ content="https://rl-updated.netlify.app/" />
 
   <!-- Page Hero -->
   <section class="page-hero">
-    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1920&q=80');"></div>
     <div class="page-hero-overlay"></div>
     <div class="container" data-aos="zoom-out">
+      <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:5px;color:rgba(179,135,40,0.75);text-transform:uppercase;margin-bottom:14px;display:block;">
+        <i class="fas fa-crown me-2"></i>Visual Showcase
+      </p>
       <h1 class="gold-text">Imperial Gallery</h1>
-      <p class="page-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Gallery</p>
+      <p class="lead mt-2" style="color:#bbb;font-size:0.95rem;letter-spacing:1px;">
+        Fleet · Operations · Team · Client Sites · Briefings
+      </p>
+      <p class="page-breadcrumb mt-3"><a href="index.html">Home</a> &nbsp;/&nbsp; Gallery</p>
     </div>
   </section>
 
-  <!-- Stats Strip -->
-  <section class="gallery-stats-strip">
+  <!-- Gold Ticker -->
+  <div class="gold-ticker">
+    <div class="ticker-inner">
+      <span>100+ Premium Vehicles</span><span class="sep">✦</span>
+      <span>18+ Years of Excellence</span><span class="sep">✦</span>
+      <span>2.3 Million Safe Journeys</span><span class="sep">✦</span>
+      <span>99.8% On-Time Performance</span><span class="sep">✦</span>
+      <span>80+ Trained Drivers</span><span class="sep">✦</span>
+      <span>10+ Corporate Clients</span><span class="sep">✦</span>
+      <span>ISO 9001:2024 Certified</span><span class="sep">✦</span>
+      <span>24/7 Command Center</span><span class="sep">✦</span>
+      <!-- Duplicate for seamless loop -->
+      <span>100+ Premium Vehicles</span><span class="sep">✦</span>
+      <span>18+ Years of Excellence</span><span class="sep">✦</span>
+      <span>2.3 Million Safe Journeys</span><span class="sep">✦</span>
+      <span>99.8% On-Time Performance</span><span class="sep">✦</span>
+      <span>80+ Trained Drivers</span><span class="sep">✦</span>
+      <span>10+ Corporate Clients</span><span class="sep">✦</span>
+      <span>ISO 9001:2024 Certified</span><span class="sep">✦</span>
+      <span>24/7 Command Center</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- Animated Stats -->
+  <section class="stats-strip">
     <div class="container">
-      <div class="row g-3 text-center">
+      <div class="row g-3">
         <div class="col-6 col-md-3" data-aos="fade-up">
-          <div class="gallery-stat-item">
-            <h3 class="gold-text">100+</h3>
-            <p>Premium Vehicles</p>
+          <div class="stat-box">
+            <span class="stat-icon-wrap"><i class="fas fa-car-side"></i></span>
+            <span class="stat-num" data-target="100" data-suffix="+">0</span>
+            <span class="stat-lbl">Premium Vehicles</span>
           </div>
         </div>
-        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="gallery-stat-item">
-            <h3 class="gold-text">18+</h3>
-            <p>Years of Service</p>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="80">
+          <div class="stat-box">
+            <span class="stat-icon-wrap"><i class="fas fa-award"></i></span>
+            <span class="stat-num" data-target="18" data-suffix="+">0</span>
+            <span class="stat-lbl">Years of Service</span>
           </div>
         </div>
-        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
-          <div class="gallery-stat-item">
-            <h3 class="gold-text">2.3M+</h3>
-            <p>Safe Journeys</p>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="160">
+          <div class="stat-box">
+            <span class="stat-icon-wrap"><i class="fas fa-shield-halved"></i></span>
+            <span class="stat-num" data-target="23" data-suffix="L+">0</span>
+            <span class="stat-lbl">Safe Journeys</span>
           </div>
         </div>
-        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
-          <div class="gallery-stat-item">
-            <h3 class="gold-text">10+</h3>
-            <p>Corporate Clients</p>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="240">
+          <div class="stat-box">
+            <span class="stat-icon-wrap"><i class="fas fa-building"></i></span>
+            <span class="stat-num" data-target="10" data-suffix="+">0</span>
+            <span class="stat-lbl">Corporate Clients</span>
           </div>
         </div>
       </div>
@@ -460,245 +690,308 @@ content="https://rl-updated.netlify.app/" />
   <!-- Gallery Section -->
   <section class="section-padding">
     <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="gold-text">A Visual Tour of Royal Excellence</h2>
-        <p class="lead mt-3 px-lg-4">Explore our premium fleet, world-class operations, dedicated team, and the royal standard we uphold on every single journey.</p>
+
+      <div class="text-center mb-4" data-aos="fade-up">
+        <span style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:4px;text-transform:uppercase;color:rgba(179,135,40,0.7);border:1px solid rgba(179,135,40,0.3);padding:5px 18px;border-radius:50px;display:inline-block;margin-bottom:16px;">
+          <i class="fas fa-images me-2"></i>Full Collection
+        </span>
+        <h2 class="gold-text mt-2">A Visual Tour of Royal Excellence</h2>
+        <p class="lead mt-3 px-lg-5">From driver briefings to client sites, from our vehicles to our offices — every image tells the story of the Royal's standard.</p>
+      </div>
+
+      <!-- Gold Divider -->
+      <div class="royal-divider" data-aos="fade-up">
+        <i class="fas fa-crown"></i>
       </div>
 
       <!-- Filter Buttons -->
       <div class="filter-bar" data-aos="fade-up">
         <button class="filter-btn active" data-filter="all">
-          <i class="fas fa-th me-2"></i>All
+          <i class="fas fa-border-all"></i>All <span class="f-count">25</span>
         </button>
-        <button class="filter-btn" data-filter="fleet">
-          <i class="fas fa-car me-2"></i>Fleet
+        <button class="filter-btn" data-filter="vehicle">
+          <i class="fas fa-car"></i>Vehicles <span class="f-count">8</span>
         </button>
-        <button class="filter-btn" data-filter="operations">
-          <i class="fas fa-headset me-2"></i>Operations
-        </button>
-        <button class="filter-btn" data-filter="team">
-          <i class="fas fa-users me-2"></i>Our Team
+        <button class="filter-btn" data-filter="briefing">
+          <i class="fas fa-chalkboard-user"></i>Driver Briefing <span class="f-count">4</span>
         </button>
         <button class="filter-btn" data-filter="office">
-          <i class="fas fa-building me-2"></i>Office
+          <i class="fas fa-building"></i>Our Office <span class="f-count">4</span>
         </button>
-        <button class="filter-btn" data-filter="events">
-          <i class="fas fa-calendar-star me-2"></i>Events
+        <button class="filter-btn" data-filter="client">
+          <i class="fas fa-city"></i>Client Sites <span class="f-count">5</span>
+        </button>
+        <button class="filter-btn" data-filter="operations">
+          <i class="fas fa-headset"></i>Operations <span class="f-count">4</span>
         </button>
       </div>
 
-      <!-- Gallery Grid -->
-      <div class="gallery-grid" id="galleryGrid">
+      <!-- ── SPOTLIGHT ROW (Featured 3 cards) ── -->
+      <div class="spotlight-row" data-aos="fade-up" id="spotlightRow">
 
-        <!-- ── FLEET ── -->
-        <div class="gallery-card wide fade-in" data-category="fleet" data-title="Royal Sedan Fleet" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=80" alt="Royal Sedan Fleet" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Fleet</span>
-            <p class="gallery-overlay-title">Royal Sedan Fleet</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="spotlight-card" data-lb-src="Rl office cabs.jpg" data-lb-title="Royal Fleet — Premium Sedans" data-lb-tag="Vehicle">
+          <img src="Rl office cabs.jpg" alt="Royal Fleet">
+          <div class="sp-badge">Vehicle</div>
+          <div class="sp-feat"><i class="fas fa-crown me-1"></i>Featured</div>
+          <div class="spotlight-overlay">
+            <span class="sp-tag">Fleet</span>
+            <p class="sp-title">Royal Fleet — Premium Sedans</p>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="fleet" data-title="Executive Sedans — Dzire & City" data-aos="fade-up">
-          <img src="https://ic4.maxabout.us/tr:w-600/autos/cars_india/2025/03/Maruti_Tour_S-20250321052622.jpg" alt="Executive Sedans" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Fleet</span>
-            <p class="gallery-overlay-title">Executive Sedans</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        
+
+        <div class="spotlight-card" data-lb-src="Rl office.jpg" data-lb-title="Royal — Hyderabad Office" data-lb-tag="Office">
+          <img src="Rl office.jpg" alt="Royal Office">
+          <div class="sp-badge">Office</div>
+          <div class="spotlight-overlay">
+            <span class="sp-tag">Office</span>
+            <p class="sp-title">Royal HQ — Hyderabad</p>
+          </div>
+        </div>
+        <div class="spotlight-card" data-lb-src="morning shift.jpg" data-lb-title="Driver Briefing Session" data-lb-tag="Briefing">
+          <img src="morning shift.jpg" alt="Driver Briefing">
+          <div class="sp-badge">Briefing</div>
+          <div class="spotlight-overlay">
+            <span class="sp-tag">Driver Briefing</span>
+            <p class="sp-title">Morning Briefing Session</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MAIN MASONRY GALLERY ── -->
+      <div class="g-grid" id="gGrid">
+
+        <!-- ══ VEHICLES (8) ══ -->
+        <div class="g-card wide reveal" data-category="vehicle" data-title="Maruti Dzire — Executive Sedan">
+          <span class="g-pill">Vehicle</span>
+          <img src="https://i.pinimg.com/736x/db/15/cc/db15cc6e4cebb37926a0094cb5d370f8.jpg" alt="Maruti Dzire" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Vehicle</span>
+            <p class="g-title">Maruti Dzire — Executive Sedan</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="fleet" data-title="Imperial SUVs — Innova Crysta" data-aos="fade-up">
-          <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/PH/MT/TD/81073921/corporate-cab-rental-service.jpg" alt="Imperial SUVs" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Fleet</span>
-            <p class="gallery-overlay-title">Imperial SUVs</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="vehicle" data-title="Innova Crysta — Imperial SUV">
+          <span class="g-pill">Vehicle</span>
+          <img src="https://i.pinimg.com/1200x/fe/e6/ee/fee6eea7b191112a744e2bf23a277871.jpg" alt="Innova Crysta" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Vehicle</span>
+            <p class="g-title">Innova Crysta — Imperial SUV</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card tall fade-in" data-category="fleet" data-title="Luxury Coach — Force Urbania" data-aos="fade-up">
-          <img src="https://www.carrentaldelhi.biz/images/categories-photoes/11-seater-urbania-big.jpg" alt="Luxury Coach" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Fleet</span>
-            <p class="gallery-overlay-title">Luxury Coaches</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="vehicle" data-title="Force Urbania — Luxury Coach">
+          <span class="g-pill">Vehicle</span>
+          <img src="https://www.carrentaldelhi.biz/images/categories-photoes/11-seater-urbania-big.jpg" alt="Force Urbania" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Vehicle</span>
+            <p class="g-title">Force Urbania — Luxury Coach</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="fleet" data-title="Imperial Buses — Volvo 50-Seater" data-aos="fade-up">
-          <img src="https://www.topindianholidays.com/blog_images/luxury-coaches-in-india.webp" alt="Imperial Buses" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Fleet</span>
-            <p class="gallery-overlay-title">Imperial Buses</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card tall reveal" data-category="vehicle" data-title="Volvo Bus — 50-Seater Imperial">
+          <span class="g-pill">Vehicle</span>
+          <img src="https://i.pinimg.com/736x/71/04/84/710484782a20a642992d66df3d6d3a80.jpg" alt="Volvo Bus" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Vehicle</span>
+            <p class="g-title">Volvo — 50-Seater Imperial Bus</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="fleet" data-title="Premium Night Shift Vehicles" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" alt="Night Fleet" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Fleet</span>
-            <p class="gallery-overlay-title">Night Shift Ready</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="vehicle" data-title="Premium Sedan — Night Shift Ready">
+          <span class="g-pill">Vehicle</span>
+          <img src="https://i.pinimg.com/736x/41/63/e3/4163e39c64777a2603ed84e26cded87a.jpg" alt="Night Sedan" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Vehicle</span>
+            <p class="g-title">Night Shift Ready Sedan</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card wide fade-in" data-category="fleet" data-title="GPS-Enabled & Sanitized Fleet" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80" alt="Fleet Ready" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Fleet</span>
-            <p class="gallery-overlay-title">GPS-Enabled & Sanitized</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="vehicle" data-title="Sedan Side Profile — Royal Standard">
+          <span class="g-pill">Vehicle</span>
+          <img src="https://i.pinimg.com/736x/ed/09/05/ed09056e4d67027be8b1ff68906cfc68.jpg" alt="Sedan Side" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Vehicle</span>
+            <p class="g-title">Sedan — Side Profile</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <!-- ── OPERATIONS ── -->
-        <div class="gallery-card wide fade-in" data-category="operations" data-title="24/7 Command & Control Center" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="Command Center" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Operations</span>
-            <p class="gallery-overlay-title">24/7 Command Center</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="vehicle" data-title="Premium Car Interior — Passenger Comfort">
+          <span class="g-pill">Vehicle</span>
+          <img src="https://i.pinimg.com/1200x/68/5f/91/685f91bdf9f639d9f1223200924b5f42.jpg" alt="Car Interior" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Vehicle</span>
+            <p class="g-title">Premium Car Interior</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="operations" data-title="Real-Time GPS Fleet Tracking" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=800&q=80" alt="GPS Tracking" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Operations</span>
-            <p class="gallery-overlay-title">Live GPS Tracking</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card wide reveal" data-category="vehicle" data-title="Fleet Lineup — GPS Enabled & Sanitized">
+          <span class="g-pill">Vehicle</span>
+          <img src="https://shop.letstrack.in/cdn/shop/files/gpsforcar.jpg?v=1748863495&width=1946" alt="Fleet Lineup" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Vehicle</span>
+            <p class="g-title">Fleet Lineup — GPS Enabled</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card tall fade-in" data-category="operations" data-title="Route Planning & Shift Management" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Route Planning" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Operations</span>
-            <p class="gallery-overlay-title">Route Planning</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <!-- ══ DRIVER BRIEFING (4) ══ -->
+        <div class="g-card wide reveal" data-category="briefing" data-title="Morning Driver Briefing — Safety Protocol">
+          <span class="g-pill">Briefing</span>
+          <img src="morning shift.jpg" alt="Driver Briefing" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Driver Briefing</span>
+            <p class="g-title">Morning Safety Briefing</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="operations" data-title="Pre-Trip Vehicle Safety Inspection" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80" alt="Vehicle Inspection" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Operations</span>
-            <p class="gallery-overlay-title">Safety Inspections</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="briefing" data-title="Route & Shift Briefing Session">
+          <span class="g-pill">Briefing</span>
+          <img src="night shift.jpg" alt="Shift Briefing" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Driver Briefing</span>
+            <p class="g-title">Night Shift Briefing</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <!-- ── TEAM ── -->
-        <div class="gallery-card wide fade-in" data-category="team" data-title="Our Dedicated Operations Team" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Operations Team" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Team</span>
-            <p class="gallery-overlay-title">Operations Team</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card tall reveal" data-category="briefing" data-title="Driver Certification & Training Program">
+          <span class="g-pill">Briefing</span>
+          <img src="Certification Program.jpg" alt="Driver Training" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Driver Briefing</span>
+            <p class="g-title">Certification Program</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="team" data-title="Professional Driver Corps" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Professional Drivers" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Team</span>
-            <p class="gallery-overlay-title">Professional Drivers</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="briefing" data-title="Pre-Trip Checklist — Driver Verification">
+          <span class="g-pill">Briefing</span>
+          <img src="Driver Verification Check.jpg" alt="Driver Verification" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Driver Briefing</span>
+            <p class="g-title">Driver Verification Check</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="team" data-title="Driver Training & Certification" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Driver Training" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Team</span>
-            <p class="gallery-overlay-title">Driver Training</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <!-- ══ OUR OFFICE (4) ══ -->
+        <div class="g-card wide reveal" data-category="office" data-title="Royal's Logistics — Manikonda, Hyderabad">
+          <span class="g-pill">Office</span>
+          <img src="Rl office.jpg" alt="Royal HQ" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Our Office</span>
+            <p class="g-title">Royal's HQ — Hyderabad</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card tall fade-in" data-category="team" data-title="Customer Service Excellence" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Customer Service" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Team</span>
-            <p class="gallery-overlay-title">Service Excellence</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="office" data-title="Operations Control Room">
+          <span class="g-pill">Office</span>
+          <img src="Operations Control.png" alt="Operations Room" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Our Office</span>
+            <p class="g-title">Operations Control Room</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <!-- ── OFFICE ── -->
-        <div class="gallery-card wide fade-in" data-category="office" data-title="Royal Headquarters — Hyderabad" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Royal Headquarters" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Office</span>
-            <p class="gallery-overlay-title">Royal Headquarters</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="office" data-title="Client Meeting — Conference Room">
+          <span class="g-pill">Office</span>
+          <img src="Client Conference Room.png" alt="Conference Room" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Our Office</span>
+            <p class="g-title">Client Conference Room</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="office" data-title="Modern Operations Floor" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80" alt="Operations Floor" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Office</span>
-            <p class="gallery-overlay-title">Operations Floor</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <!-- ══ CLIENT SITES (5) ══ -->
+        <div class="g-card wide reveal" data-category="client" data-title="Nanakramguda — Du Pont Client Site">
+          <span class="g-pill">Client Site</span>
+          <img src="Du Pont.jpg" alt="Du Pont" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Client Site</span>
+            <p class="g-title">Nanakramguda — Du Pont</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="office" data-title="Client Meeting & Boardroom" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80" alt="Boardroom" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Office</span>
-            <p class="gallery-overlay-title">Client Boardroom</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="client" data-title="HITEC City — Judge India Solutions Client Site">
+          <span class="g-pill">Client Site</span>
+          <img src="https://www.judgeindiasolutions.com/wp-content/uploads/2023/05/judge-office.jpg" alt="Financial District" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Client Site</span>
+            <p class="g-title">HITEC City — Judge India Solutions Client Site</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <!-- ── EVENTS ── -->
-        <div class="gallery-card wide fade-in" data-category="events" data-title="Corporate Event Transport — Hyderabad" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Corporate Events" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Events</span>
-            <p class="gallery-overlay-title">Corporate Events</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="client" data-title="Narsingi — IVY Client Site">
+          <span class="g-pill">Client Site</span>
+          <img src="https://content.jdmagicbox.com/v2/comp/hyderabad/u4/040pxx40.xx40.221119200616.e8u4/catalogue/ivy-comptech-hyderabad-software-companies-WIDJ7qKENr-250.jpg" alt="Corporate Campus" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Client Site</span>
+            <p class="g-title">Corporate Campus Pickup</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="events" data-title="Conference & Summit Transport" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80" alt="Conference Transport" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Events</span>
-            <p class="gallery-overlay-title">Conference Transport</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="client" data-title="Madhapur — Innodata Client Site">
+          <span class="g-pill">Client Site</span>
+          <img src="https://media.glassdoor.com/lst2x/3e/ea/4c/f0/stellar-it-park.jpg?signature=89de279273ac67918752aab0ef7f057e9c4f9319f4b1e60e4132c0b4a3b01bb0" alt="Night Shift BPO" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Client Site</span>
+            <p class="g-title">Madhapur — Innodata Client Site</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card tall fade-in" data-category="events" data-title="Team Outing & Offsite Mobility" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Team Outings" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Events</span>
-            <p class="gallery-overlay-title">Team Outings</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <!-- ══ OPERATIONS (4) ══ -->
+        <div class="g-card wide reveal" data-category="operations" data-title="24/7 Command & Control Center">
+          <span class="g-pill">Operations</span>
+          <img src="Operations.jpg" alt="Command Center" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Operations</span>
+            <p class="g-title">24/7 Command Center</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-        <div class="gallery-card regular fade-in" data-category="events" data-title="VIP Executive Airport Transfer" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" alt="Airport Transfers" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-overlay-tag">Events</span>
-            <p class="gallery-overlay-title">Airport Transfers</p>
-            <div class="gallery-overlay-icon"><i class="fas fa-expand"></i></div>
+        <div class="g-card reg reveal" data-category="operations" data-title="Live GPS Fleet Tracking Dashboard">
+          <span class="g-pill">Operations</span>
+          <img src="Live GPS.png" alt="GPS Tracking" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Operations</span>
+            <p class="g-title">Live GPS Tracking</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
           </div>
         </div>
 
-      </div><!-- /gallery-grid -->
+        <div class="g-card reg reveal" data-category="operations" data-title="Pre-Trip Vehicle Safety Inspection">
+          <span class="g-pill">Operations</span>
+          <img src="Safety.png" alt="Safety Inspection" loading="lazy">
+          <div class="g-overlay">
+            <span class="g-tag">Operations</span>
+            <p class="g-title">Safety Inspections</p>
+            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
+          </div>
+        </div>
 
-      <!-- Empty state -->
-      <div id="emptyState" style="display:none;text-align:center;padding:60px 0;">
-        <i class="fas fa-images" style="font-size:3rem;color:#333;margin-bottom:16px;display:block;"></i>
-        <p style="color:#666;">No images found in this category.</p>
+      </div><!-- /g-grid -->
+
+      <div id="emptyState" style="display:none;text-align:center;padding:70px 0;">
+        <i class="fas fa-images" style="font-size:3.5rem;background:var(--metallic-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:block;margin-bottom:18px;"></i>
+        <p style="color:#444;font-size:1rem;letter-spacing:1px;">No images in this category yet.</p>
       </div>
 
     </div>
@@ -706,17 +999,22 @@ content="https://rl-updated.netlify.app/" />
 
   <!-- CTA Section -->
   <section class="section-padding pt-0">
-    <div class="container">
-      <div class="royal-border-box text-center" data-aos="zoom-in">
+    <div class="container" data-aos="zoom-in">
+      <div class="gallery-cta">
+        <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:4px;color:rgba(179,135,40,0.65);text-transform:uppercase;margin-bottom:14px;">
+          <i class="fas fa-crown me-2"></i>Ready to Experience This?
+        </p>
         <h2 class="gold-text mb-4">Experience the Royal Standard Firsthand</h2>
-        <p class="lead mb-2">What you see in these images is what your employees experience every single day — premium vehicles, professional drivers, and operations that never sleep.</p>
-        <p class="mb-5" style="color:#ccc;">18+ years · 100+ vehicles · 2.3 million safe journeys · 99.8% on-time performance</p>
+        <p class="lead mb-2">What you see here is what your employees experience every single day — premium vehicles, professional drivers, and operations that never sleep.</p>
+        <p class="mb-5" style="color:#555;font-size:0.78rem;letter-spacing:2.5px;">
+          18+ YEARS &nbsp;·&nbsp; 100+ VEHICLES &nbsp;·&nbsp; 2.3M+ SAFE JOURNEYS &nbsp;·&nbsp; 99.8% ON-TIME
+        </p>
         <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="contact.html" class="btn btn-royal">
-            Request a Free Consultation <i class="fas fa-arrow-right ms-2"></i>
+          <a href="Contact.html" class="btn btn-royal">
+            Request Free Consultation <i class="fas fa-arrow-right ms-2"></i>
           </a>
           <a href="Our Fleet.html" class="btn-outline-royal">
-            Explore Our Fleet <i class="fas fa-car ms-2"></i>
+            View Our Fleet <i class="fas fa-car ms-2"></i>
           </a>
         </div>
       </div>
@@ -747,12 +1045,12 @@ content="https://rl-updated.netlify.app/" />
           <h5 class="gold-text mb-3" style="font-size:1rem;">Royal Links</h5>
           <div class="footer-links d-flex flex-column">
             <a href="index.html">Home</a>
-            <a href="Our Journey.html">Legacy</a>
-            <a href="Services.html">Expertise</a>
-            <a href="Our Fleet.html">Fleet</a>
-            <a href="About Us.html">About</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
+            <a href="Our Journey.html">Our Journey</a>
+            <a href="Services.html">Services</a>
+            <a href="Our Fleet.html">Our Fleet</a>
+            <a href="About Us.html">About Us</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="Contact.html">Contact</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -760,11 +1058,11 @@ content="https://rl-updated.netlify.app/" />
           <div class="footer-services d-flex flex-column">
             <a href="#">Corporate Employee Transportation</a>
             <a href="#">Imperial Fleet Management</a>
-            <a href="#">Events & Conferences Transport</a>
+            <a href="#">Events &amp; Conferences Transport</a>
             <a href="#">Executive Travel Solutions</a>
             <a href="#">Airport Transfers</a>
             <a href="#">IT Company Transport</a>
-            <a href="#">BPO & KPO Night Shift Transport</a>
+            <a href="#">BPO &amp; KPO Night Shift Transport</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -780,161 +1078,220 @@ content="https://rl-updated.netlify.app/" />
     </div>
   </footer>
 
-  <!-- ══ LIGHTBOX MARKUP ══ -->
-  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-    <button class="lightbox-prev" id="lbPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-    <div class="lightbox-inner">
-      <button class="lightbox-close" id="lbClose" aria-label="Close"><i class="fas fa-times"></i></button>
-      <div class="lightbox-img-wrap">
-        <div class="lightbox-loader" id="lbLoader"><span></span></div>
-        <img id="lbImg" src="" alt="" style="opacity:0;transition:opacity 0.3s ease;">
+  <!-- ══ LIGHTBOX ══ -->
+  <div class="lb-bg" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb-arr prev" id="lbPrev"><i class="fas fa-chevron-left"></i></button>
+    <div class="lb-box">
+      <button class="lb-close" id="lbClose" aria-label="Close"><i class="fas fa-times"></i></button>
+      <div class="lb-img-wrap">
+        <div class="lb-loader" id="lbLoader"><span></span></div>
+        <img id="lbImg" src="" alt="">
       </div>
-      <div class="lightbox-caption">
-        <div class="lightbox-caption-left">
-          <span class="lightbox-caption-tag" id="lbTag"></span>
-          <span class="lightbox-caption-title" id="lbTitle"></span>
+      <div class="lb-cap">
+        <div class="lb-cap-l">
+          <span class="lb-cap-tag" id="lbTag"></span>
+          <span class="lb-cap-title" id="lbTitle"></span>
         </div>
-        <span class="lightbox-counter" id="lbCounter"></span>
+        <span class="lb-count" id="lbCount"></span>
       </div>
+      <div class="lb-thumbs" id="lbThumbs"></div>
     </div>
-    <button class="lightbox-next" id="lbNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+    <button class="lb-arr next" id="lbNext"><i class="fas fa-chevron-right"></i></button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="main.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="main.js"></script>
 
-  <script>
-  /* ══════════════════════════════════════════════
-     GALLERY: Filter + Lightbox
-  ══════════════════════════════════════════════ */
-  (function () {
+<script>
+(function () {
 
-    // ── Collect all cards ──
-    const grid       = document.getElementById('galleryGrid');
-    const emptyState = document.getElementById('emptyState');
-    let allCards     = Array.from(grid.querySelectorAll('.gallery-card'));
-    let visibleCards = [...allCards];  // currently visible subset
-    let currentIndex = 0;
-
-    // ── Filter Logic ──
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-
-        const filter = this.dataset.filter;
-        visibleCards  = [];
-
-        allCards.forEach(card => {
-          const match = filter === 'all' || card.dataset.category === filter;
-          if (match) {
-            card.classList.remove('hidden');
-            card.classList.remove('fade-in');
-            // Trigger reflow for animation restart
-            void card.offsetWidth;
-            card.classList.add('fade-in');
-            visibleCards.push(card);
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-
-        emptyState.style.display = visibleCards.length === 0 ? 'block' : 'none';
-      });
+  /* ── Animated Counters ── */
+  const nums = document.querySelectorAll('.stat-num[data-target]');
+  const statsObs = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    nums.forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const suf    = el.dataset.suffix || '';
+      let cur = 0;
+      const step = Math.max(1, Math.ceil(target / 45));
+      const iv = setInterval(() => {
+        cur += step;
+        if (cur >= target) { cur = target; clearInterval(iv); }
+        el.textContent = cur + suf;
+      }, 35);
     });
+    statsObs.disconnect();
+  }, { threshold: 0.3 });
+  const statsEl = document.querySelector('.stats-strip');
+  if (statsEl) statsObs.observe(statsEl);
 
-    // ── Lightbox Elements ──
-    const lb       = document.getElementById('lightbox');
-    const lbImg    = document.getElementById('lbImg');
-    const lbLoader = document.getElementById('lbLoader');
-    const lbTitle  = document.getElementById('lbTitle');
-    const lbTag    = document.getElementById('lbTag');
-    const lbCounter= document.getElementById('lbCounter');
+  /* ── Gallery Setup ── */
+  const grid      = document.getElementById('gGrid');
+  const empty     = document.getElementById('emptyState');
+  const spotlight = document.getElementById('spotlightRow'); // featured top row
 
-    function openLightbox(index) {
-      currentIndex = index;
-      const card   = visibleCards[index];
-      const img    = card.querySelector('img');
+  let allCards = Array.from(grid.querySelectorAll('.g-card'));
+  let visible  = [...allCards];
+  let curIdx   = 0;
 
-      lb.classList.add('active');
+  /* ── FILTER LOGIC (KEY FIX) ── */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+
+      // 1. Update active button
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const f = this.dataset.filter;
+
+      // 2. Show spotlight row only when "All" is selected
+      if (spotlight) {
+        spotlight.style.display     = (f === 'all') ? 'grid' : 'none';
+        spotlight.style.marginBottom = (f === 'all') ? '16px' : '0';
+      }
+
+      // 3. Filter gallery cards
+      visible = [];
+      allCards.forEach(card => {
+        const match = (f === 'all') || (card.dataset.category === f);
+
+        if (match) {
+          // Remove hidden first, then trigger animation
+          card.classList.remove('hidden');
+          card.classList.remove('reveal');
+          void card.offsetWidth; // force reflow so animation restarts
+          card.classList.add('reveal');
+          visible.push(card);
+        } else {
+          card.classList.remove('reveal');
+          card.classList.add('hidden');
+        }
+      });
+
+      // 4. Show empty state if no results
+      empty.style.display = (visible.length === 0) ? 'block' : 'none';
+
+      // 5. Rebuild thumbnail strip for lightbox
+      buildThumbs();
+    });
+  });
+
+  /* ── Lightbox Thumbnail Strip ── */
+  const lb     = document.getElementById('lb');
+  const lbImg  = document.getElementById('lbImg');
+  const lbLoad = document.getElementById('lbLoader');
+  const lbTag  = document.getElementById('lbTag');
+  const lbTtl  = document.getElementById('lbTitle');
+  const lbCnt  = document.getElementById('lbCount');
+  const lbTbs  = document.getElementById('lbThumbs');
+
+  function buildThumbs() {
+    lbTbs.innerHTML = '';
+    visible.forEach((c, i) => {
+      const img = c.querySelector('img');
+      const th  = document.createElement('div');
+      th.className = 'lb-thumb';
+      th.innerHTML = `<img src="${img.src}" alt="">`;
+      th.addEventListener('click', () => openLB(i));
+      lbTbs.appendChild(th);
+    });
+  }
+  buildThumbs();
+
+  function syncThumbs() {
+    lbTbs.querySelectorAll('.lb-thumb').forEach((t, i) => {
+      t.classList.toggle('cur', i === curIdx);
+    });
+    const act = lbTbs.querySelectorAll('.lb-thumb')[curIdx];
+    if (act) act.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }
+
+  function loadImg(src) {
+    lbLoad.style.display = 'flex';
+    lbImg.classList.remove('loaded');
+    lbImg.src = '';
+    const t   = new Image();
+    t.onload  = () => { lbImg.src = t.src; lbLoad.style.display = 'none'; lbImg.classList.add('loaded'); };
+    t.onerror = () => { lbLoad.style.display = 'none'; lbImg.classList.add('loaded'); };
+    t.src = src;
+  }
+
+  function openLB(idx) {
+    curIdx = idx;
+    const c   = visible[idx];
+    const img = c.querySelector('img');
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lbTag.textContent = (c.dataset.category || '').toUpperCase().replace('-', ' ');
+    lbTtl.textContent = c.dataset.title || '';
+    lbCnt.textContent = `${idx + 1} / ${visible.length}`;
+    loadImg(img.src);
+    syncThumbs();
+  }
+
+  function closeLB() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { lbImg.src = ''; lbImg.classList.remove('loaded'); }, 350);
+  }
+
+  function nav(d) {
+    if (visible.length === 0) return;
+    curIdx = (curIdx + d + visible.length) % visible.length;
+    const c = visible[curIdx];
+    lbTag.textContent = (c.dataset.category || '').toUpperCase().replace('-', ' ');
+    lbTtl.textContent = c.dataset.title || '';
+    lbCnt.textContent = `${curIdx + 1} / ${visible.length}`;
+    loadImg(c.querySelector('img').src);
+    syncThumbs();
+  }
+
+  /* Click on gallery cards */
+  allCards.forEach(c => {
+    c.addEventListener('click', () => {
+      const vi = visible.indexOf(c);
+      if (vi !== -1) openLB(vi);
+    });
+  });
+
+  /* Click on spotlight cards */
+  document.querySelectorAll('.spotlight-card[data-lb-src]').forEach(sc => {
+    sc.addEventListener('click', () => {
+      lb.classList.add('open');
       document.body.style.overflow = 'hidden';
-
-      // Show loader, hide image
-      lbLoader.style.display = 'flex';
-      lbImg.style.opacity    = '0';
-      lbImg.src              = '';
-
-      lbTag.textContent   = card.dataset.category.toUpperCase();
-      lbTitle.textContent = card.dataset.title || '';
-      lbCounter.textContent = (index + 1) + ' / ' + visibleCards.length;
-
-      // Load image
-      const tempImg  = new Image();
-      tempImg.onload = () => {
-        lbImg.src             = tempImg.src;
-        lbImg.alt             = card.dataset.title || '';
-        lbLoader.style.display= 'none';
-        lbImg.style.opacity   = '1';
-      };
-      tempImg.onerror = () => {
-        lbLoader.style.display = 'none';
-        lbImg.style.opacity    = '1';
-      };
-      tempImg.src = img.src;
-    }
-
-    function closeLightbox() {
-      lb.classList.remove('active');
-      document.body.style.overflow = '';
-      setTimeout(() => { lbImg.src = ''; }, 350);
-    }
-
-    function navigate(dir) {
-      currentIndex = (currentIndex + dir + visibleCards.length) % visibleCards.length;
-      openLightbox(currentIndex);
-    }
-
-    // Attach click to all cards
-    function attachCardClicks() {
-      allCards.forEach((card, idx) => {
-        card.addEventListener('click', () => {
-          // Get index within visibleCards
-          const vi = visibleCards.indexOf(card);
-          if (vi !== -1) openLightbox(vi);
-        });
-      });
-    }
-    attachCardClicks();
-
-    // Lightbox controls
-    document.getElementById('lbClose').addEventListener('click', closeLightbox);
-    document.getElementById('lbPrev').addEventListener('click', () => navigate(-1));
-    document.getElementById('lbNext').addEventListener('click', () => navigate(1));
-
-    // Close on backdrop click
-    lb.addEventListener('click', function (e) {
-      if (e.target === lb) closeLightbox();
+      lbTag.textContent = (sc.dataset.lbTag || '').toUpperCase();
+      lbTtl.textContent = sc.dataset.lbTitle || '';
+      lbCnt.textContent = '— / —';
+      loadImg(sc.dataset.lbSrc);
     });
+  });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', function (e) {
-      if (!lb.classList.contains('active')) return;
-      if (e.key === 'Escape')      closeLightbox();
-      if (e.key === 'ArrowLeft')   navigate(-1);
-      if (e.key === 'ArrowRight')  navigate(1);
-    });
+  /* Controls */
+  document.getElementById('lbClose').addEventListener('click', closeLB);
+  document.getElementById('lbPrev').addEventListener('click', () => nav(-1));
+  document.getElementById('lbNext').addEventListener('click', () => nav(1));
+  lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
 
-    // Touch swipe support for lightbox
-    let touchStartX = 0;
-    lb.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-    lb.addEventListener('touchend',   e => {
-      const diff = touchStartX - e.changedTouches[0].screenX;
-      if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
-    }, { passive: true });
+  /* Keyboard */
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLB();
+    if (e.key === 'ArrowLeft')  nav(-1);
+    if (e.key === 'ArrowRight') nav(1);
+  });
 
-  })();
-  </script>
+  /* Touch swipe */
+  let tx = 0;
+  lb.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; }, { passive: true });
+  lb.addEventListener('touchend',   e => {
+    const d = tx - e.changedTouches[0].screenX;
+    if (Math.abs(d) > 50) nav(d > 0 ? 1 : -1);
+  }, { passive: true });
+
+})();
+</script>
+
 
 </body>
 </html>
