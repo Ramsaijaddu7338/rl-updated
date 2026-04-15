@@ -207,60 +207,118 @@ content="https://rl-updated.netlify.app/" />
       </div>
     </div>
   </section>
+<style>.faq-answer {
+  display: none;   /* hidden by default */
+  color: #bbb;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.faq-item.active .faq-answer {
+  display: block;  /* show when active */
+}
+
+.faq-question i {
+  transition: 0.3s;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}</style>
 
   <!-- FAQ Section -->
-  <section class="section-padding pt-0" style="background:#070707;">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="gold-text">Frequently Asked Questions</h2>
-        <p>Quick answers to the most common questions from our corporate clients</p>
-      </div>
-      <div class="col-lg-9 mx-auto" data-aos="fade-up">
-
-        <div class="faq-item">
-          <div class="faq-question">What areas in Hyderabad does Royal's Logistics cover?<i class="fas fa-chevron-down gold-text"></i></div>
-          <div class="faq-answer">We cover all major IT and corporate corridors — HITEC City, Gachibowli, Madhapur, Nanakramguda, Financial District, Kondapur, Kukatpally, Banjara Hills, Jubilee Hills, Secunderabad, and all surrounding residential zones.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">How quickly can Royal's Logistics start services for a new client?<i class="fas fa-chevron-down gold-text"></i></div>
-          <div class="faq-answer">Once a contract is signed and employee data is shared, our operations team can deploy a fully functional transport system within 48–72 hours. For large deployments (100+ employees), we recommend a 5–7 day onboarding period.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">What safety measures are in place for women employees during night shifts?<i class="fas fa-chevron-down gold-text"></i></div>
-          <div class="faq-answer">Police-verified drivers only, female escort guards on request, panic button integration in all vehicles, real-time tracking accessible to family members, first-in first-out drop policy for women, and immediate escalation protocols.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">What happens if a cab breaks down or a driver doesn't show up?<i class="fas fa-chevron-down gold-text"></i></div>
-          <div class="faq-answer">We maintain a dedicated backup Our Fleet on 24/7 standby. Any breakdown or no-show is resolved within 15 minutes — a replacement vehicle and driver are dispatched immediately via our command center.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">Can we get customized reports for our HR team?<i class="fas fa-chevron-down gold-text"></i></div>
-          <div class="faq-answer">Absolutely. Every client receives monthly HR-ready dashboards with trip summaries, punctuality statistics, driver performance scorecards, route compliance reports, and cost optimization insights.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">Does Royal's Logistics provide vehicles for corporate events or one-time bookings?<i class="fas fa-chevron-down gold-text"></i></div>
-          <div class="faq-answer">Yes. From executive sedans for VIP guests to 50-seater luxury buses for conferences and team outings. Pricing is based on vehicle type, distance, and duration. Contact us for a customized quote.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">Are all vehicles GPS-tracked and sanitized?<i class="fas fa-chevron-down gold-text"></i></div>
-          <div class="faq-answer">Yes, without exception. Every vehicle is GPS-enabled and tracked live. All vehicles are professionally sanitized before every shift. Bi-weekly mechanical servicing ensures zero breakdowns on the road.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">How do I get a quote or proposal for my company?<i class="fas fa-chevron-down gold-text"></i></div>
-          <div class="faq-answer">Fill out the Contact form above, call +91 9949900008, or WhatsApp us. Our team will prepare a detailed, customized proposal within 2 business hours — at absolutely no obligation.</div>
-        </div>
-
-      </div>
+<section class="section-padding pt-0 faq-section">
+  <div class="container">
+    
+    <div class="text-center mb-5">
+      <h2 class="gold-text">Frequently Asked Questions</h2>
+      <p>
+        Quick answers to the most common questions from our corporate clients
+      </p>
     </div>
-  </section>
 
+    <div class="col-lg-9 mx-auto">
+
+      <!-- FAQ ITEM -->
+      <div class="faq-item">
+        <div class="faq-question">
+          What locations does Royal’s Logistics cover in Hyderabad?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          We cover all major IT hubs including HITEC City, Gachibowli, Madhapur, Financial District, Kondapur, and surrounding residential areas.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          How quickly can services be started?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          Services can be activated within 48–72 hours after onboarding. Large deployments may require 5–7 days for smooth execution.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          What safety measures are implemented?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          We ensure verified drivers, GPS tracking, panic alerts, and strict safety protocols including priority drop for women employees.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          What happens during breakdowns?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          Backup vehicles and drivers are available 24/7. Immediate replacements are dispatched to avoid delays.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Do you provide reports for HR teams?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          Yes, we provide detailed reports including trip summaries, punctuality metrics, and performance insights.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Are vehicles GPS tracked and maintained?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          All vehicles are GPS-enabled, sanitized regularly, and maintained with strict servicing schedules.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<script>
+document.querySelectorAll(".faq-question").forEach(q => {
+  q.onclick = () => {
+
+    let item = q.parentElement;
+
+    // close others
+    document.querySelectorAll(".faq-item").forEach(el => {
+      if (el !== item) el.classList.remove("active");
+    });
+
+    // toggle current
+    item.classList.toggle("active");
+  };
+});
+</script>
   <!-- WhatsApp -->
   <a href="https://wa.me/919949900008?text=Hi%20Royal's%20Logistics%20Team,%20I%20am%20interested%20in%20your%20services." class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
@@ -286,7 +344,9 @@ content="https://rl-updated.netlify.app/" />
           <div class="footer-links d-flex flex-column">
             <a href="index.html">Home</a><a href="Our Journey.html">Our Journey</a>
             <a href="Services.html">Services</a><a href="Our Fleet.html">Our Fleet</a>
-            <a href="About Us.html">About Us</a><a href="Contact.html">Contact</a>
+            <a href="About Us.html">About Us</a>
+  <a href="gallery.html">Gallery</a>
+            <a href="Contact.html">Contact</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
