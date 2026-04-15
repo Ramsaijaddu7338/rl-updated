@@ -3,290 +3,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ROYAL'S LOGISTICS | Our Journey</title>
+  <title>ROYAL'S LOGISTICS | Our Royal Services</title>
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="apple-touch-icon" href="logo.png" />
-  <meta property="og:title" content="ROYAL'S LOGISTICS | Our Journey" />
-  <meta property="og:description" content="18+ years of trusted corporate employee transport excellence in Hyderabad." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ROYAL'S LOGISTICS | Imperial Corporate Employee Transport" />
+  <meta property="og:description" content="Premium corporate employee transport solutions with reliability, safety, and efficiency." />
   <meta property="og:image" content="https://rl-updated.netlify.app/logo1.png" />
   <meta property="og:url" content="https://rl-updated.netlify.app/" />
   <meta property="og:type" content="website" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- Global Styles (navbar, footer, typography, etc.) -->
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-  /* ═══════════════════════════════════════════
-     OUR JOURNEY PAGE — Custom Styles
-  ═══════════════════════════════════════════ */
+    /* ── Page-specific overrides only ──
+       (navbar, preloader, footer are fully handled by styles.css + main.js) */
 
-  .divider-gold {
-    width: 70px; height: 3px;
-    background: var(--metallic-gold);
-    margin: 18px auto 0;
-    border-radius: 2px;
-  }
+    /* Divider */
+    .divider-gold {
+      width: 80px;
+      height: 3px;
+      background: var(--deep-gold);
+      margin: 20px auto;
+      border-radius: 2px;
+    }
 
-  /* ── Journey Phase Cards ── */
-  .phase-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  .phase-card {
-    background: #0d0d0d;
-    border: 1px solid #1e1e1e;
-    border-radius: 28px;
-    padding: 44px 36px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
-    height: 100%;
-  }
-  .phase-card::before {
-    content: attr(data-num);
-    position: absolute;
-    top: -10px; right: 20px;
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 7rem;
-    font-weight: 900;
-    color: rgba(179,135,40,0.04);
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-  }
-  .phase-card:hover {
-    border-color: var(--deep-gold);
-    transform: translateY(-8px);
-    box-shadow: 0 24px 50px -10px rgba(179,135,40,0.2);
-  }
-  .phase-icon {
-    width: 64px; height: 64px;
-    border-radius: 18px;
-    background: rgba(179,135,40,0.1);
-    border: 1px solid rgba(179,135,40,0.25);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 22px;
-    transition: 0.4s;
-  }
-  .phase-card:hover .phase-icon {
-    background: rgba(179,135,40,0.18);
-    border-color: var(--deep-gold);
-  }
-  .phase-icon i {
-    font-size: 1.6rem;
-    background: var(--metallic-gold);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .phase-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.62rem;
-    font-weight: 800;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--deep-gold);
-    margin-bottom: 8px;
-    display: block;
-  }
-  .phase-title {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
-    margin-bottom: 14px;
-    line-height: 1.3;
-  }
-  .phase-desc {
-    color: #aaa !important;
-    font-size: 0.9rem;
-    line-height: 1.75;
-    margin-bottom: 20px;
-  }
-  .phase-points {
-    list-style: none;
-    padding: 0; margin: 0;
-  }
-  .phase-points li {
-    color: #ccc !important;
-    font-size: 0.85rem;
-    padding: 5px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    border-bottom: 1px solid #1a1a1a;
-  }
-  .phase-points li:last-child { border-bottom: none; }
-  .phase-points li i {
-    color: var(--deep-gold);
-    font-size: 0.75rem;
-    margin-top: 4px;
-    flex-shrink: 0;
-  }
+    /* Process Cards */
+    .process-card {
+      background: #111;
+      padding: 35px 25px;
+      border-radius: 20px;
+      border: 1px solid rgba(179,135,40,0.2);
+      transition: all 0.4s ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .process-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--deep-gold);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      background: #171717;
+    }
+    .process-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 48px;
+      font-weight: 800;
+      color: rgba(179,135,40,0.1);
+      font-family: 'Cinzel', serif;
+      line-height: 1;
+    }
+    .process-card h5 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+    .process-card p { color: #ccc; line-height: 1.7; }
 
-  /* ── Service Cards ── */
-  .service-card {
-    background: #0d0d0d;
-    border: 1px solid #1e1e1e;
-    border-radius: 24px;
-    padding: 38px 28px;
-    height: 100%;
-    transition: 0.45s;
-    position: relative;
-    overflow: hidden;
-  }
-  .service-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--metallic-gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.45s ease;
-  }
-  .service-card:hover {
-    border-color: var(--deep-gold);
-    transform: translateY(-10px);
-    box-shadow: 0 24px 48px -10px rgba(179,135,40,0.22);
-    background: #111;
-  }
-  .service-card:hover::after { transform: scaleX(1); }
-  .svc-icon-wrap {
-    width: 58px; height: 58px;
-    border-radius: 16px;
-    background: rgba(179,135,40,0.08);
-    border: 1px solid rgba(179,135,40,0.2);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px;
-    transition: 0.4s;
-  }
-  .service-card:hover .svc-icon-wrap {
-    background: rgba(179,135,40,0.16);
-    border-color: var(--deep-gold);
-  }
-  .svc-icon-wrap i {
-    font-size: 1.45rem;
-    background: var(--metallic-gold);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .svc-title {
-    font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1.5px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-  }
-  .svc-desc {
-    color: #999 !important;
-    font-size: 0.88rem;
-    line-height: 1.7;
-    margin-bottom: 18px;
-  }
-  .svc-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .svc-tag {
-    background: rgba(179,135,40,0.1);
-    border: 1px solid rgba(179,135,40,0.25);
-    color: var(--deep-gold);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 4px 11px;
-    border-radius: 50px;
-  }
+    /* Tech Cards */
+    .tech-card {
+      background: #111;
+      border: 1px solid rgba(179,135,40,0.2);
+      border-radius: 20px;
+      padding: 35px;
+      height: 100%;
+      transition: all 0.4s ease;
+    }
+    .tech-card:hover {
+      border-color: var(--deep-gold);
+      box-shadow: 0 20px 40px rgba(179,135,40,0.1);
+      background: #171717;
+      transform: translateY(-8px);
+    }
+    .tech-card .tech-icon {
+      font-size: 2.2rem;
+      background: var(--metallic-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+      margin-bottom: 18px;
+    }
+    .tech-card h5 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+    .tech-card p { color: #ccc; line-height: 1.7; font-size: 0.93rem; }
 
-  /* ── Value Cards ── */
-  .value-card {
-    background: #0d0d0d;
-    border: 1px solid #1e1e1e;
-    border-radius: 24px;
-    padding: 40px 28px;
-    height: 100%;
-    text-align: center;
-    transition: 0.45s;
-  }
-  .value-card:hover {
-    border-color: var(--deep-gold);
-    transform: translateY(-8px);
-    background: #111;
-    box-shadow: 0 20px 40px -10px rgba(179,135,40,0.18);
-  }
+    /* CTA Box */
+    .services-cta-box {
+      background: #111;
+      border: 1px solid rgba(179,135,40,0.3);
+      border-radius: 32px;
+      padding: 60px 40px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .services-cta-box:hover {
+      border-color: var(--deep-gold);
+      box-shadow: 0 20px 50px rgba(179,135,40,0.12);
+    }
 
-  /* ── Stats Bar ── */
-  .journey-stats {
-    background: #070707;
-    border-top: 1px solid #111;
-    border-bottom: 1px solid #111;
-    padding: 55px 0;
-  }
-  .jstat {
-    text-align: center;
-    padding: 20px 16px;
-  }
-  .jstat-num {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 2.8rem;
-    font-weight: 900;
-    line-height: 1;
-    background: var(--metallic-gold);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: block;
-    margin-bottom: 6px;
-  }
-  .jstat-lbl {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: #666 !important;
-  }
-
-  /* ── CTA Box ── */
-  .journey-cta {
-    background: linear-gradient(145deg, #0d0d0d, #0a0a0a);
-    border: 1px solid rgba(179,135,40,0.25);
-    border-radius: 32px;
-    padding: 70px 40px;
-    text-align: center;
-    transition: 0.4s;
-  }
-  .journey-cta:hover {
-    border-color: var(--deep-gold);
-    box-shadow: 0 30px 60px -15px rgba(179,135,40,0.12);
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 768px) {
-    .phase-grid { grid-template-columns: 1fr; }
-    .phase-card { padding: 32px 22px; }
-    .phase-card::before { font-size: 5rem; }
-    .journey-cta { padding: 44px 20px; }
-  }
-  @media (max-width: 576px) {
-    .jstat-num { font-size: 2.2rem; }
-  }
+    /* Responsive */
+    @media (max-width: 576px) {
+      .services-cta-box { padding: 36px 20px; }
+      .process-card { padding: 24px 18px; }
+      .process-number { font-size: 36px; }
+      .tech-card { padding: 24px; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Preloader -->
+  <!-- ── Preloader (main.js handles the animation) ── -->
   <div id="preloader">
     <div class="loader-logo">ROYAL'S LOGISTICS</div>
     <div style="width:280px;height:2px;background:#2a2a2a;margin-top:20px;">
@@ -295,385 +141,256 @@
     <p class="mt-3 small gold-text">Imperial Excellence Loading...</p>
   </div>
 
-  <!-- Navbar -->
+  <!-- ══════════════════════════════════════
+       NAVBAR — same model as all pages
+  ══════════════════════════════════════ -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
         <img class="navbar-logo-img" src="logo.png" alt="Royal's Logistics">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active-link" href="Our Journey.html">Our Journey</a></li>
-          <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="Our Journey.html">Our Journey</a></li>
+          <li class="nav-item"><a class="nav-link active-link" href="Services.html">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="Our Fleet.html">Our Fleet</a></li>
           <li class="nav-item"><a class="nav-link" href="About Us.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
           <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Page Hero -->
+  <!-- ══════════════════════════════════════
+       PAGE HERO
+  ══════════════════════════════════════ -->
   <section class="page-hero">
-    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80');"></div>
     <div class="page-hero-overlay"></div>
     <div class="container" data-aos="zoom-out">
-      <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:5px;color:rgba(179,135,40,0.75);text-transform:uppercase;margin-bottom:14px;display:block;">
-        <i class="fas fa-crown me-2"></i>18+ Years of Excellence
-      </p>
-      <h1 class="gold-text">Our Journey</h1>
-      <p class="lead mt-2" style="color:#bbb;font-size:0.95rem;letter-spacing:1px;">From the Ground Up — Built on Trust, Driven by Excellence</p>
-      <p class="page-breadcrumb mt-3"><a href="index.html">Home</a> &nbsp;/&nbsp; Our Journey</p>
+      <h1 class="gold-text">Our Royal Services</h1>
+      <p class="lead mt-2">Corporate Employee Transport — Engineered for Excellence</p>
+      <p class="page-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Services</p>
     </div>
   </section>
 
-  <!-- ══════════════════════════════
-       THE ROYAL STORY
-  ══════════════════════════════ -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="royal-border-box" data-aos="fade-up">
-        <div class="row g-5 align-items-center">
-          <div class="col-lg-7">
-            <span style="font-family:'Montserrat',sans-serif;font-size:0.65rem;letter-spacing:4px;color:rgba(179,135,40,0.7);text-transform:uppercase;border:1px solid rgba(179,135,40,0.3);padding:5px 16px;border-radius:50px;display:inline-block;margin-bottom:20px;">
-              <i class="fas fa-star me-2"></i>The Royal's Story
-            </span>
-            <h2 class="gold-text mb-4">A Legacy Built on Every Journey</h2>
-            <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;line-height:1.75;" class="mb-4">
-              Royal's Logistics began with a simple but powerful purpose — to give every corporate employee a commute that is <strong class="gold-text">safe, punctual, and dignified.</strong>
-            </p>
-            <p class="mb-3" style="color:#ccc;">
-              From the ground level, we built our expertise through real-time operations, mastering every challenge of employee mobility — from route planning and driver management to emergency handling and shift coordination. We did not grow through advertising; we grew through performance.
-            </p>
-            <p class="mb-3" style="color:#ccc;">
-              Every client we serve today is a result of a driver who arrived on time, a route that was perfectly planned, and an operations team that never slept. Over 18+ years, that commitment transformed a humble beginning into Hyderabad's most trusted corporate employee transport brand.
-            </p>
-            <p style="color:#ccc;">
-              Today, with <strong style="color:#fff;">100+ GPS-enabled vehicles</strong>, <strong style="color:#fff;">80+ trained drivers</strong>, and a <strong style="color:#fff;">24/7 command center</strong>, we carry more than passengers — we carry the trust of the organizations and families who depend on us every single day.
-            </p>
-            <div class="mt-5 d-flex flex-wrap gap-2">
-              <span class="stat-badge-gold"><i class="fas fa-calendar-alt me-1"></i> Since 2006</span>
-              <span class="stat-badge-gold"><i class="fas fa-car me-1"></i> 100+ Vehicles</span>
-              <span class="stat-badge-gold"><i class="fas fa-route me-1"></i> 2.3M+ Safe Journeys</span>
-              <span class="stat-badge-gold"><i class="fas fa-shield-alt me-1"></i> Zero Major Incidents (5+ yrs)</span>
-            </div>
-          </div>
-          <div class="col-lg-5">
-            <h5 class="gold-text mb-4">Our Imperial Distinctions</h5>
-            <ul class="list-unstyled">
-              <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>ISO 9001:2024 Certified</strong> — International quality management standard</li>
-              <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>10+ Years Avg Ops Experience</strong> — Veteran team who has seen it all</li>
-              <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Women Safety Protocols</strong> — Escorts, SOS panic button, live family tracking</li>
-              <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Real-Time Employee App</strong> — Live cab tracking, ETA alerts, driver details</li>
-              <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>24/7 Route Command Center</strong> — Dedicated control room, never offline</li>
-              <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Police-Verified Drivers</strong> — Background checked before every onboarding</li>
-              <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Bi-Weekly Maintenance</strong> — Zero breakdown guarantee on every shift</li>
-              <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>98.7% Client Retention</strong> — Once partnered, clients rarely leave</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════
-       JOURNEY PHASES (No Year-Wise)
-  ══════════════════════════════ -->
-  <section class="section-padding pt-0">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <span style="font-family:'Montserrat',sans-serif;font-size:0.65rem;letter-spacing:4px;text-transform:uppercase;color:rgba(179,135,40,0.7);border:1px solid rgba(179,135,40,0.3);padding:5px 16px;border-radius:50px;display:inline-block;margin-bottom:16px;">
-          <i class="fas fa-road me-2"></i>How We Got Here
-        </span>
-        <h2 class="gold-text mt-2">The Four Chapters of Our Journey</h2>
-        <div class="divider-gold"></div>
-        <p class="lead mt-4">From a single idea to Hyderabad's most trusted corporate transport partner</p>
-      </div>
-
-      <div class="phase-grid" data-aos="fade-up">
-
-        <!-- Phase I -->
-        <div class="phase-card" >
-          <div class="phase-icon"><i class="fas fa-seedling"></i></div>
-          <span class="phase-label">Chapter I</span>
-          <h3 class="phase-title">Starting From the Ground</h3>
-          <p class="phase-desc">We entered the corporate transport field with nothing but commitment and discipline. Every early shift taught us the real challenges of employee mobility — route unpredictability, traffic, driver reliability, and client expectations.</p>
-          <ul class="phase-points">
-            <li><i class="fas fa-check-circle"></i>Hands-on field experience in corporate transport operations</li>
-            <li><i class="fas fa-check-circle"></i>Built deep understanding of employee mobility challenges</li>
-            <li><i class="fas fa-check-circle"></i>Established a reputation for punctuality and discipline from Day 1</li>
-          </ul>
-        </div>
-
-        <!-- Phase II -->
-        <div class="phase-card" >
-          <div class="phase-icon"><i class="fas fa-chart-line"></i></div>
-          <span class="phase-label">Chapter II</span>
-          <h3 class="phase-title">Growing the Fleet & Operations</h3>
-          <p class="phase-desc">With trust came growth. We expanded our fleet, refined our operations, and built a team of professionals who understood the corporate transport standard. Every new vehicle added was a promise of more reliability.</p>
-          <ul class="phase-points">
-            <li><i class="fas fa-check-circle"></i>Scaled fleet from a handful of vehicles to a structured fleet</li>
-            <li><i class="fas fa-check-circle"></i>Established formal driver training and verification programs</li>
-            <li><i class="fas fa-check-circle"></i>Built dedicated operations management processes</li>
-          </ul>
-        </div>
-
-        <!-- Phase III -->
-        <div class="phase-card" >
-          <div class="phase-icon"><i class="fas fa-satellite-dish"></i></div>
-          <span class="phase-label">Chapter III</span>
-          <h3 class="phase-title">Adopting Smart Operations</h3>
-          <p class="phase-desc">We invested heavily in technology and safety — GPS tracking, AI route optimization, real-time employee apps, and a 24/7 command center. Safety protocols for women employees became our industry benchmark.</p>
-          <ul class="phase-points">
-            <li><i class="fas fa-check-circle"></i>Full GPS integration across all vehicles with live tracking</li>
-            <li><i class="fas fa-check-circle"></i>Launched real-time employee app with SOS panic button</li>
-            <li><i class="fas fa-check-circle"></i>Established women safety protocols: escorts, family tracking, SOS</li>
-          </ul>
-        </div>
-
-        <!-- Phase IV -->
-        <div class="phase-card" >
-          <div class="phase-icon"><i class="fas fa-crown"></i></div>
-          <span class="phase-label">Chapter IV</span>
-          <h3 class="phase-title">Hyderabad's Most Trusted Partner</h3>
-          <p class="phase-desc">Today, Royal's Logistics is the undisputed leader in corporate employee transport across Hyderabad. ISO certified, 100+ fleet, 80+ drivers, and a 5+ year zero major incident record defines who we are.</p>
-          <ul class="phase-points">
-            <li><i class="fas fa-check-circle"></i>100+ vehicles serving 10+ corporate clients across Hyderabad</li>
-            <li><i class="fas fa-check-circle"></i>ISO 9001:2024 certified with 98.7% client retention rate</li>
-            <li><i class="fas fa-check-circle"></i>Zero major incidents for 5+ consecutive years</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════
-       STATS BAR
-  ══════════════════════════════ -->
-  <section class="journey-stats">
-    <div class="container">
-      <div class="row g-3">
-        <div class="col-6 col-md-3" data-aos="fade-up">
-          <div class="jstat">
-            <span class="jstat-num">18+</span>
-            <span class="jstat-lbl">Years of Service</span>
-          </div>
-        </div>
-        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="80">
-          <div class="jstat">
-            <span class="jstat-num">100+</span>
-            <span class="jstat-lbl">Fleet Vehicles</span>
-          </div>
-        </div>
-        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="160">
-          <div class="jstat">
-            <span class="jstat-num">2.3M+</span>
-            <span class="jstat-lbl">Safe Journeys</span>
-          </div>
-        </div>
-        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="240">
-          <div class="jstat">
-            <span class="jstat-num">99.8%</span>
-            <span class="jstat-lbl">On-Time Rate</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════
-       OUR SERVICES
-  ══════════════════════════════ -->
+  <!-- ══════════════════════════════════════
+       OPERATION OVERVIEW — 6 Quick Cards
+  ══════════════════════════════════════ -->
   <section class="section-padding">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-up">
-        <span style="font-family:'Montserrat',sans-serif;font-size:0.65rem;letter-spacing:4px;text-transform:uppercase;color:rgba(179,135,40,0.7);border:1px solid rgba(179,135,40,0.3);padding:5px 16px;border-radius:50px;display:inline-block;margin-bottom:16px;">
-          <i class="fas fa-briefcase me-2"></i>What We Offer
-        </span>
-        <h2 class="gold-text mt-2">Our Imperial Services</h2>
+        <h2 class="gold-text">What We Do</h2>
         <div class="divider-gold"></div>
-        <p class="lead mt-4">Complete corporate mobility solutions — designed around your workforce</p>
+        <p class="lead">A complete corporate mobility ecosystem — designed around your workforce</p>
       </div>
       <div class="row g-4">
+  <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+    <div class="process-card">
+      <i class="fas fa-user-check gold-text mb-3" style="font-size:2rem;"></i><br/>
+      <h5 class="gold-text mb-2">Client Coordination</h5>
+      <p>We coordinate directly with the company to receive daily employee cab requirements, shift timings, and pickup details — ensuring smooth transport planning.</p>
+    </div>
+  </div>
 
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="service-card">
-            <div class="svc-icon-wrap"><i class="fas fa-briefcase"></i></div>
-            <h5 class="svc-title">Corporate Employee Transport</h5>
-            <p class="svc-desc">End-to-end daily commute management for IT companies, BPOs, MNCs, and KPOs across Hyderabad. We handle shift planning, route optimization, driver allocation, and real-time monitoring — all in one seamless system.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">IT Companies</span>
-              <span class="svc-tag">BPO / KPO</span>
-              <span class="svc-tag">MNCs</span>
-              <span class="svc-tag">All Shifts</span>
-            </div>
-          </div>
-        </div>
+  <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+    <div class="process-card">
+      <i class="fas fa-address-card gold-text mb-3" style="font-size:2rem;"></i><br/>
+      <h5 class="gold-text mb-2">Cab & Driver Verification</h5>
+      <p>All our drivers and vehicles are verified with proper documents, licenses, and safety checks to ensure reliable and secure transportation services.</p>
+    </div>
+  </div>
 
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
-          <div class="service-card">
-            <div class="svc-icon-wrap"><i class="fas fa-moon"></i></div>
-            <h5 class="svc-title">Night Shift Transport</h5>
-            <p class="svc-desc">Safe, punctual night-shift transport with our most experienced drivers. Comprehensive women safety protocols — SOS panic buttons, escort guards on request, family live tracking access, and first-in-first-out drop policy.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">24/7 Ready</span>
-              <span class="svc-tag">Women Safety</span>
-              <span class="svc-tag">SOS Enabled</span>
-              <span class="svc-tag">Escort Guards</span>
-            </div>
-          </div>
-        </div>
+  <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+    <div class="process-card">
+      <i class="fas fa-mobile-alt gold-text mb-3" style="font-size:2rem;"></i><br/>
+      <h5 class="gold-text mb-2">Live Tracking Access</h5>
+      <p>We provide real-time cab tracking details to the company, including driver information, vehicle status, and trip updates for complete visibility.</p>
+    </div>
+  </div>
 
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
-          <div class="service-card">
-            <div class="svc-icon-wrap"><i class="fas fa-route"></i></div>
-            <h5 class="svc-title">Smart Route Management</h5>
-            <p class="svc-desc">AI-powered route optimization tailored to your employee locations, office timings, and shift patterns. Our operations team designs the most efficient, traffic-aware routes — reducing commute times and costs simultaneously.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">AI Routing</span>
-              <span class="svc-tag">Traffic Aware</span>
-              <span class="svc-tag">Cost Efficient</span>
-              <span class="svc-tag">Real-Time</span>
-            </div>
-          </div>
-        </div>
+  <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+    <div class="process-card">
+      <i class="fas fa-car-side gold-text mb-3" style="font-size:2rem;"></i><br/>
+      <h5 class="gold-text mb-2">Cab Allocation</h5>
+      <p>Cabs are assigned based on shift schedules and route plans provided by the company — ensuring timely pickups and drop-offs for all employees.</p>
+    </div>
+  </div>
 
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
-          <div class="service-card">
-            <div class="svc-icon-wrap"><i class="fas fa-plane-departure"></i></div>
-            <h5 class="svc-title">Airport & Executive Transfers</h5>
-            <p class="svc-desc">Premium airport pickups and drops for executives, senior management, and corporate visitors. Professionally trained chauffeurs, luxury vehicles, and guaranteed on-time service — because every executive arrival matters.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">Airport Pickup</span>
-              <span class="svc-tag">VIP Service</span>
-              <span class="svc-tag">Luxury Fleet</span>
-              <span class="svc-tag">On-Time</span>
-            </div>
-          </div>
-        </div>
+  <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+    <div class="process-card">
+      <i class="fas fa-route gold-text mb-3" style="font-size:2rem;"></i><br/>
+      <h5 class="gold-text mb-2">Route Planning</h5>
+      <p>We follow optimized routes to ensure efficient travel, reduce delays, and maintain consistent pickup and drop timings across all trips.</p>
+    </div>
+  </div>
 
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
-          <div class="service-card">
-            <div class="svc-icon-wrap"><i class="fas fa-calendar-check"></i></div>
-            <h5 class="svc-title">Events & Conference Transport</h5>
-            <p class="svc-desc">Complete transportation logistics for corporate events, off-sites, conferences, and team outings. From sedans for VIP guests to 50-seater Volvo buses for large teams — we scale to any event size with zero logistical stress.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">Corporate Events</span>
-              <span class="svc-tag">Conferences</span>
-              <span class="svc-tag">Team Outings</span>
-              <span class="svc-tag">Any Size</span>
-            </div>
-          </div>
-        </div>
+  <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+    <div class="process-card">
+      <i class="fas fa-headset gold-text mb-3" style="font-size:2rem;"></i><br/>
+      <h5 class="gold-text mb-2">24/7 Support</h5>
+      <p>Our support team monitors all trips and handles any issues like delays, breakdowns, or emergencies — ensuring uninterrupted service for the company.</p>
+    </div>
+  </div>
+</div>
+    </div>
+  </section>
 
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
-          <div class="service-card">
-            <div class="svc-icon-wrap"><i class="fas fa-headset"></i></div>
-            <h5 class="svc-title">24/7 Fleet Management</h5>
-            <p class="svc-desc">Our command center never sleeps. Real-time GPS monitoring, breakdown response within 15 minutes, backup cab deployment, route deviation alerts, and monthly HR dashboards — full transparency, always. Your workforce is always in safe hands.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">24/7 Monitoring</span>
-              <span class="svc-tag">GPS Tracked</span>
-              <span class="svc-tag">Backup Fleet</span>
-              <span class="svc-tag">HR Reports</span>
-            </div>
-          </div>
-        </div>
-
+  <!-- ══════════════════════════════════════
+       STATS STRIP
+  ══════════════════════════════════════ -->
+  <section class="py-5" style="background:#070707;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-center gap-3 text-center" data-aos="fade-up">
+        <span class="stat-badge-gold"><i class="fas fa-bus me-1"></i>100+ Fleet Vehicles</span>
+        <span class="stat-badge-gold"><i class="fas fa-id-card me-1"></i>80+ Trained Drivers</span>
+        <span class="stat-badge-gold"><i class="fas fa-headset me-1"></i>24/7 Ops Control Room</span>
+        <span class="stat-badge-gold"><i class="fas fa-map-marked-alt me-1"></i>Real-Time Employee App</span>
+        <span class="stat-badge-gold"><i class="fas fa-shield-alt me-1"></i>ISO 9001:2024 Certified</span>
+        <span class="stat-badge-gold"><i class="fas fa-star me-1"></i>98.7% Client Retention</span>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════
-       CORE VALUES
-  ══════════════════════════════ -->
+  <!-- ══════════════════════════════════════
+       ROYAL OPERATION PROCESS — Detailed
+  ══════════════════════════════════════ -->
+  <section class="section-padding">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="gold-text">Royal Operation Process</h2>
+      <div class="divider-gold"></div>
+      <p class="lead">A streamlined transport workflow ensuring smooth and dependable cab services</p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="0">
+        <div class="process-card">
+          <span class="process-number">01</span>
+          <h5 class="gold-text mb-2" style="padding-right:60px;">Service Setup</h5>
+          <p>We gather trip schedules and location details from the company to plan daily transport operations efficiently.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="100">
+        <div class="process-card">
+          <span class="process-number">02</span>
+          <h5 class="gold-text mb-2" style="padding-right:60px;">Resource Deployment</h5>
+          <p>Suitable drivers and vehicles are assigned based on routes, ensuring smooth execution for every shift.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="200">
+        <div class="process-card">
+          <span class="process-number">03</span>
+          <h5 class="gold-text mb-2" style="padding-right:60px;">Pre-Trip Checks</h5>
+          <p>Vehicles are inspected and prepared before dispatch to maintain safety and service standards.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="300">
+        <div class="process-card">
+          <span class="process-number">04</span>
+          <h5 class="gold-text mb-2" style="padding-right:60px;">On-Road Operations</h5>
+          <p>Trips are carried out according to planned schedules with a focus on punctuality and reliability.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="400">
+        <div class="process-card">
+          <span class="process-number">05</span>
+          <h5 class="gold-text mb-2" style="padding-right:60px;">Control & Assistance</h5>
+          <p>Our team oversees operations and provides quick support for any on-road issues or changes.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ══════════════════════════════════════
+       TECHNOLOGY SECTION
+  ══════════════════════════════════════ -->
   <section class="section-padding pt-0" style="background:#070707;">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-up">
-        <span style="font-family:'Montserrat',sans-serif;font-size:0.65rem;letter-spacing:4px;text-transform:uppercase;color:rgba(179,135,40,0.7);border:1px solid rgba(179,135,40,0.3);padding:5px 16px;border-radius:50px;display:inline-block;margin-bottom:16px;">
-          <i class="fas fa-heart me-2"></i>What Drives Us
-        </span>
-        <h2 class="gold-text mt-2">Our Core Values</h2>
+        <h2 class="gold-text">Technology Powering the Royal Experience</h2>
         <div class="divider-gold"></div>
-        <p class="lead mt-4">The principles that have guided every journey for 18+ years</p>
+        <p class="lead">Innovation that keeps your employees safe, on time, and informed</p>
       </div>
       <div class="row g-4">
-
-        <div class="col-md-6 col-lg-3" data-aos="flip-left">
-          <div class="value-card">
-            <i class="fas fa-shield-halved gold-text mb-3" style="font-size:2.5rem;"></i>
-            <h5 class="gold-text mb-3">Safety First</h5>
-            <p style="color:#999;">Every decision — driver selection, route planning, vehicle maintenance — begins with one question: "Is this the safest option for our employees?" Safety is our non-negotiable foundation, not a policy.</p>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="tech-card">
+            <span class="tech-icon"><i class="fas fa-satellite-dish"></i></span>
+            <h5 class="gold-text">Real-Time GPS Tracking</h5>
+            <p>All 100+ vehicles are equipped with high-accuracy GPS units transmitting location data every 10 seconds. Our command center displays live fleet positions, enabling instant response to any deviation or emergency. Employees can view their cab's live location from the moment it's dispatched.</p>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="100">
-          <div class="value-card">
-            <i class="fas fa-clock gold-text mb-3" style="font-size:2.5rem;"></i>
-            <h5 class="gold-text mb-3">Punctuality</h5>
-            <p style="color:#999;">Time is money in the corporate world. Our 99.8% on-time rate is not a statistic — it's a promise renewed every single day through meticulous scheduling, AI routing, and real-time monitoring.</p>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="tech-card">
+            <span class="tech-icon"><i class="fas fa-brain"></i></span>
+            <h5 class="gold-text">AI Route Optimization</h5>
+            <p>Our intelligent routing algorithm processes thousands of variables — traffic density, road closures, pickup point clusters, employee shift times, and vehicle capacity — to generate the most time-efficient, cost-effective routes. Routes are recalculated in real time whenever conditions change.</p>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="200">
-          <div class="value-card">
-            <i class="fas fa-handshake gold-text mb-3" style="font-size:2.5rem;"></i>
-            <h5 class="gold-text mb-3">Integrity</h5>
-            <p style="color:#999;">Transparent pricing, honest communication, zero hidden costs. Our 98.7% client retention rate is built on trust forged through years of delivering exactly what we promise — nothing more, nothing less.</p>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="tech-card">
+            <span class="tech-icon"><i class="fas fa-chart-bar"></i></span>
+            <h5 class="gold-text">HR Analytics Dashboard</h5>
+            <p>Corporate HR teams get access to a comprehensive dashboard with daily trip reports, attendance tracking, on-time statistics, cost per trip breakdown, driver performance ratings, and monthly summary analytics — giving complete operational visibility and data-driven decision support.</p>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="300">
-          <div class="value-card">
-            <i class="fas fa-crown gold-text mb-3" style="font-size:2.5rem;"></i>
-            <h5 class="gold-text mb-3">Royal Standard</h5>
-            <p style="color:#999;">Every employee deserves a commute that is safe, punctual, and dignified. We maintain the royal standard across every vehicle, every driver interaction, and every operational touchpoint — no exceptions.</p>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════
-       CTA
-  ══════════════════════════════ -->
+  <!-- ══════════════════════════════════════
+       CTA SECTION
+  ══════════════════════════════════════ -->
   <section class="section-padding">
-    <div class="container" data-aos="zoom-in">
-      <div class="journey-cta">
-        <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:4px;color:rgba(179,135,40,0.65);text-transform:uppercase;margin-bottom:14px;">
-          <i class="fas fa-crown me-2"></i>Join Our Journey
-        </p>
-        <h2 class="gold-text mb-4">Be Part of Our Continuing Journey</h2>
-        <p class="lead mb-2">Join 10+ enterprises who trust Royal's Logistics with their most valuable asset — their people.</p>
-        <p class="mb-5" style="color:#555;font-size:0.8rem;letter-spacing:2px;">
-          18+ YEARS &nbsp;·&nbsp; 100+ VEHICLES &nbsp;·&nbsp; 10+ CLIENTS &nbsp;·&nbsp; 99.8% ON-TIME
-        </p>
+    <div class="container">
+      <div class="services-cta-box" data-aos="zoom-in">
+        <h2 class="gold-text mb-3">Experience Our Services First-Hand</h2>
+        <p class="lead mb-5">Let our operations team design a customised transport solution for your workforce — free consultation, no obligation.</p>
         <div class="d-flex flex-wrap justify-content-center gap-3">
           <a href="Contact.html" class="btn btn-royal">
-            Start Your Royal Journey <i class="fas fa-arrow-right ms-2"></i>
+            Get Free Consultation <i class="fas fa-arrow-right ms-2"></i>
           </a>
-          <a href="About Us.html" class="btn-outline-royal">
-            Meet Our Leadership <i class="fas fa-user-tie ms-2"></i>
+          <a href="Our Fleet.html" class="btn-outline-royal">
+            View Our Fleet <i class="fas fa-car ms-2"></i>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WhatsApp -->
-  <a href="https://wa.me/919949900008?text=Hi%20Royal's%20Logistics%20Team,%20I%20am%20interested%20in%20your%20services." class="whatsapp-float" target="_blank">
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/919949900008?text=Hi%20Royal's%20Logistics%20Team,%20I%20am%20interested%20in%20your%20services."
+     class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
-  <div id="confirmationToast" class="imperial-toast"><i class="fas fa-crown"></i><span id="toastMessage">Royal request received!</span></div>
 
-  <!-- Footer -->
+  <div id="confirmationToast" class="imperial-toast">
+    <i class="fas fa-crown"></i>
+    <span id="toastMessage">Royal request received!</span>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
   <footer class="imperial-footer">
     <div class="container">
       <div class="row g-4">
@@ -695,7 +412,7 @@
             <a href="Services.html">Services</a>
             <a href="Our Fleet.html">Our Fleet</a>
             <a href="About Us.html">About Us</a>
-            <a href="Gallery.html">Gallery</a>
+  <a href="gallery.html">Gallery</a>
             <a href="Contact.html">Contact</a>
           </div>
         </div>
@@ -721,13 +438,15 @@
       </div>
       <hr class="border-secondary mt-4">
       <div class="text-center pt-3">
-        <p class="small mb-0">© 2024 ROYAL'S LOGISTICS. All Rights Reserved. | The Real Choice of Royalty</p>
+        <p class="small mb-0">© 2024 ROYAL'S LOGISTICS. All Rights Reserved. | The Real Choice of Royalty | Crafted with Imperial Excellence</p>
       </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- main.js handles: preloader, sticky navbar scroll, toast, FAQ accordion -->
   <script src="main.js"></script>
 </body>
 </html>
