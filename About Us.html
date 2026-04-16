@@ -3,36 +3,180 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us Us | ROYAL'S LOGISTICS</title>
+  <title>About Us | ROYAL'S LOGISTICS</title>
   <!-- Favicon (Logo as icon) -->
-<link rel="icon" type="image/png" href="logo.png" />
-<link rel="apple-touch-icon" href="logo.png" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
 
-<!-- SEO Title -->
-<title>ROYAL'S LOGISTICS | Imperial Corporate Employee Transport</title>
+  <!-- SEO Title -->
+  <title>ROYAL'S LOGISTICS | Imperial Corporate Employee Transport</title>
 
-<!-- Open Graph Meta Tags (WhatsApp / Facebook Preview) -->
-<meta property="og:title" content="ROYAL'S LOGISTICS | Imperial Corporate Employee Transport" />
+  <!-- Open Graph Meta Tags (WhatsApp / Facebook Preview) -->
+  <meta property="og:title" content="ROYAL'S LOGISTICS | Imperial Corporate Employee Transport" />
+  <meta property="og:description" content="Premium corporate employee transport solutions with reliability, safety, and efficiency. Trusted logistics partner for modern businesses." />
+  <meta property="og:image" content="https://rl-updated.netlify.app/logo1.png" />
+  <meta property="og:url" content="https://rl-updated.netlify.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-<meta property="og:description" 
-content="Premium corporate employee transport solutions with reliability, safety, and efficiency. Trusted logistics partner for modern businesses." />
-
-<meta property="og:image" 
-content="https://rl-updated.netlify.app/logo1.png" />
-
-<meta property="og:url" 
-content="https://rl-updated.netlify.app/" />
-
-<meta property="og:type" content="website" />
-
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Additional styles for the refined CEO section - Golden Border & Rectangle Image */
+    .ceo-refined-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #0a0a0a 0%, #111111 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .ceo-refined-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.05"><path fill="%23D4AF37" d="M400,0 L493.3,300 L800,300 L550,485 L643.3,785 L400,600 L156.7,785 L250,485 L0,300 L306.7,300 Z"/></svg>') repeat;
+      pointer-events: none;
+    }
+    .section-tag {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--deep-gold, #D4AF37);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #D4AF37 0%, #FFD966 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+      font-family: 'Cinzel', serif;
+    }
+    /* CEO Card with Golden Border */
+    .ceo-card {
+      background: rgba(20, 20, 20, 0.85);
+      backdrop-filter: blur(12px);
+      border-radius: 30px;
+      padding: 2rem;
+      border: 2px solid #D4AF37;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2), 0 25px 45px -12px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ceo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.3), 0 25px 45px -12px rgba(0,0,0,0.6);
+      border-color: #FFD966;
+    }
+    /* Rectangle Image Wrapper - Bigger with Golden Border */
+    .ceo-img-wrapper-rectangle {
+      width: 300px;
+      height: 340px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #D4AF37, #8B6914);
+      padding: 5px;
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+      margin: 0 auto;
+    }
+    .ceo-img-wrapper-rectangle:hover {
+      transform: scale(1.02);
+    }
+    .ceo-img-rectangle {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 3px solid #0a0a0a;
+    }
+    .ceo-name {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #D4AF37, #FFF2C8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.25rem;
+      font-family: 'Cinzel', serif;
+    }
+    .ceo-title {
+      font-size: 1rem;
+      letter-spacing: 3px;
+      color: #D4AF37;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .ceo-quote {
+      font-style: italic;
+      font-size: 1rem;
+      color: #e0c87c;
+      border-left: 3px solid #D4AF37;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+    }
+    .ceo-estb {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ceo-estb i {
+      color: #D4AF37;
+    }
+    /* Keep existing gold badges consistent */
+    .stat-badge-gold {
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: #D4AF37;
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    @media (min-width: 1200px) {
+      .ceo-img-wrapper-rectangle {
+        width: 340px;
+        height: 380px;
+      }
+    }
+    @media (max-width: 768px) {
+      .ceo-card {
+        text-align: center;
+        padding: 1.5rem;
+      }
+      .ceo-img-wrapper-rectangle {
+        width: 240px;
+        height: 280px;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .ceo-name {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -113,26 +257,37 @@ content="https://rl-updated.netlify.app/" />
     </div>
   </section>
 
-  <!-- CEO Showcase -->
-  <section class="section-padding pt-0">
-    <div class="container" data-aos="fade-up">
-      <div class="text-center mb-5">
-        <h2 class="gold-text">Visionary Leadership</h2>
-        <p class="lead">The man behind the imperial standard</p>
+  <!-- UPDATED CEO SECTION with GOLDEN BORDER & RECTANGLE IMAGE -->
+  <section id="ceo" class="ceo-refined-section">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="gold-text ">VISIONARY FOUNDER</h2>
+        <p class="mt-3">Building excellence with integrity and innovation</p>
       </div>
-      <div class="ceo-showcase d-flex flex-wrap align-items-center gap-4">
-        <div class="ceo-avatar-lg flex-shrink-0" style="background-image:url('kumar raja.jpg');background-size:cover; border-radius:50%; width:140px; height:140px;"></div>
-        <div class="flex-grow-1">
-          <h2 class="gold-text" style="font-size:2rem;">K Naga Kumar Raja</h2>
-          <p class="mb-1" style="font-size:1.1rem;color:#ccc;letter-spacing:2px;">CEO & Managing Director — Royal's Logistics</p>
-          <p class="mt-3">With over <strong class="gold-text">18 years of transport leadership</strong>, Mr. Raja pioneered the concept of "corporate employee transport as a royal service" in Hyderabad. Under his guidance, Royal's Logistics has become the city's most trusted partner for IT and BPO employee commutes across all shifts and zones.</p>
-          <p class="mt-2">He personally oversees driver training programs, safety audits, Our Fleet quality control, and client relationship management. His philosophy is rooted in respect — for employees, for clients, and for the road. He believes that a punctual, safe, and dignified commute is not a luxury but a right every employee deserves.</p>
-          <p class="mt-2 fst-italic" style="color:var(--deep-gold);">"Every employee deserves a commute that is safe, punctual, and dignified — that's the royal standard."</p>
-          <div class="mt-3 d-flex flex-wrap gap-2">
-            <span class="stat-badge-gold"><i class="fas fa-trophy me-1"></i>18+ Years Experience</span>
-            <span class="stat-badge-gold"><i class="fas fa-users me-1"></i>10+ Corporate Clients</span>
-            <span class="stat-badge-gold"><i class="fas fa-shield-heart me-1"></i>Zero Compromise Safety</span>
-            <span class="stat-badge-gold"><i class="fas fa-star me-1"></i>Industry Pioneer</span>
+      <div class="row justify-content-center">
+        <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+          <div class="ceo-card">
+            <div class="row align-items-center">
+              <div class="col-lg-5 text-center mb-4 mb-lg-0">
+                <!-- RECTANGLE IMAGE WRAPPER - Bigger size with golden border effect -->
+                <div class="ceo-img-wrapper-rectangle mx-auto">
+                  <img src="kumar raja.jpg" alt="K Naga Kumar Raja" class="ceo-img-rectangle">
+                </div>
+              </div>
+              <div class="col-lg-7">
+                <h3 class="gold-text ">K NAGA KUMAR RAJA</h3>
+                <div class="gold-text ">CEO & MANAGING DIRECTOR</div>
+                <p class="mt-3 text-white-50">With over <strong class="gold-text">18 years of transport leadership</strong>, Mr. Raja pioneered the concept of "corporate employee transport as a royal service" in Hyderabad. Under his guidance, Royal's Logistics has become the city's most trusted partner for IT and BPO employee commutes across all shifts and zones. He personally oversees driver training programs, safety audits, Our Fleet quality control, and client relationship management. His philosophy is rooted in respect — for employees, for clients, and for the road. He believes that a punctual, safe, and dignified commute is not a luxury but a right every employee deserves.</p>
+                <div class="ceo-quote"><strong class="gold-text">"Every employee deserves a commute that is safe, punctual, and dignified — that's the royal standard."</strong></div>
+                <div class="ceo-estb"><i class="fas fa-calendar-alt me-2"></i>Established 2006 · Leading with Integrity</div>
+                <div class="mt-3 d-flex flex-wrap gap-2">
+                  <span class="stat-badge-gold"><i class="fas fa-trophy me-1"></i>18+ Years Experience</span>
+                  <span class="stat-badge-gold"><i class="fas fa-users me-1"></i>10+ Corporate Clients</span>
+                  <span class="stat-badge-gold"><i class="fas fa-shield-heart me-1"></i>Zero Compromise Safety</span>
+                  <span class="stat-badge-gold"><i class="fas fa-star me-1"></i>Industry Pioneer</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -368,7 +523,7 @@ content="https://rl-updated.netlify.app/" />
             <a href="index.html">Home</a><a href="Our Journey.html">Our Journey</a>
             <a href="Services.html">Services</a><a href="Our Fleet.html">Our Fleet</a>
             <a href="About Us.html">About Us</a>
-  <a href="gallery.html">Gallery</a>
+            <a href="gallery.html">Gallery</a>
             <a href="Contact.html">Contact</a>
           </div>
         </div>
@@ -400,5 +555,8 @@ content="https://rl-updated.netlify.app/" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="main.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
