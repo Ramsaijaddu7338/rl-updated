@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Gallery | ROYAL'S LOGISTICS</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="apple-touch-icon" href="logo.png" />
@@ -171,26 +171,29 @@
     -webkit-text-fill-color: #000;
   }
 
-  /* ── Gallery Masonry Grid ── */
+  /* ── UNIFORM GRID: ALL GALLERY CARDS IDENTICAL SIZE ── */
   .g-grid {
-    columns: 3 280px;
-    column-gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    justify-content: center;
   }
+  
   .g-card {
-    break-inside: avoid;
-    margin-bottom: 16px;
     position: relative;
-    border-radius: 18px;
+    border-radius: 20px;
     overflow: hidden;
-    cursor: pointer;
     border: 1px solid #181818;
     background: #0d0d0d;
     transition: transform 0.5s cubic-bezier(0.25,1,0.5,1),
                 border-color 0.35s,
                 box-shadow 0.5s;
+    cursor: pointer;
+    aspect-ratio: 4 / 3;
+    width: 100%;
     display: block;
   }
-  /* Shimmer sweep */
+  
   .g-card::before {
     content: '';
     position: absolute;
@@ -207,21 +210,16 @@
     border-color: var(--deep-gold);
     box-shadow: 0 24px 48px -8px rgba(179,135,40,0.3);
   }
+  
   .g-card img {
     width: 100%;
+    height: 100%;
     display: block;
     object-fit: cover;
     transition: transform 0.8s cubic-bezier(0.25,1,0.5,1);
   }
   .g-card:hover img { transform: scale(1.08); }
 
-  /* Card sizes */
-  .g-card.wide img  { height: 310px; }
-  .g-card.tall img  { height: 460px; }
-  .g-card.reg  img  { height: 245px; }
-  .g-card.sq   img  { height: 280px; }
-
-  /* Category Pill — always visible */
   .g-pill {
     position: absolute;
     top: 12px; left: 12px;
@@ -247,7 +245,6 @@
     border-color: transparent;
   }
 
-  /* Overlay */
   .g-overlay {
     position: absolute; inset: 0;
     background: linear-gradient(to top,
@@ -288,7 +285,6 @@
   }
   .g-card:hover .g-expand { transform: scale(1.12); }
 
-  /* Filter hide/show */
   .g-card.hidden { display: none; }
   .g-card.reveal {
     animation: gReveal 0.45s cubic-bezier(0.25,1,0.5,1) both;
@@ -407,9 +403,7 @@
     box-shadow: 0 30px 60px -15px rgba(179,135,40,0.12);
   }
 
-  /* ══════════════════════════════════════════════
-     LIGHTBOX
-  ══════════════════════════════════════════════ */
+  /* Lightbox */
   .lb-bg {
     position: fixed; inset: 0;
     background: rgba(0,0,0,0.97);
@@ -424,7 +418,6 @@
     padding: 20px 80px;
   }
   .lb-bg.open { opacity: 1; pointer-events: all; }
-
   .lb-box {
     position: relative;
     max-width: 920px;
@@ -434,7 +427,6 @@
     align-items: center;
     gap: 14px;
   }
-
   .lb-img-wrap {
     position: relative;
     width: 100%;
@@ -453,7 +445,6 @@
     transition: opacity 0.35s ease;
   }
   .lb-img-wrap img.loaded { opacity: 1; }
-
   .lb-loader {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
@@ -467,8 +458,6 @@
     animation: lbSpin 0.7s linear infinite;
   }
   @keyframes lbSpin { to { transform: rotate(360deg); } }
-
-  /* Close button */
   .lb-close {
     position: absolute;
     top: -15px; right: -15px;
@@ -482,8 +471,6 @@
     box-shadow: 0 4px 16px rgba(0,0,0,0.5);
   }
   .lb-close:hover { background: #fff; transform: scale(1.1) rotate(90deg); }
-
-  /* Caption */
   .lb-cap {
     width: 100%;
     display: flex; align-items: center;
@@ -512,8 +499,6 @@
     padding: 5px 14px; border-radius: 50px;
     border: 1px solid #1e1e1e;
   }
-
-  /* Thumbnail strip */
   .lb-thumbs {
     width: 100%;
     overflow-x: auto; overflow-y: hidden;
@@ -536,8 +521,6 @@
   .lb-thumb img { width: 100%; height: 100%; object-fit: cover; }
   .lb-thumb:hover { opacity: 0.8; border-color: rgba(179,135,40,0.5); }
   .lb-thumb.cur { border-color: var(--deep-gold); opacity: 1; }
-
-  /* Arrows */
   .lb-arr {
     position: fixed; top: 50%; transform: translateY(-50%);
     width: 50px; height: 50px; border-radius: 50%;
@@ -552,29 +535,17 @@
   .lb-arr.next { right: 16px; }
   .lb-arr:hover { background: var(--deep-gold); color: #000; transform: translateY(-50%) scale(1.08); }
 
-  /* ── Responsive ── */
   @media (max-width: 991px) {
     .spotlight-row { grid-template-columns: 1fr 1fr; grid-template-rows: 240px; }
     .spotlight-row .spotlight-card:first-child { grid-column: span 2; }
   }
   @media (max-width: 768px) {
-    .g-grid { columns: 2 180px; }
-    .g-card.wide img { height: 200px; }
-    .g-card.tall img { height: 300px; }
-    .g-card.reg  img { height: 175px; }
-    .g-card.sq   img { height: 200px; }
+    .g-grid { gap: 16px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
     .lb-bg { padding: 16px 10px; }
-    .lb-arr.prev { left: 6px; }
-    .lb-arr.next { right: 6px; }
-    .lb-arr { width: 40px; height: 40px; font-size: 0.9rem; }
-    .gallery-cta { padding: 44px 20px; }
-    .spotlight-row { grid-template-columns: 1fr; grid-template-rows: auto; }
-    .spotlight-card { height: 220px; }
   }
   @media (max-width: 480px) {
-    .g-grid { columns: 1; }
+    .g-grid { grid-template-columns: 1fr; }
     .filter-btn { padding: 8px 16px; font-size: 0.68rem; }
-    .lb-thumbs { display: none; }
   }
   </style>
 </head>
@@ -622,7 +593,7 @@
       </p>
       <h1 class="gold-text">Imperial Gallery</h1>
       <p class="lead mt-2" style="color:#bbb;font-size:0.95rem;letter-spacing:1px;">
-        Fleet · Operations · Team · Client Sites · Briefings
+        Fleet · Operations · Team · Client Sites · Briefings · Awards
       </p>
       <p class="page-breadcrumb mt-3"><a href="index.html">Home</a> &nbsp;/&nbsp; Gallery</p>
     </div>
@@ -639,15 +610,8 @@
       <span>10+ Corporate Clients</span><span class="sep">✦</span>
       <span>ISO 9001:2024 Certified</span><span class="sep">✦</span>
       <span>24/7 Command Center</span><span class="sep">✦</span>
-      <!-- Duplicate for seamless loop -->
-      <span>100+ Premium Vehicles</span><span class="sep">✦</span>
-      <span>18+ Years of Excellence</span><span class="sep">✦</span>
-      <span>2.3 Million Safe Journeys</span><span class="sep">✦</span>
-      <span>99.8% On-Time Performance</span><span class="sep">✦</span>
-      <span>80+ Trained Drivers</span><span class="sep">✦</span>
-      <span>10+ Corporate Clients</span><span class="sep">✦</span>
-      <span>ISO 9001:2024 Certified</span><span class="sep">✦</span>
-      <span>24/7 Command Center</span><span class="sep">✦</span>
+      <span>Best Driver Awards</span><span class="sep">✦</span>
+      <span>Employee Excellence</span><span class="sep">✦</span>
     </div>
   </div>
 
@@ -655,34 +619,10 @@
   <section class="stats-strip">
     <div class="container">
       <div class="row g-3">
-        <div class="col-6 col-md-3" data-aos="fade-up">
-          <div class="stat-box">
-            <span class="stat-icon-wrap"><i class="fas fa-car-side"></i></span>
-            <span class="stat-num" data-target="100" data-suffix="+">0</span>
-            <span class="stat-lbl">Premium Vehicles</span>
-          </div>
-        </div>
-        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="80">
-          <div class="stat-box">
-            <span class="stat-icon-wrap"><i class="fas fa-award"></i></span>
-            <span class="stat-num" data-target="18" data-suffix="+">0</span>
-            <span class="stat-lbl">Years of Service</span>
-          </div>
-        </div>
-        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="160">
-          <div class="stat-box">
-            <span class="stat-icon-wrap"><i class="fas fa-shield-halved"></i></span>
-            <span class="stat-num" data-target="23" data-suffix="L+">0</span>
-            <span class="stat-lbl">Safe Journeys</span>
-          </div>
-        </div>
-        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="240">
-          <div class="stat-box">
-            <span class="stat-icon-wrap"><i class="fas fa-building"></i></span>
-            <span class="stat-num" data-target="10" data-suffix="+">0</span>
-            <span class="stat-lbl">Corporate Clients</span>
-          </div>
-        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up"><div class="stat-box"><span class="stat-icon-wrap"><i class="fas fa-car-side"></i></span><span class="stat-num" data-target="100" data-suffix="+">0</span><span class="stat-lbl">Premium Vehicles</span></div></div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="80"><div class="stat-box"><span class="stat-icon-wrap"><i class="fas fa-award"></i></span><span class="stat-num" data-target="18" data-suffix="+">0</span><span class="stat-lbl">Years of Service</span></div></div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="160"><div class="stat-box"><span class="stat-icon-wrap"><i class="fas fa-shield-halved"></i></span><span class="stat-num" data-target="23" data-suffix="L+">0</span><span class="stat-lbl">Safe Journeys</span></div></div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="240"><div class="stat-box"><span class="stat-icon-wrap"><i class="fas fa-building"></i></span><span class="stat-num" data-target="10" data-suffix="+">0</span><span class="stat-lbl">Corporate Clients</span></div></div>
       </div>
     </div>
   </section>
@@ -690,589 +630,210 @@
   <!-- Gallery Section -->
   <section class="section-padding">
     <div class="container">
-
       <div class="text-center mb-4" data-aos="fade-up">
-        <span style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:4px;text-transform:uppercase;color:rgba(179,135,40,0.7);border:1px solid rgba(179,135,40,0.3);padding:5px 18px;border-radius:50px;display:inline-block;margin-bottom:16px;">
-          <i class="fas fa-images me-2"></i>Full Collection
-        </span>
         <h2 class="gold-text mt-2">A Visual Tour of Royal Excellence</h2>
         <p class="lead mt-3 px-lg-5">From driver briefings to client sites, from our vehicles to our offices — every image tells the story of the Royal's standard.</p>
       </div>
+      <div class="royal-divider" data-aos="fade-up"><i class="fas fa-crown"></i></div>
 
-      <!-- Gold Divider -->
-      <div class="royal-divider" data-aos="fade-up">
-        <i class="fas fa-crown"></i>
-      </div>
-
-      <!-- Filter Buttons -->
+      <!-- Filter Buttons (updated count includes award cards) -->
       <div class="filter-bar" data-aos="fade-up">
-        <button class="filter-btn active" data-filter="all">
-          <i class="fas fa-border-all"></i>All <span class="f-count">25</span>
-        </button>
-        <button class="filter-btn" data-filter="vehicle">
-          <i class="fas fa-car"></i>Vehicles <span class="f-count">8</span>
-        </button>
-        <button class="filter-btn" data-filter="briefing">
-          <i class="fas fa-chalkboard-user"></i>Driver Briefing <span class="f-count">4</span>
-        </button>
-        <button class="filter-btn" data-filter="office">
-          <i class="fas fa-building"></i>Our Office <span class="f-count">4</span>
-        </button>
-        <button class="filter-btn" data-filter="client">
-          <i class="fas fa-city"></i>Client Sites <span class="f-count">5</span>
-        </button>
-        <button class="filter-btn" data-filter="operations">
-          <i class="fas fa-headset"></i>Operations <span class="f-count">4</span>
-        </button>
+        <button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i>All <span class="f-count">29</span></button>
+        <button class="filter-btn" data-filter="vehicle"><i class="fas fa-car"></i>Vehicles <span class="f-count">8</span></button>
+        <button class="filter-btn" data-filter="briefing"><i class="fas fa-chalkboard-user"></i>Driver Briefing <span class="f-count">4</span></button>
+        <button class="filter-btn" data-filter="office"><i class="fas fa-building"></i>Our Office <span class="f-count">4</span></button>
+        <button class="filter-btn" data-filter="client"><i class="fas fa-city"></i>Client Sites <span class="f-count">5</span></button>
+        <button class="filter-btn" data-filter="operations"><i class="fas fa-headset"></i>Operations <span class="f-count">4</span></button>
+        <button class="filter-btn" data-filter="award"><i class="fas fa-trophy"></i>Awards <span class="f-count">4</span></button>
       </div>
 
-      <!-- ── SPOTLIGHT ROW (Featured 3 cards) ── -->
+      <!-- Spotlight Row -->
       <div class="spotlight-row" data-aos="fade-up" id="spotlightRow">
-
         <div class="spotlight-card" data-lb-src="Rl office cabs.jpg" data-lb-title="Royal Fleet — Premium Sedans" data-lb-tag="Vehicle">
-          <img src="Rl office cabs.jpg" alt="Royal Fleet">
-          <div class="sp-badge">Vehicle</div>
-          <div class="sp-feat"><i class="fas fa-crown me-1"></i>Featured</div>
-          <div class="spotlight-overlay">
-            <span class="sp-tag">Fleet</span>
-            <p class="sp-title">Royal Fleet — Premium Sedans</p>
-          </div>
+          <img src="Rl office cabs.jpg" alt="Royal Fleet"><div class="sp-badge">Vehicle</div><div class="sp-feat"><i class="fas fa-crown me-1"></i>Featured</div>
+          <div class="spotlight-overlay"><span class="sp-tag">Fleet</span><p class="sp-title">Royal Fleet — Premium Sedans</p></div>
         </div>
-
         <div class="spotlight-card" data-lb-src="morning shift.jpg" data-lb-title="Driver Briefing Session" data-lb-tag="Briefing">
-          <img src="morning shift.jpg" alt="Driver Briefing">
-          <div class="sp-badge">Briefing</div>
-          <div class="spotlight-overlay">
-            <span class="sp-tag">Driver Briefing</span>
-            <p class="sp-title">Morning Briefing Session</p>
-          </div>
+          <img src="morning shift.jpg" alt="Driver Briefing"><div class="sp-badge">Briefing</div>
+          <div class="spotlight-overlay"><span class="sp-tag">Driver Briefing</span><p class="sp-title">Morning Briefing Session</p></div>
         </div>
       </div>
 
-      <!-- ── MAIN MASONRY GALLERY ── -->
+      </div>
+
+      <!-- Main Gallery Grid (includes original cards + award cards integrated) -->
       <div class="g-grid" id="gGrid">
+ <!-- ========== AWARDS CARDS (Updated) ========== -->
+<div class="g-card reveal" data-category="award" data-title="Best Employee Award - MD Khaja Qutubuddin" data-lb-src="1.png" data-lb-tag="Employee Award">
+  <span class="g-pill">Award</span>
+  <img src="1.png" alt="Best Employee Award" loading="lazy">
+  <div class="g-overlay">
+    <span class="g-tag">👑 Best Employee Award</span>
+    <p class="g-title">MD Khaja Qutubuddin</p>
+    <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
+  </div>
+</div>
+<div class="g-card reveal" data-category="award" data-title="Best Driver Award - Barla Mohan Babu" data-lb-src="2.png" data-lb-tag="Driver Award">
+  <span class="g-pill">Award</span>
+  <img src="2.png" alt="Best Driver Award" loading="lazy">
+  <div class="g-overlay">
+    <span class="g-tag">🏆 Best Driver Award</span>
+    <p class="g-title">Barla Mohan Babu</p>
+    <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
+  </div>
+</div>
 
-        <!-- ══ VEHICLES (8) ══ -->
-        <div class="g-card wide reveal" data-category="vehicle" data-title="Maruti Dzire — Executive Sedan">
-          <span class="g-pill">Vehicle</span>
-          <img src="https://i.pinimg.com/736x/db/15/cc/db15cc6e4cebb37926a0094cb5d370f8.jpg" alt="Maruti Dzire" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Vehicle</span>
-            <p class="g-title">Maruti Dzire — Executive Sedan</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
+<div class="g-card reveal" data-category="award" data-title="Best Driver Award - Meegada Rajasekhar" data-lb-src="3.png" data-lb-tag="Driver Award">
+  <span class="g-pill">Award</span>
+  <img src="3.png" alt="Best Driver Award" loading="lazy">
+  <div class="g-overlay">
+    <span class="g-tag">🏆 Best Driver Award</span>
+    <p class="g-title">Meegada Rajasekhar</p>
+    <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
+  </div>
+</div>
 
-        <div class="g-card reg reveal" data-category="vehicle" data-title="Innova Crysta — Imperial SUV">
-          <span class="g-pill">Vehicle</span>
-          <img src="https://i.pinimg.com/1200x/fe/e6/ee/fee6eea7b191112a744e2bf23a277871.jpg" alt="Innova Crysta" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Vehicle</span>
-            <p class="g-title">Innova Crysta — Imperial SUV</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
+<div class="g-card reveal" data-category="award" data-title="Best Driver Award - Sagili Ravindra" data-lb-src="4.png" data-lb-tag="Driver Award">
+  <span class="g-pill">Award</span>
+  <img src="4.png" alt="Best Driver Award" loading="lazy">
+  <div class="g-overlay">
+    <span class="g-tag">🏆 Best Driver Award</span>
+    <p class="g-title">Sagili Ravindra</p>
+    <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
+  </div>
+</div>
+<div class="g-card reveal" data-category="training" data-title="Driver Safety Training Meeting" data-lb-src="5.png" data-lb-tag="Safety Training">
+  <span class="g-pill">Training</span>
+  <img src="5.png" alt="Driver Safety Training Meeting" loading="lazy">
+  <div class="g-overlay">
+    <span class="g-tag">Driver Safety Training Meeting</span>
+    <p class="g-title">Driver Safety Training Meeting</p>
+    <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
+  </div>
+</div>
 
-        <div class="g-card reg reveal" data-category="vehicle" data-title="Force Urbania — Luxury Coach">
-          <span class="g-pill">Vehicle</span>
-          <img src="https://www.carrentaldelhi.biz/images/categories-photoes/11-seater-urbania-big.jpg" alt="Force Urbania" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Vehicle</span>
-            <p class="g-title">Force Urbania — Luxury Coach</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
+        <!-- Vehicle Cards (8) -->
+        <div class="g-card reveal" data-category="vehicle" data-title="Maruti Dzire — Executive Sedan"><span class="g-pill">Vehicle</span><img src="https://i.pinimg.com/736x/db/15/cc/db15cc6e4cebb37926a0094cb5d370f8.jpg" alt="Maruti Dzire" loading="lazy"><div class="g-overlay"><span class="g-tag">Vehicle</span><p class="g-title">Maruti Dzire — Executive Sedan</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="vehicle" data-title="Innova Crysta — Imperial SUV"><span class="g-pill">Vehicle</span><img src="https://i.pinimg.com/1200x/fe/e6/ee/fee6eea7b191112a744e2bf23a277871.jpg" alt="Innova Crysta" loading="lazy"><div class="g-overlay"><span class="g-tag">Vehicle</span><p class="g-title">Innova Crysta — Imperial SUV</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="vehicle" data-title="Force Urbania — Luxury Coach"><span class="g-pill">Vehicle</span><img src="https://www.carrentaldelhi.biz/images/categories-photoes/11-seater-urbania-big.jpg" alt="Force Urbania" loading="lazy"><div class="g-overlay"><span class="g-tag">Vehicle</span><p class="g-title">Force Urbania — Luxury Coach</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="vehicle" data-title="Volvo Bus — 50-Seater Imperial"><span class="g-pill">Vehicle</span><img src="https://i.pinimg.com/736x/71/04/84/710484782a20a642992d66df3d6d3a80.jpg" alt="Volvo Bus" loading="lazy"><div class="g-overlay"><span class="g-tag">Vehicle</span><p class="g-title">Volvo — 50-Seater Imperial Bus</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="vehicle" data-title="Premium Sedan — Night Shift Ready"><span class="g-pill">Vehicle</span><img src="https://i.pinimg.com/736x/41/63/e3/4163e39c64777a2603ed84e26cded87a.jpg" alt="Night Sedan" loading="lazy"><div class="g-overlay"><span class="g-tag">Vehicle</span><p class="g-title">Night Shift Ready Sedan</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="vehicle" data-title="Sedan Side Profile — Royal Standard"><span class="g-pill">Vehicle</span><img src="https://i.pinimg.com/736x/ed/09/05/ed09056e4d67027be8b1ff68906cfc68.jpg" alt="Sedan Side" loading="lazy"><div class="g-overlay"><span class="g-tag">Vehicle</span><p class="g-title">Sedan — Side Profile</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="vehicle" data-title="Premium Car Interior — Passenger Comfort"><span class="g-pill">Vehicle</span><img src="https://i.pinimg.com/1200x/68/5f/91/685f91bdf9f639d9f1223200924b5f42.jpg" alt="Car Interior" loading="lazy"><div class="g-overlay"><span class="g-tag">Vehicle</span><p class="g-title">Premium Car Interior</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="vehicle" data-title="Fleet Lineup — GPS Enabled"><span class="g-pill">Vehicle</span><img src="https://shop.letstrack.in/cdn/shop/files/gpsforcar.jpg?v=1748863495&width=1946" alt="Fleet Lineup" loading="lazy"><div class="g-overlay"><span class="g-tag">Vehicle</span><p class="g-title">Fleet Lineup — GPS Enabled</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        
+        <!-- Briefing Cards (4) -->
+        <div class="g-card reveal" data-category="briefing" data-title="Morning Driver Briefing — Safety Protocol"><span class="g-pill">Briefing</span><img src="morning shift.jpg" alt="Driver Briefing" loading="lazy"><div class="g-overlay"><span class="g-tag">Driver Briefing</span><p class="g-title">Morning Safety Briefing</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="briefing" data-title="Route & Shift Briefing Session"><span class="g-pill">Briefing</span><img src="night shift.jpg" alt="Shift Briefing" loading="lazy"><div class="g-overlay"><span class="g-tag">Driver Briefing</span><p class="g-title">Night Shift Briefing</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="briefing" data-title="Driver Certification & Training"><span class="g-pill">Briefing</span><img src="Certification Program.jpg" alt="Driver Training" loading="lazy"><div class="g-overlay"><span class="g-tag">Driver Briefing</span><p class="g-title">Certification Program</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="briefing" data-title="Pre-Trip Driver Verification"><span class="g-pill">Briefing</span><img src="Driver Verification Check.jpg" alt="Driver Verification" loading="lazy"><div class="g-overlay"><span class="g-tag">Driver Briefing</span><p class="g-title">Driver Verification Check</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        
+        <!-- Office Cards (4) -->
+        <div class="g-card reveal" data-category="office" data-title="Operations Control Room"><span class="g-pill">Office</span><img src="Operations Control.png" alt="Operations Room" loading="lazy"><div class="g-overlay"><span class="g-tag">Our Office</span><p class="g-title">Operations Control Room</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="office" data-title="Client Conference Room"><span class="g-pill">Office</span><img src="Client Conference Room.png" alt="Conference Room" loading="lazy"><div class="g-overlay"><span class="g-tag">Our Office</span><p class="g-title">Client Conference Room</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        
+        <!-- Client Sites (5) -->
+        <div class="g-card reveal" data-category="client" data-title="Du Pont Client Site"><span class="g-pill">Client Site</span><img src="Du Pont.jpg" alt="Du Pont" loading="lazy"><div class="g-overlay"><span class="g-tag">Client Site</span><p class="g-title">Nanakramguda — Du Pont</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="client" data-title="Judge India Solutions"><span class="g-pill">Client Site</span><img src="https://www.judgeindiasolutions.com/wp-content/uploads/2023/05/judge-office.jpg" alt="Judge India" loading="lazy"><div class="g-overlay"><span class="g-tag">Client Site</span><p class="g-title">HITEC City — Judge India</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="client" data-title="IVY Comptech Client Site"><span class="g-pill">Client Site</span><img src="https://content.jdmagicbox.com/v2/comp/hyderabad/u4/040pxx40.xx40.221119200616.e8u4/catalogue/ivy-comptech-hyderabad-software-companies-WIDJ7qKENr-250.jpg" alt="IVY" loading="lazy"><div class="g-overlay"><span class="g-tag">Client Site</span><p class="g-title">Narsingi — IVY Client Site</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="client" data-title="Innodata Client Site"><span class="g-pill">Client Site</span><img src="https://media.glassdoor.com/lst2x/3e/ea/4c/f0/stellar-it-park.jpg?signature=89de279273ac67918752aab0ef7f057e9c4f9319f4b1e60e4132c0b4a3b01bb0" alt="Innodata" loading="lazy"><div class="g-overlay"><span class="g-tag">Client Site</span><p class="g-title">Madhapur — Innodata Client Site</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        
+        <!-- Operations Cards (4) -->
+        <div class="g-card reveal" data-category="operations" data-title="24/7 Command Center"><span class="g-pill">Operations</span><img src="Operations.jpg" alt="Command Center" loading="lazy"><div class="g-overlay"><span class="g-tag">Operations</span><p class="g-title">24/7 Command Center</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="operations" data-title="Live GPS Fleet Tracking"><span class="g-pill">Operations</span><img src="Live GPS.png" alt="GPS Tracking" loading="lazy"><div class="g-overlay"><span class="g-tag">Operations</span><p class="g-title">Live GPS Tracking</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
+        <div class="g-card reveal" data-category="operations" data-title="Vehicle Safety Inspection"><span class="g-pill">Operations</span><img src="Safety.png" alt="Safety Inspection" loading="lazy"><div class="g-overlay"><span class="g-tag">Operations</span><p class="g-title">Safety Inspections</p><div class="g-expand"><i class="fas fa-expand-alt"></i></div></div></div>
 
-        <div class="g-card tall reveal" data-category="vehicle" data-title="Volvo Bus — 50-Seater Imperial">
-          <span class="g-pill">Vehicle</span>
-          <img src="https://i.pinimg.com/736x/71/04/84/710484782a20a642992d66df3d6d3a80.jpg" alt="Volvo Bus" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Vehicle</span>
-            <p class="g-title">Volvo — 50-Seater Imperial Bus</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card reg reveal" data-category="vehicle" data-title="Premium Sedan — Night Shift Ready">
-          <span class="g-pill">Vehicle</span>
-          <img src="https://i.pinimg.com/736x/41/63/e3/4163e39c64777a2603ed84e26cded87a.jpg" alt="Night Sedan" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Vehicle</span>
-            <p class="g-title">Night Shift Ready Sedan</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card reg reveal" data-category="vehicle" data-title="Sedan Side Profile — Royal Standard">
-          <span class="g-pill">Vehicle</span>
-          <img src="https://i.pinimg.com/736x/ed/09/05/ed09056e4d67027be8b1ff68906cfc68.jpg" alt="Sedan Side" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Vehicle</span>
-            <p class="g-title">Sedan — Side Profile</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card reg reveal" data-category="vehicle" data-title="Premium Car Interior — Passenger Comfort">
-          <span class="g-pill">Vehicle</span>
-          <img src="https://i.pinimg.com/1200x/68/5f/91/685f91bdf9f639d9f1223200924b5f42.jpg" alt="Car Interior" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Vehicle</span>
-            <p class="g-title">Premium Car Interior</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card wide reveal" data-category="vehicle" data-title="Fleet Lineup — GPS Enabled & Sanitized">
-          <span class="g-pill">Vehicle</span>
-          <img src="https://shop.letstrack.in/cdn/shop/files/gpsforcar.jpg?v=1748863495&width=1946" alt="Fleet Lineup" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Vehicle</span>
-            <p class="g-title">Fleet Lineup — GPS Enabled</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <!-- ══ DRIVER BRIEFING (4) ══ -->
-        <div class="g-card wide reveal" data-category="briefing" data-title="Morning Driver Briefing — Safety Protocol">
-          <span class="g-pill">Briefing</span>
-          <img src="morning shift.jpg" alt="Driver Briefing" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Driver Briefing</span>
-            <p class="g-title">Morning Safety Briefing</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card reg reveal" data-category="briefing" data-title="Route & Shift Briefing Session">
-          <span class="g-pill">Briefing</span>
-          <img src="night shift.jpg" alt="Shift Briefing" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Driver Briefing</span>
-            <p class="g-title">Night Shift Briefing</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card tall reveal" data-category="briefing" data-title="Driver Certification & Training Program">
-          <span class="g-pill">Briefing</span>
-          <img src="Certification Program.jpg" alt="Driver Training" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Driver Briefing</span>
-            <p class="g-title">Certification Program</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card reg reveal" data-category="briefing" data-title="Pre-Trip Checklist — Driver Verification">
-          <span class="g-pill">Briefing</span>
-          <img src="Driver Verification Check.jpg" alt="Driver Verification" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Driver Briefing</span>
-            <p class="g-title">Driver Verification Check</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <!-- ══ OUR OFFICE (4) ══ -->
-
-        <div class="g-card reg reveal" data-category="office" data-title="Operations Control Room">
-          <span class="g-pill">Office</span>
-          <img src="Operations Control.png" alt="Operations Room" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Our Office</span>
-            <p class="g-title">Operations Control Room</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card reg reveal" data-category="office" data-title="Client Meeting — Conference Room">
-          <span class="g-pill">Office</span>
-          <img src="Client Conference Room.png" alt="Conference Room" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Our Office</span>
-            <p class="g-title">Client Conference Room</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <!-- ══ CLIENT SITES (5) ══ -->
-        <div class="g-card wide reveal" data-category="client" data-title="Nanakramguda — Du Pont Client Site">
-          <span class="g-pill">Client Site</span>
-          <img src="Du Pont.jpg" alt="Du Pont" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Client Site</span>
-            <p class="g-title">Nanakramguda — Du Pont</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card reg reveal" data-category="client" data-title="HITEC City — Judge India Solutions Client Site">
-          <span class="g-pill">Client Site</span>
-          <img src="https://www.judgeindiasolutions.com/wp-content/uploads/2023/05/judge-office.jpg" alt="Financial District" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Client Site</span>
-            <p class="g-title">HITEC City — Judge India Solutions Client Site</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card reg reveal" data-category="client" data-title="Narsingi — IVY Client Site">
-          <span class="g-pill">Client Site</span>
-          <img src="https://content.jdmagicbox.com/v2/comp/hyderabad/u4/040pxx40.xx40.221119200616.e8u4/catalogue/ivy-comptech-hyderabad-software-companies-WIDJ7qKENr-250.jpg" alt="Corporate Campus" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Client Site</span>
-            <p class="g-title">Corporate Campus Pickup</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card reg reveal" data-category="client" data-title="Madhapur — Innodata Client Site">
-          <span class="g-pill">Client Site</span>
-          <img src="https://media.glassdoor.com/lst2x/3e/ea/4c/f0/stellar-it-park.jpg?signature=89de279273ac67918752aab0ef7f057e9c4f9319f4b1e60e4132c0b4a3b01bb0" alt="Night Shift BPO" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Client Site</span>
-            <p class="g-title">Madhapur — Innodata Client Site</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <!-- ══ OPERATIONS (4) ══ -->
-        <div class="g-card wide reveal" data-category="operations" data-title="24/7 Command & Control Center">
-          <span class="g-pill">Operations</span>
-          <img src="Operations.jpg" alt="Command Center" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Operations</span>
-            <p class="g-title">24/7 Command Center</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card reg reveal" data-category="operations" data-title="Live GPS Fleet Tracking Dashboard">
-          <span class="g-pill">Operations</span>
-          <img src="Live GPS.png" alt="GPS Tracking" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Operations</span>
-            <p class="g-title">Live GPS Tracking</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-        <div class="g-card reg reveal" data-category="operations" data-title="Pre-Trip Vehicle Safety Inspection">
-          <span class="g-pill">Operations</span>
-          <img src="Safety.png" alt="Safety Inspection" loading="lazy">
-          <div class="g-overlay">
-            <span class="g-tag">Operations</span>
-            <p class="g-title">Safety Inspections</p>
-            <div class="g-expand"><i class="fas fa-expand-alt"></i></div>
-          </div>
-        </div>
-
-      </div><!-- /g-grid -->
-
-      <div id="emptyState" style="display:none;text-align:center;padding:70px 0;">
-        <i class="fas fa-images" style="font-size:3.5rem;background:var(--metallic-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:block;margin-bottom:18px;"></i>
-        <p style="color:#444;font-size:1rem;letter-spacing:1px;">No images in this category yet.</p>
+       
       </div>
-
+      <div id="emptyState" style="display:none;text-align:center;padding:70px 0;"><i class="fas fa-images" style="font-size:3.5rem;background:var(--metallic-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:block;margin-bottom:18px;"></i><p style="color:#444;font-size:1rem;letter-spacing:1px;">No images in this category yet.</p></div>
     </div>
   </section>
 
   <!-- CTA Section -->
   <section class="section-padding pt-0">
     <div class="container" data-aos="zoom-in">
-      <div class="gallery-cta">
-        <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:4px;color:rgba(179,135,40,0.65);text-transform:uppercase;margin-bottom:14px;">
-          <i class="fas fa-crown me-2"></i>Ready to Experience This?
-        </p>
-        <h2 class="gold-text mb-4">Experience the Royal Standard Firsthand</h2>
-        <p class="lead mb-2">What you see here is what your employees experience every single day — premium vehicles, professional drivers, and operations that never sleep.</p>
-        <p class="mb-5" style="color:#555;font-size:0.78rem;letter-spacing:2.5px;">
-          18+ YEARS &nbsp;·&nbsp; 100+ VEHICLES &nbsp;·&nbsp; 2.3M+ SAFE JOURNEYS &nbsp;·&nbsp; 99.8% ON-TIME
-        </p>
-        <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="Contact.html" class="btn btn-royal">
-            Request Free Consultation <i class="fas fa-arrow-right ms-2"></i>
-          </a>
-          <a href="Our Fleet.html" class="btn-outline-royal">
-            View Our Fleet <i class="fas fa-car ms-2"></i>
-          </a>
-        </div>
-      </div>
+      <div class="gallery-cta"><p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:4px;color:rgba(179,135,40,0.65);text-transform:uppercase;margin-bottom:14px;"><i class="fas fa-crown me-2"></i>Ready to Experience This?</p><h2 class="gold-text mb-4">Experience the Royal Standard Firsthand</h2><p class="lead mb-2">What you see here is what your employees experience every single day — premium vehicles, professional drivers, and operations that never sleep.</p><p class="mb-5" style="color:#555;font-size:0.78rem;letter-spacing:2.5px;">18+ YEARS &nbsp;·&nbsp; 100+ VEHICLES &nbsp;·&nbsp; 2.3M+ SAFE JOURNEYS &nbsp;·&nbsp; 99.8% ON-TIME</p><div class="d-flex flex-wrap justify-content-center gap-3"><a href="Contact.html" class="btn btn-royal">Request Free Consultation <i class="fas fa-arrow-right ms-2"></i></a><a href="Our Fleet.html" class="btn-outline-royal">View Our Fleet <i class="fas fa-car ms-2"></i></a></div></div>
     </div>
   </section>
 
-  <!-- WhatsApp -->
-  <a href="https://wa.me/919949900008?text=Hi%20Royal's%20Logistics%20Team,%20I%20am%20interested%20in%20your%20services." class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/919949900008?text=Hi%20Royal's%20Logistics%20Team,%20I%20am%20interested%20in%20your%20services." class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
   <div id="confirmationToast" class="imperial-toast"><i class="fas fa-crown"></i><span id="toastMessage">Royal request received!</span></div>
 
   <!-- Footer -->
-  <footer class="imperial-footer">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <div class="footer-logo"><img src="logo.png" alt="Royal's Logistics"></div>
-          <p class="small mt-3">The Real Choice of Royalty for premium corporate transportation across Hyderabad.</p>
-          <div class="mt-3">
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6">
-          <h5 class="gold-text mb-3" style="font-size:1rem;">Royal Links</h5>
-          <div class="footer-links d-flex flex-column">
-            <a href="index.html">Home</a>
-            <a href="Our Journey.html">Our Journey</a>
-            <a href="Services.html">Services</a>
-            <a href="Our Fleet.html">Our Fleet</a>
-            <a href="About Us.html">About Us</a>
-            <a href="Gallery.html">Gallery</a>
-            <a href="Contact.html">Contact</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h5 class="gold-text mb-3" style="font-size:1rem;">Imperial Services</h5>
-          <div class="footer-services d-flex flex-column">
-            <a href="#">Corporate Employee Transportation</a>
-            <a href="#">Imperial Fleet Management</a>
-            <a href="#">Events &amp; Conferences Transport</a>
-            <a href="#">Executive Travel Solutions</a>
-            <a href="#">Airport Transfers</a>
-            <a href="#">IT Company Transport</a>
-            <a href="#">BPO &amp; KPO Night Shift Transport</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h5 class="gold-text mb-3" style="font-size:1rem;">Connect Royalty</h5>
-          <p><i class="fas fa-map-marker-alt gold-text me-2"></i>8-1-284/OU/130, 2nd Floor, OU Colony, Manikonda, Shaikpet, Hyderabad – 500089</p>
-          <p><i class="fas fa-phone gold-text me-2"></i>+91 9949900008</p>
-          <p><i class="fas fa-envelope gold-text me-2"></i>raja@royalslogistic.com</p>
-          <p><i class="fas fa-clock gold-text me-2"></i>24/7 Imperial Support</p>
-        </div>
-      </div>
-      <hr class="border-secondary mt-4">
-      <div class="text-center pt-3"><p class="small mb-0">© 2024 ROYAL'S LOGISTICS. All Rights Reserved. | The Real Choice of Royalty</p></div>
-    </div>
-  </footer>
+  <footer class="imperial-footer"><div class="container"><div class="row g-4"><div class="col-lg-4 col-md-6"><div class="footer-logo"><img src="logo.png" alt="Royal's Logistics"></div><p class="small mt-3">The Real Choice of Royalty for premium corporate transportation across Hyderabad.</p><div class="mt-3"><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-icon"><i class="fab fa-twitter"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a></div></div><div class="col-lg-2 col-md-6"><h5 class="gold-text mb-3" style="font-size:1rem;">Royal Links</h5><div class="footer-links d-flex flex-column"><a href="index.html">Home</a><a href="Our Journey.html">Our Journey</a><a href="Services.html">Services</a><a href="Our Fleet.html">Our Fleet</a><a href="About Us.html">About Us</a><a href="Gallery.html">Gallery</a><a href="Contact.html">Contact</a></div></div><div class="col-lg-3 col-md-6"><h5 class="gold-text mb-3" style="font-size:1rem;">Imperial Services</h5><div class="footer-services d-flex flex-column"><a href="#">Corporate Employee Transportation</a><a href="#">Imperial Fleet Management</a><a href="#">Events &amp; Conferences Transport</a><a href="#">Executive Travel Solutions</a><a href="#">Airport Transfers</a><a href="#">IT Company Transport</a><a href="#">BPO &amp; KPO Night Shift Transport</a></div></div><div class="col-lg-3 col-md-6"><h5 class="gold-text mb-3" style="font-size:1rem;">Connect Royalty</h5><p><i class="fas fa-map-marker-alt gold-text me-2"></i>8-1-284/OU/130, 2nd Floor, OU Colony, Manikonda, Shaikpet, Hyderabad – 500089</p><p><i class="fas fa-phone gold-text me-2"></i>+91 9949900008</p><p><i class="fas fa-envelope gold-text me-2"></i>raja@royalslogistic.com</p><p><i class="fas fa-clock gold-text me-2"></i>24/7 Imperial Support</p></div></div><hr class="border-secondary mt-4"><div class="text-center pt-3"><p class="small mb-0">© 2024 ROYAL'S LOGISTICS. All Rights Reserved. | The Real Choice of Royalty</p></div></div></footer>
 
-  <!-- ══ LIGHTBOX ══ -->
+  <!-- Lightbox -->
   <div class="lb-bg" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
     <button class="lb-arr prev" id="lbPrev"><i class="fas fa-chevron-left"></i></button>
-    <div class="lb-box">
-      <button class="lb-close" id="lbClose" aria-label="Close"><i class="fas fa-times"></i></button>
-      <div class="lb-img-wrap">
-        <div class="lb-loader" id="lbLoader"><span></span></div>
-        <img id="lbImg" src="" alt="">
-      </div>
-      <div class="lb-cap">
-        <div class="lb-cap-l">
-          <span class="lb-cap-tag" id="lbTag"></span>
-          <span class="lb-cap-title" id="lbTitle"></span>
-        </div>
-        <span class="lb-count" id="lbCount"></span>
-      </div>
-      <div class="lb-thumbs" id="lbThumbs"></div>
-    </div>
+    <div class="lb-box"><button class="lb-close" id="lbClose" aria-label="Close"><i class="fas fa-times"></i></button><div class="lb-img-wrap"><div class="lb-loader" id="lbLoader"><span></span></div><img id="lbImg" src="" alt=""></div><div class="lb-cap"><div class="lb-cap-l"><span class="lb-cap-tag" id="lbTag"></span><span class="lb-cap-title" id="lbTitle"></span></div><span class="lb-count" id="lbCount"></span></div><div class="lb-thumbs" id="lbThumbs"></div></div>
     <button class="lb-arr next" id="lbNext"><i class="fas fa-chevron-right"></i></button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="main.js"></script>
+  <script>
+    (function() {
+      AOS.init({ duration: 800, once: true });
+      const nums = document.querySelectorAll('.stat-num[data-target]');
+      const statsObs = new IntersectionObserver(entries => {
+        if (!entries[0].isIntersecting) return;
+        nums.forEach(el => {
+          const target = parseInt(el.dataset.target);
+          const suf = el.dataset.suffix || '';
+          let cur = 0;
+          const step = Math.max(1, Math.ceil(target / 45));
+          const iv = setInterval(() => { cur += step; if (cur >= target) { cur = target; clearInterval(iv); } el.textContent = cur + suf; }, 35);
+        });
+        statsObs.disconnect();
+      }, { threshold: 0.3 });
+      const statsEl = document.querySelector('.stats-strip');
+      if (statsEl) statsObs.observe(statsEl);
 
-<script>
-(function () {
+      const grid = document.getElementById('gGrid');
+      const empty = document.getElementById('emptyState');
+      const spotlight = document.getElementById('spotlightRow');
+      let allCards = Array.from(grid.querySelectorAll('.g-card'));
+      let visible = [...allCards];
+      let curIdx = 0;
 
-  /* ── Animated Counters ── */
-  const nums = document.querySelectorAll('.stat-num[data-target]');
-  const statsObs = new IntersectionObserver(entries => {
-    if (!entries[0].isIntersecting) return;
-    nums.forEach(el => {
-      const target = parseInt(el.dataset.target);
-      const suf    = el.dataset.suffix || '';
-      let cur = 0;
-      const step = Math.max(1, Math.ceil(target / 45));
-      const iv = setInterval(() => {
-        cur += step;
-        if (cur >= target) { cur = target; clearInterval(iv); }
-        el.textContent = cur + suf;
-      }, 35);
-    });
-    statsObs.disconnect();
-  }, { threshold: 0.3 });
-  const statsEl = document.querySelector('.stats-strip');
-  if (statsEl) statsObs.observe(statsEl);
-
-  /* ── Gallery Setup ── */
-  const grid      = document.getElementById('gGrid');
-  const empty     = document.getElementById('emptyState');
-  const spotlight = document.getElementById('spotlightRow'); // featured top row
-
-  let allCards = Array.from(grid.querySelectorAll('.g-card'));
-  let visible  = [...allCards];
-  let curIdx   = 0;
-
-  /* ── FILTER LOGIC (KEY FIX) ── */
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-
-      // 1. Update active button
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-
-      const f = this.dataset.filter;
-
-      // 2. Show spotlight row only when "All" is selected
-      if (spotlight) {
-        spotlight.style.display     = (f === 'all') ? 'grid' : 'none';
-        spotlight.style.marginBottom = (f === 'all') ? '16px' : '0';
-      }
-
-      // 3. Filter gallery cards
-      visible = [];
-      allCards.forEach(card => {
-        const match = (f === 'all') || (card.dataset.category === f);
-
-        if (match) {
-          // Remove hidden first, then trigger animation
-          card.classList.remove('hidden');
-          card.classList.remove('reveal');
-          void card.offsetWidth; // force reflow so animation restarts
-          card.classList.add('reveal');
-          visible.push(card);
-        } else {
-          card.classList.remove('reveal');
-          card.classList.add('hidden');
-        }
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const f = this.dataset.filter;
+          if (spotlight) { spotlight.style.display = (f === 'all') ? 'grid' : 'none'; spotlight.style.marginBottom = (f === 'all') ? '16px' : '0'; }
+          visible = [];
+          allCards.forEach(card => {
+            const match = (f === 'all') || (card.dataset.category === f);
+            if (match) { card.classList.remove('hidden'); card.classList.remove('reveal'); void card.offsetWidth; card.classList.add('reveal'); visible.push(card); }
+            else { card.classList.remove('reveal'); card.classList.add('hidden'); }
+          });
+          empty.style.display = (visible.length === 0) ? 'block' : 'none';
+          buildThumbs();
+        });
       });
 
-      // 4. Show empty state if no results
-      empty.style.display = (visible.length === 0) ? 'block' : 'none';
-
-      // 5. Rebuild thumbnail strip for lightbox
+      const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbLoad = document.getElementById('lbLoader'), lbTag = document.getElementById('lbTag'), lbTtl = document.getElementById('lbTitle'), lbCnt = document.getElementById('lbCount'), lbTbs = document.getElementById('lbThumbs');
+      function buildThumbs() { lbTbs.innerHTML = ''; visible.forEach((c, i) => { const img = c.querySelector('img'); const th = document.createElement('div'); th.className = 'lb-thumb'; th.innerHTML = `<img src="${img.src}" alt="">`; th.addEventListener('click', () => openLB(i)); lbTbs.appendChild(th); }); }
+      function syncThumbs() { lbTbs.querySelectorAll('.lb-thumb').forEach((t, i) => t.classList.toggle('cur', i === curIdx)); const act = lbTbs.querySelectorAll('.lb-thumb')[curIdx]; if (act) act.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); }
+      function loadImg(src) { lbLoad.style.display = 'flex'; lbImg.classList.remove('loaded'); lbImg.src = ''; const t = new Image(); t.onload = () => { lbImg.src = t.src; lbLoad.style.display = 'none'; lbImg.classList.add('loaded'); }; t.onerror = () => { lbLoad.style.display = 'none'; lbImg.classList.add('loaded'); }; t.src = src; }
+      function openLB(idx) { curIdx = idx; const c = visible[idx]; const img = c.querySelector('img'); lb.classList.add('open'); document.body.style.overflow = 'hidden'; lbTag.textContent = (c.dataset.category || '').toUpperCase().replace('-', ' '); lbTtl.textContent = c.dataset.title || c.querySelector('.g-title')?.innerText || 'Royal Moment'; lbCnt.textContent = `${idx + 1} / ${visible.length}`; loadImg(img.src); syncThumbs(); }
+      function closeLB() { lb.classList.remove('open'); document.body.style.overflow = ''; setTimeout(() => { lbImg.src = ''; lbImg.classList.remove('loaded'); }, 350); }
+      function nav(d) { if (visible.length === 0) return; curIdx = (curIdx + d + visible.length) % visible.length; const c = visible[curIdx]; lbTag.textContent = (c.dataset.category || '').toUpperCase().replace('-', ' '); lbTtl.textContent = c.dataset.title || c.querySelector('.g-title')?.innerText || 'Royal Moment'; lbCnt.textContent = `${curIdx + 1} / ${visible.length}`; loadImg(c.querySelector('img').src); syncThumbs(); }
+      
+      allCards.forEach(c => { c.addEventListener('click', () => { const vi = visible.indexOf(c); if (vi !== -1) openLB(vi); }); });
+      document.querySelectorAll('.spotlight-card[data-lb-src]').forEach(sc => { sc.addEventListener('click', () => { lb.classList.add('open'); document.body.style.overflow = 'hidden'; lbTag.textContent = (sc.dataset.lbTag || '').toUpperCase(); lbTtl.textContent = sc.dataset.lbTitle || ''; lbCnt.textContent = '— / —'; loadImg(sc.dataset.lbSrc); }); });
+      
+      document.getElementById('lbClose').addEventListener('click', closeLB);
+      document.getElementById('lbPrev').addEventListener('click', () => nav(-1));
+      document.getElementById('lbNext').addEventListener('click', () => nav(1));
+      lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
+      document.addEventListener('keydown', e => { if (!lb.classList.contains('open')) return; if (e.key === 'Escape') closeLB(); if (e.key === 'ArrowLeft') nav(-1); if (e.key === 'ArrowRight') nav(1); });
+      let tx = 0; lb.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; }, { passive: true }); lb.addEventListener('touchend', e => { const d = tx - e.changedTouches[0].screenX; if (Math.abs(d) > 50) nav(d > 0 ? 1 : -1); }, { passive: true });
       buildThumbs();
-    });
-  });
-
-  /* ── Lightbox Thumbnail Strip ── */
-  const lb     = document.getElementById('lb');
-  const lbImg  = document.getElementById('lbImg');
-  const lbLoad = document.getElementById('lbLoader');
-  const lbTag  = document.getElementById('lbTag');
-  const lbTtl  = document.getElementById('lbTitle');
-  const lbCnt  = document.getElementById('lbCount');
-  const lbTbs  = document.getElementById('lbThumbs');
-
-  function buildThumbs() {
-    lbTbs.innerHTML = '';
-    visible.forEach((c, i) => {
-      const img = c.querySelector('img');
-      const th  = document.createElement('div');
-      th.className = 'lb-thumb';
-      th.innerHTML = `<img src="${img.src}" alt="">`;
-      th.addEventListener('click', () => openLB(i));
-      lbTbs.appendChild(th);
-    });
-  }
-  buildThumbs();
-
-  function syncThumbs() {
-    lbTbs.querySelectorAll('.lb-thumb').forEach((t, i) => {
-      t.classList.toggle('cur', i === curIdx);
-    });
-    const act = lbTbs.querySelectorAll('.lb-thumb')[curIdx];
-    if (act) act.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-  }
-
-  function loadImg(src) {
-    lbLoad.style.display = 'flex';
-    lbImg.classList.remove('loaded');
-    lbImg.src = '';
-    const t   = new Image();
-    t.onload  = () => { lbImg.src = t.src; lbLoad.style.display = 'none'; lbImg.classList.add('loaded'); };
-    t.onerror = () => { lbLoad.style.display = 'none'; lbImg.classList.add('loaded'); };
-    t.src = src;
-  }
-
-  function openLB(idx) {
-    curIdx = idx;
-    const c   = visible[idx];
-    const img = c.querySelector('img');
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    lbTag.textContent = (c.dataset.category || '').toUpperCase().replace('-', ' ');
-    lbTtl.textContent = c.dataset.title || '';
-    lbCnt.textContent = `${idx + 1} / ${visible.length}`;
-    loadImg(img.src);
-    syncThumbs();
-  }
-
-  function closeLB() {
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
-    setTimeout(() => { lbImg.src = ''; lbImg.classList.remove('loaded'); }, 350);
-  }
-
-  function nav(d) {
-    if (visible.length === 0) return;
-    curIdx = (curIdx + d + visible.length) % visible.length;
-    const c = visible[curIdx];
-    lbTag.textContent = (c.dataset.category || '').toUpperCase().replace('-', ' ');
-    lbTtl.textContent = c.dataset.title || '';
-    lbCnt.textContent = `${curIdx + 1} / ${visible.length}`;
-    loadImg(c.querySelector('img').src);
-    syncThumbs();
-  }
-
-  /* Click on gallery cards */
-  allCards.forEach(c => {
-    c.addEventListener('click', () => {
-      const vi = visible.indexOf(c);
-      if (vi !== -1) openLB(vi);
-    });
-  });
-
-  /* Click on spotlight cards */
-  document.querySelectorAll('.spotlight-card[data-lb-src]').forEach(sc => {
-    sc.addEventListener('click', () => {
-      lb.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      lbTag.textContent = (sc.dataset.lbTag || '').toUpperCase();
-      lbTtl.textContent = sc.dataset.lbTitle || '';
-      lbCnt.textContent = '— / —';
-      loadImg(sc.dataset.lbSrc);
-    });
-  });
-
-  /* Controls */
-  document.getElementById('lbClose').addEventListener('click', closeLB);
-  document.getElementById('lbPrev').addEventListener('click', () => nav(-1));
-  document.getElementById('lbNext').addEventListener('click', () => nav(1));
-  lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
-
-  /* Keyboard */
-  document.addEventListener('keydown', e => {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape')     closeLB();
-    if (e.key === 'ArrowLeft')  nav(-1);
-    if (e.key === 'ArrowRight') nav(1);
-  });
-
-  /* Touch swipe */
-  let tx = 0;
-  lb.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; }, { passive: true });
-  lb.addEventListener('touchend',   e => {
-    const d = tx - e.changedTouches[0].screenX;
-    if (Math.abs(d) > 50) nav(d > 0 ? 1 : -1);
-  }, { passive: true });
-
-})();
-</script>
-
-
+    })();
+  </script>
 </body>
 </html>
