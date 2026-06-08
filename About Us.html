@@ -1,575 +1,928 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | ROYAL'S LOGISTICS | Imperial Corporate Employee Transport</title>
-  <!-- Favicon (Logo as icon) -->
-  <link rel="icon" type="image/png" href="logo1.png" />
-  <link rel="apple-touch-icon" href="logo1.png" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | ROYAL'S LOGISTICS</title>
+    <!-- Favicon (Logo as icon) -->
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="apple-touch-icon" href="logo.png" />
 
-  <!-- Open Graph Meta Tags (WhatsApp / Facebook Preview) -->
-  <meta property="og:title" content="ROYAL'S LOGISTICS | Imperial Corporate Employee Transport" />
-  <meta property="og:description" content="Premium corporate employee transport solutions with reliability, safety, and efficiency. Trusted logistics partner for modern businesses." />
-  <meta property="og:image" content="https://rl-updated.netlify.app/logo1.png" />
-  <meta property="og:url" content="https://rl-updated.netlify.app/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+    <!-- SEO Title -->
+    <title>ROYAL'S LOGISTICS | Imperial Corporate Employee Transport</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* Additional styles for the refined CEO section - Golden Border & Rectangle Image */
-    .ceo-refined-section {
-      padding: 80px 0;
-      background: linear-gradient(135deg, #0a0a0a 0%, #111111 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .ceo-refined-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.05"><path fill="%23D4AF37" d="M400,0 L493.3,300 L800,300 L550,485 L643.3,785 L400,600 L156.7,785 L250,485 L0,300 L306.7,300 Z"/></svg>') repeat;
-      pointer-events: none;
-    }
-    .section-tag {
-      display: inline-block;
-      background: rgba(212, 175, 55, 0.15);
-      color: var(--deep-gold, #D4AF37);
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-    }
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #D4AF37 0%, #FFD966 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 0.5rem;
-      font-family: 'Cinzel', serif;
-    }
-    /* CEO Card with Golden Border */
-    .ceo-card {
-      background: rgba(20, 20, 20, 0.85);
-      backdrop-filter: blur(12px);
-      border-radius: 30px;
-      padding: 2rem;
-      border: 2px solid #D4AF37;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2), 0 25px 45px -12px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .ceo-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.3), 0 25px 45px -12px rgba(0,0,0,0.6);
-      border-color: #FFD966;
-    }
-    /* Rectangle Image Wrapper - Bigger with Golden Border */
-    .ceo-img-wrapper-rectangle {
-      width: 300px;
-      height: 340px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #D4AF37, #8B6914);
-      padding: 5px;
-      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
-      margin: 0 auto;
-    }
-    .ceo-img-wrapper-rectangle:hover {
-      transform: scale(1.02);
-    }
-    .ceo-img-rectangle {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 3px solid #0a0a0a;
-    }
-    .ceo-name {
-      font-size: 2rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #D4AF37, #FFF2C8);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 0.25rem;
-      font-family: 'Cinzel', serif;
-    }
-    .ceo-title {
-      font-size: 1rem;
-      letter-spacing: 3px;
-      color: #D4AF37;
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-    .ceo-quote {
-      font-style: italic;
-      font-size: 1rem;
-      color: #e0c87c;
-      border-left: 3px solid #D4AF37;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-    }
-    .ceo-estb {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      color: #aaa;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .ceo-estb i {
-      color: #D4AF37;
-    }
-    /* Keep existing gold badges consistent */
-    .stat-badge-gold {
-      background: rgba(212, 175, 55, 0.12);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      color: #D4AF37;
-      padding: 0.3rem 0.8rem;
-      border-radius: 30px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    @media (min-width: 1200px) {
-      .ceo-img-wrapper-rectangle {
-        width: 340px;
-        height: 380px;
+    <!-- Open Graph Meta Tags (WhatsApp / Facebook Preview) -->
+    <meta
+      property="og:title"
+      content="ROYAL'S LOGISTICS | Imperial Corporate Employee Transport"
+    />
+    <meta
+      property="og:description"
+      content="Premium corporate employee transport solutions with reliability, safety, and efficiency. Trusted logistics partner for modern businesses."
+    />
+    <meta
+      property="og:image"
+      content="https://rl-updated.netlify.app/logo1.png"
+    />
+    <meta property="og:url" content="https://rl-updated.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Additional styles for the refined CEO section - Golden Border & Rectangle Image */
+      .ceo-refined-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #0a0a0a 0%, #111111 100%);
+        position: relative;
+        overflow: hidden;
       }
-    }
-    @media (max-width: 768px) {
-      .ceo-card {
-        text-align: center;
-        padding: 1.5rem;
+      .ceo-refined-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.05"><path fill="%23D4AF37" d="M400,0 L493.3,300 L800,300 L550,485 L643.3,785 L400,600 L156.7,785 L250,485 L0,300 L306.7,300 Z"/></svg>')
+          repeat;
+        pointer-events: none;
       }
-      .ceo-img-wrapper-rectangle {
-        width: 240px;
-        height: 280px;
+      .section-tag {
+        display: inline-block;
+        background: rgba(212, 175, 55, 0.15);
+        color: var(--deep-gold, #d4af37);
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        padding: 0.3rem 1rem;
+        border-radius: 30px;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        border: 1px solid rgba(212, 175, 55, 0.3);
       }
       .section-title {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #d4af37 0%, #ffd966 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 0.5rem;
+        font-family: "Cinzel", serif;
+      }
+      /* CEO Card with Golden Border */
+      .ceo-card {
+        background: rgba(20, 20, 20, 0.85);
+        backdrop-filter: blur(12px);
+        border-radius: 30px;
+        padding: 2rem;
+        border: 2px solid #d4af37;
+        box-shadow:
+          0 0 20px rgba(212, 175, 55, 0.2),
+          0 25px 45px -12px rgba(0, 0, 0, 0.5);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .ceo-card:hover {
+        transform: translateY(-5px);
+        box-shadow:
+          0 0 30px rgba(212, 175, 55, 0.3),
+          0 25px 45px -12px rgba(0, 0, 0, 0.6);
+        border-color: #ffd966;
+      }
+      /* Rectangle Image Wrapper - Bigger with Golden Border */
+      .ceo-img-wrapper-rectangle {
+        width: 300px;
+        height: 340px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #d4af37, #8b6914);
+        padding: 5px;
+        box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease;
+        margin: 0 auto;
+      }
+      .ceo-img-wrapper-rectangle:hover {
+        transform: scale(1.02);
+      }
+      .ceo-img-rectangle {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 3px solid #0a0a0a;
       }
       .ceo-name {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #d4af37, #fff2c8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 0.25rem;
+        font-family: "Cinzel", serif;
       }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Preloader -->
-  <div id="preloader">
-    <div class="loader-logo">ROYAL'S LOGISTICS</div>
-    <div style="width:280px;height:2px;background:#2a2a2a;margin-top:20px;">
-      <div id="bar" style="width:0%;height:100%;background:var(--metallic-gold);"></div>
-    </div>
-    <p class="mt-3 small gold-text">Imperial Excellence Loading...</p>
-  </div>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><img class="navbar-logo-img" src="logo.png" alt="Royal's Logistics"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="Our Journey.html">Our Journey</a></li>
-          <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="Our Fleet.html">Our Fleet</a></li>
-          <li class="nav-item"><a class="nav-link active-link" href="About Us.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
-        </ul>
+      .ceo-title {
+        font-size: 1rem;
+        letter-spacing: 3px;
+        color: #d4af37;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+      .ceo-quote {
+        font-style: italic;
+        font-size: 1rem;
+        color: #e0c87c;
+        border-left: 3px solid #d4af37;
+        padding-left: 1rem;
+        margin: 1rem 0;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+      }
+      .ceo-estb {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        color: #aaa;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .ceo-estb i {
+        color: #d4af37;
+      }
+      /* Keep existing gold badges consistent */
+      .stat-badge-gold {
+        background: rgba(212, 175, 55, 0.12);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        color: #d4af37;
+        padding: 0.3rem 0.8rem;
+        border-radius: 30px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      @media (min-width: 1200px) {
+        .ceo-img-wrapper-rectangle {
+          width: 340px;
+          height: 380px;
+        }
+      }
+      @media (max-width: 768px) {
+        .ceo-card {
+          text-align: center;
+          padding: 1.5rem;
+        }
+        .ceo-img-wrapper-rectangle {
+          width: 240px;
+          height: 280px;
+        }
+        .section-title {
+          font-size: 1.8rem;
+        }
+        .ceo-name {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="loader-logo">ROYAL'S LOGISTICS</div>
+      <div
+        style="width: 280px; height: 2px; background: #2a2a2a; margin-top: 20px"
+      >
+        <div
+          id="bar"
+          style="width: 0%; height: 100%; background: var(--metallic-gold)"
+        ></div>
       </div>
+      <p class="mt-3 small gold-text">Imperial Excellence Loading...</p>
     </div>
-  </nav>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80');"></div>
-    <div class="page-hero-overlay"></div>
-    <div class="container" data-aos="zoom-out">
-      <h1 class="gold-text">About Royal's Logistics</h1>
-      <p class="page-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; About Us</p>
-    </div>
-  </section>
-
-  <!-- Who We Are - updated content focusing on professional experience -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="royal-border-box" data-aos="fade-up">
-        <div class="row align-items-center g-5">
-          <div class="col-lg-7"><h2 class="gold-text mb-4">Trusted Corporate Transportation Partner</h2>
-
-<p class="lead mb-3" style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;">
-  With over <strong class="gold-text">18+ years of experience in corporate employee transportation, </strong>we provide reliable, safe, and efficient mobility solutions tailored to the needs of modern organizations.
-</p>
-
-<p>
-Over the years, we have successfully managed transportation operations including cab services, fleet supervision, route planning, driver coordination, airport transfers, executive travel, and employee mobility programs. Our commitment to safety, punctuality, and service excellence has helped us build strong relationships with leading corporate organizations.
-</p>
-
-<p>
-We are proud to provide transportation services for reputed companies including <strong class="gold-text">Qnity, DuPont, ContentKings, Judgeindiasolutions, Resource, Ivy, and Innodata.</strong> Our focus remains on delivering dependable transportation solutions that support business continuity while ensuring a safe and comfortable commuting experience for employees.
-</p>
-
-<div class="mt-4 d-flex flex-wrap gap-2">
-  <span class="stat-badge-gold"><i class="fas fa-chart-line me-1"></i>18+ Years Experience</span>
-  <span class="stat-badge-gold"><i class="fas fa-building me-1"></i>Corporate Transport Expert</span>
-  <span class="stat-badge-gold"><i class="fas fa-users me-1"></i>Trusted Corporate Partner</span>
-  <span class="stat-badge-gold"><i class="fas fa-shield-alt me-1"></i>Safety First Operations</span>
-</div></div>
-          <div class="col-lg-5"><h5 class="gold-text mb-4">Corporate Transportation Expertise</h5>
-
-<ul class="list-unstyled">
-  <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Industry Experience:</strong> 18+ Years</li>
-
-  <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Specialization:</strong> Corporate Employee Transportation</li>
-
-  <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Operations:</strong> End-to-End Cab Management</li>
-
-  <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Fleet Management:</strong> Daily Monitoring & Supervision</li>
-
-  <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Route Planning:</strong> Efficient Employee Mobility Solutions</li>
-
-  <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Corporate Clients:</strong> Qnity, DuPont, ContentKings, Judgeindiasolutions, Resource, Ivy & Innodata</li>
-
-  <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Service Focus:</strong> Safety, Reliability & Punctuality</li>
-
-  <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Support:</strong> 24/7 Operational Coordination</li>
-
-  <li class="mb-3"><i class="fas fa-check-circle gold-text me-2"></i><strong>Commitment:</strong> Professional & Dependable Service</li>
-</ul></div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><img class="navbar-logo-img" src="logo.png" alt="Royal's Logistics"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Our Journey.html">Our Journey</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Our Fleet.html">Our Fleet</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active-link" href="About Us.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Contact.html">Contact</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- REFINED CEO SECTION with GOLDEN BORDER & RECTANGLE IMAGE - updated to reflect transport industry experience -->
-  <section id="ceo" class="ceo-refined-section">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="gold-text">TRANSPORTATION INDUSTRY LEADER</h2>
-        <p class="mt-3">18+ years of hands-on experience in cab operations, fleet management & corporate mobility</p>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div
+        class="page-hero-bg"
+        style="
+          background-image: url(&quot;https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80&quot;);
+        "
+      ></div>
+      <div class="page-hero-overlay"></div>
+      <div class="container" data-aos="zoom-out">
+        <h1 class="gold-text">About Us Royal's Logistics</h1>
+        <p class="page-breadcrumb">
+          <a href="index.html">Home</a> &nbsp;/&nbsp; About Us
+        </p>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-          <div class="ceo-card">
-            <div class="row align-items-center">
-              <div class="col-lg-5 text-center mb-4 mb-lg-0">
-                <!-- RECTANGLE IMAGE WRAPPER - Golden border, premium dimensions -->
-                <div class="ceo-img-wrapper-rectangle mx-auto">
-                  <img src="kumar raja.jpg" alt="K Naga Kumar Raja" class="ceo-img-rectangle">
+    </section>
+
+    <!-- Who We Are -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="royal-border-box" data-aos="fade-up">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+              <h2 class="gold-text mb-4">Who We Are</h2>
+              <p
+                class="lead mb-3"
+                style="
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
+                  font-size: 1.6rem;
+                "
+              >
+                ROYAL'S LOGISTICS is Hyderabad's most trusted
+                <strong class="gold-text"
+                  >corporate employee transportation company</strong
+                >
+                — built on a foundation of 18+ years of service excellence,
+                safety-first operations, and an unwavering commitment to
+                punctuality.
+              </p>
+              <p>
+                Mr. K. Naga Kumar Raja is a seasoned transportation professional
+                with over 18 years of industry experience, having served the
+                corporate transportation sector since 2006. His expertise spans
+                fleet management, route optimization, driver coordination, and
+                end-to-end transportation operations for leading organizations.
+                Guided by the belief that
+                <strong>
+                  "Every employee deserves a commute that is safe, punctual, and
+                  dignified — that's the royal standard."
+                </strong>
+                he has built a reputation for operational excellence and
+                customer satisfaction. Today, under his leadership, the company
+                proudly operates a
+                <strong>100+ vehicle fleet</strong> and serves
+                <strong
+                  >10+ leading IT companies, BPOs, and MNCs across
+                  Hyderabad</strong
+                >, delivering dependable, safe, and efficient transportation
+                solutions every day.
+              </p>
+              <p class="mt-3">
+                Today, Royal's Logistics is synonymous with reliability,
+                professionalism, and care in corporate transport. Our 2.3
+                million+ safe journeys, zero major incident record (5+ years),
+                and 98.7% client retention rate speak for themselves. We are not
+                just a transport vendor — we are a long-term mobility partner
+                for the organizations we serve.
+              </p>
+              <div class="mt-4 d-flex flex-wrap gap-2">
+                <span class="stat-badge-gold"
+                  ><i class="fas fa-map-marker-alt me-1"></i>Hyderabad,
+                  Telangana</span
+                >
+                <span class="stat-badge-gold"
+                  ><i class="fas fa-certificate me-1"></i>ISO 9001:2024
+                  Certified</span
+                >
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <h5 class="gold-text mb-4">Company At a Glance</h5>
+              <ul class="list-unstyled">
+                <li class="mb-3">
+                  <i class="fas fa-check-circle gold-text me-2"></i>
+                  <strong>Leadership Experience:</strong> 18+ Years in Corporate
+                  Transportation
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle gold-text me-2"></i
+                  ><strong>Specialisation:</strong> Corporate Employee Transport
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle gold-text me-2"></i
+                  ><strong>Our Fleet Size:</strong> 100+ Vehicles
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle gold-text me-2"></i
+                  ><strong>Drivers:</strong> 80+ Trained & Verified
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle gold-text me-2"></i
+                  ><strong>Clients:</strong> 10+ Active Corporate Partners
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle gold-text me-2"></i
+                  ><strong>Journeys Completed:</strong> 2.3 Million+
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle gold-text me-2"></i
+                  ><strong>On-Time Rate:</strong> 99.8%
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle gold-text me-2"></i
+                  ><strong>Operations:</strong> 24/7 Command Center
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle gold-text me-2"></i
+                  ><strong>Safety Record:</strong> Zero Major Incidents (5+
+                  Years)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPDATED CEO SECTION with GOLDEN BORDER & RECTANGLE IMAGE -->
+    <section id="ceo" class="ceo-refined-section">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="gold-text">VISIONARY FOUNDER</h2>
+          <p class="mt-3">Building excellence with integrity and innovation</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+            <div class="ceo-card">
+              <div class="row align-items-center">
+                <div class="col-lg-5 text-center mb-4 mb-lg-0">
+                  <!-- RECTANGLE IMAGE WRAPPER - Bigger size with golden border effect -->
+                  <div class="ceo-img-wrapper-rectangle mx-auto">
+                    <img
+                      src="kumar raja.jpg"
+                      alt="K Naga Kumar Raja"
+                      class="ceo-img-rectangle"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-7">
+                  <h3 class="gold-text">K NAGA KUMAR RAJA</h3>
+                  <div class="gold-text">CEO & MANAGING DIRECTOR</div>
+                  <p class="mt-3 text-white-50">
+                    With over
+                    <strong class="gold-text"
+                      >18 years of transport leadership</strong
+                    >, Mr. Raja pioneered the concept of "corporate employee
+                    transport as a royal service" in Hyderabad. Under his
+                    guidance, Royal's Logistics has become the city's most
+                    trusted partner for IT and BPO employee commutes across all
+                    shifts and zones. He personally oversees driver training
+                    programs, safety audits, Our Fleet quality control, and
+                    client relationship management. His philosophy is rooted in
+                    respect — for employees, for clients, and for the road. He
+                    believes that a punctual, safe, and dignified commute is not
+                    a luxury but a right every employee deserves.
+                  </p>
+                  <div class="ceo-quote">
+                    <strong class="gold-text"
+                      >"Every employee deserves a commute that is safe,
+                      punctual, and dignified — that's the royal
+                      standard."</strong
+                    >
+                  </div>
+                  <div class="ceo-estb">
+                    <i class="fas fa-calendar-alt me-2"></i>
+                    18+ Years of Transportation Excellence · Leading with
+                    Integrity
+                  </div>
+                  <div class="mt-3 d-flex flex-wrap gap-2">
+                    <span class="stat-badge-gold"
+                      ><i class="fas fa-trophy me-1"></i>18+ Years
+                      Experience</span
+                    >
+                    <span class="stat-badge-gold"
+                      ><i class="fas fa-users me-1"></i>10+ Corporate
+                      Clients</span
+                    >
+                    <span class="stat-badge-gold"
+                      ><i class="fas fa-shield-heart me-1"></i>Zero Compromise
+                      Safety</span
+                    >
+                    <span class="stat-badge-gold"
+                      ><i class="fas fa-star me-1"></i>Industry Pioneer</span
+                    >
+                  </div>
                 </div>
               </div>
-              <div class="col-lg-7">
-                <h3 class="gold-text">K NAGA KUMAR RAJA</h3>
-                <div class="gold-text">CEO & MANAGING DIRECTOR</div>
-                <p class="mt-3 text-white-50">
-Mr. Raja has over 18 years of experience in the transportation industry, specializing in corporate employee transportation services. He has successfully managed cab operations, fleet management, route planning, driver coordination, and daily transportation activities for leading organizations including Qnity, DuPont, ContentKings, Judgeindiasolutions, Resource, Ivy, and Innodata. His focus is on delivering safe, reliable, and punctual transportation solutions that support the operational needs of corporate clients and their employees. Through his hands-on experience and leadership, he ensures smooth transportation management, high service standards, employee safety, and customer satisfaction. His commitment to professionalism, operational excellence, and dependable service has earned the trust of several reputed organizations across Hyderabad.
-</p>
-                <div class="ceo-quote"><strong class="gold-text">"Excellence in corporate transportation comes from experience, attention to detail, and an unwavering commitment to safety and punctuality."</strong></div>
-                <div class="ceo-estb"><i class="fas fa-chart-line me-2"></i>18+ Years Transport Industry Leadership</div>
-                <div class="mt-3 d-flex flex-wrap gap-2">
-                  <span class="stat-badge-gold"><i class="fas fa-trophy me-1"></i>18+ Years Experience</span>
-                  <span class="stat-badge-gold"><i class="fas fa-users me-1"></i>10+ Corporate Clients</span>
-                  <span class="stat-badge-gold"><i class="fas fa-shield-heart me-1"></i>Safety-First Operations</span>
-                  <span class="stat-badge-gold"><i class="fas fa-star me-1"></i>Fleet Management Expert</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission, Vision, Values -->
+    <section class="section-padding pt-0" style="background: #070707">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="gold-text">Our Mission, Vision & Values</h2>
+          <p>The principles that drive every decision at Royal's Logistics</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" data-aos="flip-left">
+            <div class="value-card">
+              <span class="value-icon"><i class="fas fa-bullseye"></i></span>
+              <h5 class="gold-text">Our Mission</h5>
+              <p>
+                To provide safe, reliable, and dignified corporate employee
+                transportation that empowers organizations to focus on their
+                core business — while we take complete care of their workforce
+                mobility needs, 24/7, 365 days a year.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="flip-left"
+            data-aos-delay="100"
+          >
+            <div class="value-card">
+              <span class="value-icon"><i class="fas fa-eye"></i></span>
+              <h5 class="gold-text">Our Vision</h5>
+              <p>
+                To be India's most trusted corporate employee transport brand —
+                recognized for operational excellence, safety leadership, and
+                for setting the gold standard in employee commute experiences
+                across every city we serve.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="flip-left"
+            data-aos-delay="200"
+          >
+            <div class="value-card">
+              <span class="value-icon"><i class="fas fa-crown"></i></span>
+              <h5 class="gold-text">Royal Standard</h5>
+              <p>
+                We hold every driver, vehicle, and operation to the "Royal
+                Standard" — a benchmark we defined: zero delay, zero compromise
+                on safety, maximum comfort, and absolute professionalism in
+                every single trip.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="flip-left"
+            data-aos-delay="300"
+          >
+            <div class="value-card">
+              <span class="value-icon"
+                ><i class="fas fa-shield-heart"></i
+              ></span>
+              <h5 class="gold-text">Safety First</h5>
+              <p>
+                Safety is not a policy at Royal's Logistics — it is our culture.
+                From panic button integration to verified driver protocols,
+                women safety escorts, and pre-trip inspections, safety is
+                embedded in every operational layer.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="flip-left"
+            data-aos-delay="400"
+          >
+            <div class="value-card">
+              <span class="value-icon"><i class="fas fa-handshake"></i></span>
+              <h5 class="gold-text">Client Partnership</h5>
+              <p>
+                We don't see our corporate clients as contracts — we see them as
+                partners. Our 98.7% client retention rate is a testament to the
+                deep trust and mutual respect that defines every long-term
+                relationship we build.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="flip-left"
+            data-aos-delay="500"
+          >
+            <div class="value-card">
+              <span class="value-icon"><i class="fas fa-chart-line"></i></span>
+              <h5 class="gold-text">Continuous Excellence</h5>
+              <p>
+                We never settle. Regular employee feedback, driver performance
+                reviews, route optimization updates, and technology upgrades
+                ensure we improve our service quality with every passing month —
+                not just every year.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="gold-text">Why Choose Royal's Logistics?</h2>
+          <p class="lead">
+            What makes us the undisputed choice of Hyderabad's top enterprises
+          </p>
+        </div>
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="royal-border-box">
+              <h4 class="gold-text mb-4">The Royal Difference</h4>
+              <ul class="list-unstyled">
+                <li class="mb-3 d-flex align-items-start gap-3">
+                  <i
+                    class="fas fa-check-circle gold-text mt-1"
+                    style="font-size: 1.2rem"
+                  ></i>
+                  <div>
+                    <strong>18+ Years of Trust</strong> — Longer than most of
+                    Hyderabad's IT companies have been operating. Our experience
+                    means your transport runs perfectly from Day 1.
+                  </div>
+                </li>
+                <li class="mb-3 d-flex align-items-start gap-3">
+                  <i
+                    class="fas fa-check-circle gold-text mt-1"
+                    style="font-size: 1.2rem"
+                  ></i>
+                  <div>
+                    <strong>Dedicated Operations Team</strong> — Each client
+                    gets a dedicated operations manager with 10+ years of
+                    experience handling their routes, escalations, and special
+                    requirements.
+                  </div>
+                </li>
+                <li class="mb-3 d-flex align-items-start gap-3">
+                  <i
+                    class="fas fa-check-circle gold-text mt-1"
+                    style="font-size: 1.2rem"
+                  ></i>
+                  <div>
+                    <strong>Tech-Enabled, Human-First</strong> — We use AI
+                    routing and GPS tracking but never lose the human touch. Our
+                    team is always just a call away, 24/7.
+                  </div>
+                </li>
+                <li class="mb-3 d-flex align-items-start gap-3">
+                  <i
+                    class="fas fa-check-circle gold-text mt-1"
+                    style="font-size: 1.2rem"
+                  ></i>
+                  <div>
+                    <strong>No Compromise on Vehicles</strong> — Every cab is
+                    bi-weekly serviced, daily sanitized, fully air-conditioned,
+                    and removed from service if it doesn't meet our standard.
+                  </div>
+                </li>
+                <li class="mb-3 d-flex align-items-start gap-3">
+                  <i
+                    class="fas fa-check-circle gold-text mt-1"
+                    style="font-size: 1.2rem"
+                  ></i>
+                  <div>
+                    <strong>Women Safety First</strong> — The most comprehensive
+                    women safety protocols in Hyderabad's corporate transport
+                    sector — panic buttons, escorts, real-time family access.
+                  </div>
+                </li>
+                <li class="mb-3 d-flex align-items-start gap-3">
+                  <i
+                    class="fas fa-check-circle gold-text mt-1"
+                    style="font-size: 1.2rem"
+                  ></i>
+                  <div>
+                    <strong>Transparent Reporting</strong> — Monthly HR
+                    dashboards, trip compliance reports, driver performance
+                    scorecards, and cost optimization insights — all delivered
+                    without asking.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="row g-3 text-center">
+              <div class="col-6">
+                <div class="value-card">
+                  <h2 class="gold-text" style="font-size: 3rem">18+</h2>
+                  <p>Years of Excellence</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="value-card">
+                  <h2 class="gold-text" style="font-size: 3rem">100+</h2>
+                  <p>Our Fleet Vehicles</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="value-card">
+                  <h2 class="gold-text" style="font-size: 3rem">2.3M+</h2>
+                  <p>Safe Journeys</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="value-card">
+                  <h2 class="gold-text" style="font-size: 3rem">99.8%</h2>
+                  <p>On-Time Rate</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="value-card">
+                  <h2 class="gold-text" style="font-size: 3rem">80+</h2>
+                  <p>Trained Drivers</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="value-card">
+                  <h2 class="gold-text" style="font-size: 3rem">98.7%</h2>
+                  <p>Client Retention</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Mission, Vision, Values - updated to reflect experience-driven philosophy -->
-  <section class="section-padding pt-0" style="background:#070707;">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="gold-text">Our Core Philosophy</h2>
-        <p>Driven by experience, committed to operational excellence</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4" data-aos="flip-left">
-          <div class="value-card">
-            <span class="value-icon"><i class="fas fa-bullseye"></i></span>
-            <h5 class="gold-text">Our Mission</h5>
-            <p>To deliver exceptional corporate employee transportation through deep operational expertise, proactive fleet management, and a relentless focus on safety and punctuality — enabling organizations to rely on us for seamless workforce mobility.</p>
-          </div>
+    <!-- What We Do / Services Overview -->
+    <section class="section-padding pt-0" style="background: #070707">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="gold-text">Our Imperial Services</h2>
+          <p>
+            A complete corporate mobility ecosystem — designed around your
+            workforce
+          </p>
         </div>
-        <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100">
-          <div class="value-card">
-            <span class="value-icon"><i class="fas fa-eye"></i></span>
-            <h5 class="gold-text">Our Vision</h5>
-            <p>To set the benchmark for corporate transport excellence in India — recognized for superior route planning, driver coordination, safety compliance, and an unwavering commitment to customer satisfaction.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="200">
-          <div class="value-card">
-            <span class="value-icon"><i class="fas fa-crown"></i></span>
-            <h5 class="gold-text">Operational Excellence</h5>
-            <p>Our standard is zero compromise: on-time performance, vehicle readiness, driver professionalism, and real-time responsiveness. Every trip is executed with precision gained from years of transport leadership.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="300">
-          <div class="value-card">
-            <span class="value-icon"><i class="fas fa-shield-heart"></i></span>
-            <h5 class="gold-text">Safety Compliance</h5>
-            <p>Safety is embedded in our operational DNA. Verified drivers, pre-trip inspections, panic button integration, and comprehensive safety protocols ensure every journey meets the highest compliance standards.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="400">
-          <div class="value-card">
-            <span class="value-icon"><i class="fas fa-handshake"></i></span>
-            <h5 class="gold-text">Client Trust</h5>
-            <p>With 98.7% client retention, we have earned our reputation as a trusted transportation partner. We build relationships through transparency, reliability, and consistent delivery.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="500">
-          <div class="value-card">
-            <span class="value-icon"><i class="fas fa-chart-line"></i></span>
-            <h5 class="gold-text">Continuous Improvement</h5>
-            <p>We leverage performance data, driver feedback, and route analytics to refine our operations continuously. Our experience drives improvement — month after month, year after year.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us - emphasizing professional expertise and operational strengths -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="gold-text">Why Corporate Clients Trust Our Expertise</h2>
-        <p class="lead">Experience-driven transportation solutions that deliver reliability and peace of mind</p>
-      </div>
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-6" data-aos="fade-right">
-          <div class="royal-border-box">
-            <h4 class="gold-text mb-4">The Experience Advantage</h4>
-            <ul class="list-unstyled">
-              <li class="mb-3 d-flex align-items-start gap-3">
-                <i class="fas fa-gem gold-text mt-1" style="font-size:1.2rem;"></i>
-                <div><strong>18+ Years of Transport Leadership</strong> — Proven expertise in cab operations, fleet supervision, and corporate mobility solutions that businesses trust.</div>
-              </li>
-              <li class="mb-3 d-flex align-items-start gap-3">
-                <i class="fas fa-route gold-text mt-1" style="font-size:1.2rem;"></i>
-                <div><strong>Strategic Route Planning & Coordination</strong> — Optimized daily routes, efficient driver scheduling, and real-time adjustments to maximize punctuality and minimize delays.</div>
-              </li>
-              <li class="mb-3 d-flex align-items-start gap-3">
-                <i class="fas fa-microchip gold-text mt-1" style="font-size:1.2rem;"></i>
-                <div><strong>Tech-Enabled Operations with Human Oversight</strong> — GPS tracking, AI-assisted routing, and a 24/7 command center that combines technology with experienced decision-making.</div>
-              </li>
-              <li class="mb-3 d-flex align-items-start gap-3">
-                <i class="fas fa-clipboard-list gold-text mt-1" style="font-size:1.2rem;"></i>
-                <div><strong>Rigorous Safety & Compliance Framework</strong> — Comprehensive driver verification, vehicle maintenance schedules, and safety audits that exceed industry standards.</div>
-              </li>
-              <li class="mb-3 d-flex align-items-start gap-3">
-                <i class="fas fa-female gold-text mt-1" style="font-size:1.2rem;"></i>
-                <div><strong>Women Safety & Executive Transport Expertise</strong> — Specialized protocols for women employees and discreet, professional service for C-suite executives.</div>
-              </li>
-              <li class="mb-3 d-flex align-items-start gap-3">
-                <i class="fas fa-chart-simple gold-text mt-1" style="font-size:1.2rem;"></i>
-                <div><strong>Transparent Performance Reporting</strong> — Monthly dashboards with trip compliance, driver scorecards, and actionable insights — a hallmark of our professional approach.</div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6" data-aos="fade-left">
-          <div class="row g-3 text-center">
-            <div class="col-6">
-              <div class="value-card">
-                <h2 class="gold-text" style="font-size:3rem;">18+</h2>
-                <p>Years of Transport Experience</p>
-              </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="Services-card">
+              <span class="icon-wrap"><i class="fas fa-briefcase"></i></span>
+              <h5 class="gold-text">Corporate Employee Transportation</h5>
+              <p>
+                End-to-end daily employee commute management — pickups, drops,
+                shift adjustments, and multi-route coordination for IT, BPO,
+                KPO, and MNC workforces.
+              </p>
             </div>
-            <div class="col-6">
-              <div class="value-card">
-                <h2 class="gold-text" style="font-size:3rem;">100+</h2>
-                <p>Fleet Under Management</p>
-              </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="Services-card">
+              <span class="icon-wrap"><i class="fas fa-moon"></i></span>
+              <h5 class="gold-text">Night Shift Transport</h5>
+              <p>
+                Safe, punctual night-shift transport with enhanced women safety
+                protocols, verified drivers, escort guards on request, and 24/7
+                command center oversight.
+              </p>
             </div>
-            <div class="col-6">
-              <div class="value-card">
-                <h2 class="gold-text" style="font-size:3rem;">2.3M+</h2>
-                <p>Journeys Managed</p>
-              </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="Services-card">
+              <span class="icon-wrap"
+                ><i class="fas fa-plane-departure"></i
+              ></span>
+              <h5 class="gold-text">Airport Transfers</h5>
+              <p>
+                Premium airport pickups and drops for executives and corporate
+                visitors — on time, every time, with professionally trained
+                chauffeurs and luxury vehicles.
+              </p>
             </div>
-            <div class="col-6">
-              <div class="value-card">
-                <h2 class="gold-text" style="font-size:3rem;">99.8%</h2>
-                <p>On-Time Performance</p>
-              </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="Services-card">
+              <span class="icon-wrap"
+                ><i class="fas fa-calendar-check"></i
+              ></span>
+              <h5 class="gold-text">Events & Conferences Transport</h5>
+              <p>
+                Complete transportation management for corporate events,
+                off-sites, conferences, and client visits — from single
+                executives to 300+ attendees.
+              </p>
             </div>
-            <div class="col-6">
-              <div class="value-card">
-                <h2 class="gold-text" style="font-size:3rem;">80+</h2>
-                <p>Professional Drivers</p>
-              </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="Services-card">
+              <span class="icon-wrap"><i class="fas fa-user-shield"></i></span>
+              <h5 class="gold-text">Executive Travel Solutions</h5>
+              <p>
+                Dedicated, discreet, and premium chauffeur service for C-suite
+                executives and senior management — Innova Crysta, sedans, and
+                luxury coaches available.
+              </p>
             </div>
-            <div class="col-6">
-              <div class="value-card">
-                <h2 class="gold-text" style="font-size:3rem;">98.7%</h2>
-                <p>Client Retention</p>
-              </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="Services-card">
+              <span class="icon-wrap"><i class="fas fa-cogs"></i></span>
+              <h5 class="gold-text">Our Fleet Management Outsourcing</h5>
+              <p>
+                Full Our Fleet management solutions for companies that want to
+                outsource their entire transport operation — from driver hiring
+                and training to vehicle maintenance and ops control.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services Overview - updated text to reflect operational expertise -->
-  <section class="section-padding pt-0" style="background:#070707;">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="gold-text">Our Transportation Expertise in Action</h2>
-        <p>Comprehensive corporate mobility solutions backed by years of operational leadership</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="Services-card">
-            <span class="icon-wrap"><i class="fas fa-briefcase"></i></span>
-            <h5 class="gold-text">Corporate Employee Transportation</h5>
-            <p>End-to-end management of daily employee commutes — multi-route coordination, shift adjustments, and real-time fleet tracking, executed with transport industry expertise.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="Services-card">
-            <span class="icon-wrap"><i class="fas fa-moon"></i></span>
-            <h5 class="gold-text">Night Shift Transport</h5>
-            <p>Specialized night operations with enhanced safety protocols, verified drivers, and 24/7 command center oversight — leveraging years of experience in round-the-clock logistics.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="Services-card">
-            <span class="icon-wrap"><i class="fas fa-plane-departure"></i></span>
-            <h5 class="gold-text">Airport Transfers</h5>
-            <p>Premium executive airport transportation with professional chauffeurs, real-time flight tracking, and fleet coordination expertise for seamless pickups and drops.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="Services-card">
-            <span class="icon-wrap"><i class="fas fa-calendar-check"></i></span>
-            <h5 class="gold-text">Events & Conferences Transport</h5>
-            <p>Logistics management for corporate events, off-sites, and client visits — from single executive transfers to full-scale attendee transportation.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="Services-card">
-            <span class="icon-wrap"><i class="fas fa-user-shield"></i></span>
-            <h5 class="gold-text">Executive Travel Solutions</h5>
-            <p>Dedicated chauffeur service for C-suite leaders — premium vehicles, discreet coordination, and the reliability that comes from years of executive transport experience.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
-          <div class="Services-card">
-            <span class="icon-wrap"><i class="fas fa-cogs"></i></span>
-            <h5 class="gold-text">Fleet & Operations Management</h5>
-            <p>Complete transportation outsourcing including driver hiring, training, vehicle maintenance, route optimization, and operational control — a turnkey solution built on industry expertise.</p>
-          </div>
+    <!-- CTA -->
+    <section class="section-padding">
+      <div class="container text-center" data-aos="zoom-in">
+        <h2 class="gold-text mb-4">
+          Partner with Hyderabad's Most Trusted Transport Brand
+        </h2>
+        <p class="lead mb-5">
+          18 years of excellence, 100+ vehicles, 80+ trained drivers — and a
+          team that treats your employees like royalty. Let's talk.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="Contact.html" class="btn btn-royal"
+            >Get a Free Consultation <i class="fas fa-arrow-right ms-2"></i
+          ></a>
+          <a href="tel:+919949900008" class="btn-outline-royal"
+            ><i class="fas fa-phone me-2"></i>+91 9949900008</a
+          >
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA - text updated for professional positioning -->
-  <section class="section-padding">
-    <div class="container text-center" data-aos="zoom-in">
-      <h2 class="gold-text mb-4">Partner with Experienced Transport Professionals</h2>
-      <p class="lead mb-5">18+ years of expertise in corporate employee mobility, fleet management, and operational excellence. Let's discuss how our experience can elevate your workforce transportation.</p>
-      <div class="d-flex flex-wrap justify-content-center gap-3">
-        <a href="Contact.html" class="btn btn-royal">Get a Free Consultation <i class="fas fa-arrow-right ms-2"></i></a>
-        <a href="tel:+919949900008" class="btn-outline-royal"><i class="fas fa-phone me-2"></i>+91 9949900008</a>
+    <!-- WhatsApp -->
+    <a
+      href="https://wa.me/919949900008?text=Hi%20Royal's%20Logistics%20Team,%20I%20am%20interested%20in%20your%20services."
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <div id="confirmationToast" class="imperial-toast">
+      <i class="fas fa-crown"></i
+      ><span id="toastMessage">Royal request received!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="imperial-footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-logo">
+              <img src="logo.png" alt="Royal's Logistics" />
+            </div>
+            <p class="small mt-3">
+              The Real Choice of Royalty for premium corporate transportation
+              across Hyderabad.
+            </p>
+            <div class="mt-3">
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h5 class="gold-text mb-3" style="font-size: 1rem">Royal Links</h5>
+            <div class="footer-links d-flex flex-column">
+              <a href="index.html">Home</a
+              ><a href="Our Journey.html">Our Journey</a>
+              <a href="Services.html">Services</a
+              ><a href="Our Fleet.html">Our Fleet</a>
+              <a href="About Us.html">About Us</a>
+              <a href="gallery.html">Gallery</a>
+              <a href="Contact.html">Contact</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="gold-text mb-3" style="font-size: 1rem">
+              Imperial Services
+            </h5>
+            <div class="footer-services d-flex flex-column">
+              <a href="#">Corporate Employee Transportation</a>
+              <a href="#">Imperial Our Fleet Management</a>
+              <a href="#">Events & Conferences Transport</a>
+              <a href="#">Executive Travel Solutions</a>
+              <a href="#">Airport Transfers</a>
+              <a href="#">IT Company Transport</a>
+              <a href="#">BPO & KPO Night Shift Transport</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="gold-text mb-3" style="font-size: 1rem">
+              Connect Royalty
+            </h5>
+            <p>
+              <i class="fas fa-map-marker-alt gold-text me-2"></i
+              >8-1-284/OU/130, 2nd Floor, OU Colony, Manikonda, Shaikpet,
+              Hyderabad – 500089
+            </p>
+            <p><i class="fas fa-phone gold-text me-2"></i>+91 9949900008</p>
+            <p>
+              <i class="fas fa-envelope gold-text me-2"></i
+              >raja@royalslogistic.com
+            </p>
+            <p>
+              <i class="fas fa-clock gold-text me-2"></i>24/7 Imperial Support
+            </p>
+          </div>
+        </div>
+        <hr class="border-secondary mt-4" />
+        <div class="text-center pt-3">
+          <p class="small mb-0">
+            © 2024 ROYAL'S LOGISTICS. All Rights Reserved. | The Real Choice of
+            Royalty
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- WhatsApp Float -->
-  <a href="https://wa.me/919949900008?text=Hi%20Royal's%20Logistics%20Team,%20I%20am%20interested%20in%20your%20services." class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <div id="confirmationToast" class="imperial-toast"><i class="fas fa-crown"></i><span id="toastMessage">Royal request received!</span></div>
-
-  <!-- Footer - unchanged -->
-  <footer class="imperial-footer">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <div class="footer-logo"><img src="logo.png" alt="Royal's Logistics"></div>
-          <p class="small mt-3">The Real Choice of Royalty for premium corporate transportation across Hyderabad.</p>
-          <div class="mt-3">
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6">
-          <h5 class="gold-text mb-3" style="font-size:1rem;">Royal Links</h5>
-          <div class="footer-links d-flex flex-column">
-            <a href="index.html">Home</a><a href="Our Journey.html">Our Journey</a>
-            <a href="Services.html">Services</a><a href="Our Fleet.html">Our Fleet</a>
-            <a href="About Us.html">About Us</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="Contact.html">Contact</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h5 class="gold-text mb-3" style="font-size:1rem;">Imperial Services</h5>
-          <div class="footer-services d-flex flex-column">
-            <a href="#">Corporate Employee Transportation</a>
-            <a href="#">Imperial Fleet Management</a>
-            <a href="#">Events & Conferences Transport</a>
-            <a href="#">Executive Travel Solutions</a>
-            <a href="#">Airport Transfers</a>
-            <a href="#">IT Company Transport</a>
-            <a href="#">BPO & KPO Night Shift Transport</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h5 class="gold-text mb-3" style="font-size:1rem;">Connect Royalty</h5>
-          <p><i class="fas fa-map-marker-alt gold-text me-2"></i>8-1-284/OU/130, 2nd Floor, OU Colony, Manikonda, Shaikpet, Hyderabad – 500089</p>
-          <p><i class="fas fa-phone gold-text me-2"></i>+91 9949900008</p>
-          <p><i class="fas fa-envelope gold-text me-2"></i>raja@royalslogistic.com</p>
-          <p><i class="fas fa-clock gold-text me-2"></i>24/7 Imperial Support</p>
-        </div>
-      </div>
-      <hr class="border-secondary mt-4">
-      <div class="text-center pt-3"><p class="small mb-0">© 2024 ROYAL'S LOGISTICS. All Rights Reserved. | The Real Choice of Royalty</p></div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="main.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-  </script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="main.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+    </script>
+  </body>
 </html>
