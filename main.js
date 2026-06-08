@@ -70,7 +70,7 @@ if (contactForm) {
     ].join('&');
 
     fetch(
-      'https://script.google.com/macros/s/AKfycbwufYnX4d1xIejopX4kGRWQ0aq5bRPufrodzMLDw4LWCH_e9zoM7U1cdgGm0E4gsXk/exec',
+      'https://script.google.com/macros/s/AKfycbyT201rv6rx46XH86t3b0BsmhvcBiLCiou3GBcrPuGvj6D2gph7VAkAoR99R3qgASA8-g/exec',
       {
         method: 'POST',
         mode: 'no-cors',
